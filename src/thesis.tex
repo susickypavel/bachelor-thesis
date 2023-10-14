@@ -6,44 +6,39 @@
     mainlanguage = czech,
     secondlanguage = english,
     titlelanguage = czech,
-    title-english = {TODO Name of the thesis},
-    title-czech = {TODO Název práce},
-    department-czech = {TODO Název katedry},
-    department-english = {TODO Name of department},
-    fieldofstudy-czech = {TODO Název oboru},
-    subfieldofstudy-czech = {TODO Název zaměření},
-    keywords-czech={TODO Klíčová slova},
-    keywords-english={TODO Keywords},
-    author = {TODO Your beautiful name},
-    supervisor = {TODO Name of your awesome supervisor},
+    title-english = {UI toolkit of low-level accessible web~components},
+    title-czech = {UI toolkit přístupných low-level web~komponent},
+    department-czech = {Katedra počítačové grafiky a interakce},
+    department-english = {Department of Computer Graphics and Interaction},
+    fieldofstudy-czech = {Softwarové inženýrství a technologie},
+    subfieldofstudy-czech = {Programátor / architekt webových aplikací},
+    keywords-czech={Web komponenty, přístupnost, WAI-ARIA, WCAG, Lit},
+    keywords-english={Web components, accessibility, WAI-ARIA, WCAG, Lit},
+    author = {Pavel Sušický},
+    supervisor = {Bc. Petr Huřťák},
     month = 5,
     year = 2024,
     specification-file={./documents/zadani.pdf},
     front-specification={true}
 }
 
-\usepackage{csquotes}
-\usepackage[style=numeric,backend=biber]{biblatex}
-
-\addbibresource{thesis.bib}
-
 \ctuprocess{}
 
 \begin{thanks}
     \\
-    TODO\@: Mamko a Taťko, jste nejlepší! <3
+    Mamko a Taťko, jste nejlepší! <3
 \end{thanks}
 
 \begin{declaration}
     \\
     Prohlašuji, že jsem předloženou práci vypracoval samostatně a že jsem uvedl veškeré použité informační zdroje v souladu s Metodickým pokynem o dodržování etických principů při přípravě vysokoškolských závěrečných prací.
     \\ \\
-    V Praze dne TODO datum
+    V Praze dne TODO
 
     \vspace{15mm}
     \begin{tabular}{@{}p{2.5in}@{}}
     \hrulefill{} \\
-    \centerline{TODO Tvoje krásné jméno}
+    \centerline{Pavel Sušický}
     \end{tabular}
 \end{declaration}
 
@@ -63,18 +58,18 @@ Rozvíjíme \ldots
 
 \part{Rešerše}
 
-\input{chapters/chapter-2/deez.tex}
-
 \part{Implementace}
-
-\input{chapters/chapter-2/nuts.tex}
 
 \part{Aplikace}
 
 \chapter{Conclusion}
 
-xd~\cite{key}
+Lorep ipsum~\cite{doe}
 
-\printbibliography{}
+\begin{thebibliography}{1}
+
+    \bibitem{doe} J. Doe.\ \emph{Book on foobar.} Publisher X, 2300.
+
+\end{thebibliography}
 
 \end{document}
