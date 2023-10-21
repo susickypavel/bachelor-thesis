@@ -1,22 +1,29 @@
 \chapter{Úvod}
 
 Přístupnost na webu je v dnešní době důležitá. Tato práce se zabývá implementací JavaScriptové knihovny
-znovupoužitelných, nestylovaných (low-level) komponent, které jsou implementované podle moderních specifikací publikovaných od W3C konsorcia.
+znovupoužitelných, nestylovaných (low-level) komponent, které jsou implementované podle moderních specifikací publikovaných konsorciem W3C.
 
 V teoretické části se věnuji problematice přístupnosti na webu, kde popisuji účel existence
-Web Accessibility Initiative --- Accessible Rich Internet Applications (dále již \textbf{WAI-ARIA}).
+Web Accessibility Initiative --- Accessible Rich Internet Applications (dále jen \textbf{WAI-ARIA}).
 Součástí této kapitoly je analýza existujících doporučení pro tvorbu elementárních
-komponent pod názvem ARIA Authoring Practices Guide (dále již \textbf{APG}) a
-obecných doporučení stanovených Web Content Accessibility Guidelines (dále již \textbf{WCAG}).
+komponent pod názvem ARIA Authoring Practices Guide (dále jen \textbf{APG}) a
+obecných doporučení stanovených Web Content Accessibility Guidelines (dále jen \textbf{WCAG}).
 
 V praktické části práce se zabývám implementací knihovny komponent,
 které jsou přístupné, tedy jsou implementované podle doporučení od WAI-ARIA.
 
 \section{Motivace}
 
-TODO
+V současné době jsou znovupoužitelné komponenty nejčastějším způsobem jakým se vytváří webové aplikace, protože většina knihoven (React, Vue, Angular, Svelte, SolidJS) jsou tímhle způsobem implementovány.
+
+Vznik komponent tak vedl k vytvoření souboru komponent tzv.\ component libraries obsahující základní prvky, které denně potkáváme na internetu, aby je vývojář nemusel znovu implementovat pro každou aplikaci zvlášť.
+
+Vývoj znovupoužitelných komponent je však náročný, protože kromě implementačních detailů je nutné se zabývat i přístupové problematice. Toto vedlo k nekonzistenci napříč knihovnami, kde nejvíce používané knihovny (React, Vue, \dots) takové knihovny komponent mají, ale méně používané knihovny (Svelte, SolidJS, Lit) takové knihovny nemají, nebo jejich kvalita je nízká.
 
 \section{Cíl práce}
+
+
+Hlavním výsledkem této práce by měla být knihovna, která rozšíří ekosystém Lit knihovny o znovupoužitelné, stylovatelné web komponenty.
 
 
 \begin{figure}
