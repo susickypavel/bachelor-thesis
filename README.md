@@ -1,3 +1,3 @@
-# Pavel Sušický - Bachelor Thesis
+# Pavel Sušický - Bachelor thesis
 
-TODO
+This is a repository of my Bachelor thesis at Czech Technical University in Prague.
