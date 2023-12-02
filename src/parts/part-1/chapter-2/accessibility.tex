@@ -26,9 +26,26 @@ Přístupný web by měl splňovat základní pravidla pro optimální ovládan�
 \begin{itemize}
     \item Všechny funkcionality a interakce dostupné pomocí počítačové myši jsou dostupné i skrze klávesnici.
     \item Všechny funkcionality a interakce nevyžadují stisk kláves v definovaném pořadí pokud to nevyžaduje povaha vstupu.
-    \item Nedochází k uvíznutí focusu v jakékoliv sekci stránky.
+    \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
 \end{itemize}
 
+% TODO: Udelat subsection čistě pro touch input (komplikované samo o sobě)
+
+\subsection{Optimalizace ostatních způsobů interakce}
+
+Kromě myši a klávesnice existují další způsoby interakce, na mobilních zařízení například dotykový displej.
+Další variantou může být hlasové zadávání.
+Výčet důležitých pravidel pro optimalizaci interakce za pomocí těchto způsobů~\cite{w3-accessibility-principles}:
+
+\begin{itemize}
+    \item Tlačítka, odkazy a další interaktivní prvky jsou dostatečně veliké pro dotyk prstem.
+    \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtění pomocí odečítačů obrazovky a hlasovému zadávání.
+\end{itemize}
+
+\subsection{Dostatek času na interakci}
+
+Dalším klíčovým aspektem přístupných komponent je dát uživatelům dostatek času na interakci s danou komponentou.
+Přílis rychlé uzavírání, mizení, schování interaktivních prvků komponent může vést k frustraci či znemožnění použití důležité funkcionality pro uživatele~\cite{w3-accessibility-principles}.
 
 \section{Web accessibility initiative}
 
