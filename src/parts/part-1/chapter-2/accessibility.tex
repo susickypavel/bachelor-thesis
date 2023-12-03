@@ -29,16 +29,33 @@ Přístupný web by měl splňovat základní pravidla pro optimální ovládan�
     \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
 \end{itemize}
 
-% TODO: Udelat subsection čistě pro touch input (komplikované samo o sobě)
+\subsection{Ovládání pomocí dotyku}
+
+Dalším typickým způsobem ovládání je dotykový displej na moderních zařízení typu mobil, tablet, chytré hodinky, kiosky či jiné vestavné systémy.
+Ovládání za pomocí dotyku je rozmanité, uživatel může používat jednoduché dotyky, ale i složitější gesta pro interakci.
+
+% TODO: path-based označit, nebo dát do akronymů.
+
+Dle přednášky Iva Malého z kurzu principy mobilních aplikací rozdělujeme gesta dle počtu použitých prstů, charakteristiky pohybu a použitých technologií~\cite{ctu-pda-11}.
+WCAG definuje gesta více abstraktně na tzv. path-based (kromě koncové pozice prstu záleží i na přechodných pozicích) a multipoint (gesto vyžadující více prstů)~\cite{wcag-pointer-gestures}.
+
+Mezi základní pravidla pro optimalizaci interakce za pomocí dotyku patří:
+
+\begin{itemize}
+    \item Gesta nevyžadují přesnost, nebo je k dispozici alternativní způsob ovládání~\cite{wcag-pointer-gestures}.
+    \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
+\end{itemize}
 
 \subsection{Optimalizace ostatních způsobů interakce}
 
-Kromě myši a klávesnice existují další způsoby interakce, na mobilních zařízení například dotykový displej.
+% head pointer, eye-gaze system, or speech-controlled mouse emulator.
+% joystick, trackpad, graphics tablet, stylus
+
+Kromě myši a klávesnice existují další způsoby interakce.
 Další variantou může být hlasové zadávání.
 Výčet důležitých pravidel pro optimalizaci interakce za pomocí těchto způsobů~\cite{w3-accessibility-principles}:
 
 \begin{itemize}
-    \item Tlačítka, odkazy a další interaktivní prvky jsou dostatečně veliké pro dotyk prstem.
     \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtění pomocí odečítačů obrazovky a hlasovému zadávání.
 \end{itemize}
 
