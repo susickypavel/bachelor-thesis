@@ -23,7 +23,12 @@
 }
 
 \usepackage{csquotes}
+\usepackage[style=altlist]{glossaries}
 \usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
+
+\input{glossary.tex}
+
+\makenoidxglossaries{}
 
 \addbibresource{thesis.bib}
 
@@ -58,6 +63,8 @@ Rozvíjíme \ldots
 \begin{document}
 
 \maketitle
+
+\printnoidxglossaries{}
 
 \input{chapters/chapter-1/introduction.tex}
 
