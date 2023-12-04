@@ -1,0 +1,22 @@
+name: build
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: thesis.tex
+          texlive_version: latest
+          working_directory: src
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: thesis
+          path: src/thesis.pdf
