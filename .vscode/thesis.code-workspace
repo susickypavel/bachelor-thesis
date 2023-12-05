@@ -9,6 +9,6 @@
 		"editor.formatOnSave": true,
 		"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/.build",
 		"latex-workshop.linting.chktex.enabled": true,
-		"latex-workshop.linting.run": "onType"
+		"latex-workshop.linting.run": "onSave"
 	}
 }
