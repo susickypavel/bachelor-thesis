@@ -23,14 +23,10 @@
 }
 
 \usepackage{csquotes}
-\usepackage[style=altlist]{glossaries}
-\usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
 
-\input{glossary.tex}
-
-\makenoidxglossaries{}
-
-\addbibresource{thesis.bib}
+\input{config/biblatex.tex}
+\input{config/glossary.tex}
+\input{config/listings.tex}
 
 \ctuprocess{}
 
@@ -63,6 +59,8 @@ Rozvíjíme \ldots
 \begin{document}
 
 \maketitle
+
+\lstlistoflistings{}
 
 \printnoidxglossaries{}
 
