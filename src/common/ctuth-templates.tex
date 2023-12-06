@@ -162,6 +162,14 @@
 	\listoftables
 }
 
+\ctutemplateset{twocolumn.lols}{
+	\lstlistoflistings
+}
+
+\ctutemplateset{twocolumn.glossary}{
+	\printnoidxglossaries{}
+}
+
 % Abstract template includes the Acknowledgements, Declaration and two Abstracts
 % the abstracts are accompanied by the keywords and possibly other information
 \ctutemplateset{maketitle.twocolumn.default}{
@@ -183,6 +191,9 @@
 			\clearpage
 			\ctutemplate{twocolumn.loft}
 		} { }
+		\ctutemplate{twocolumn.glossary}
+		\newpage
+		\ctutemplate{twocolumn.lols}
 	\end{twocolumnfrontmatterpage}
 }
 
