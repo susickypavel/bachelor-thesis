@@ -1,4 +1,4 @@
-\chapter{Technologie a metodiky přístupnosti na webu}
+\chapter{Přístupnost na webu}
 
 V této kapitole se věnuji představení problematice přístupnosti na webu.
 
@@ -16,11 +16,15 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 
 \section{WAI-ARIA}
 
-\gls{waiaria} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii HTML attributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
+\gls{waiaria} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii attributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
+Tyto atributy slouží pro definování sémantiky elementů, aby asistivní nástroje dokázali lépe interpretovat jejich význam a obsah pro uživatele s postižením.
+
+Je důležité podotknout, že většina HTML značek má svůj sémantický význam bez použití rolí.
+Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
 \subsection{ARIA role}
 
-\begin{lstlisting}[caption={Ukázka aria rolí}, label={lst:example}, language=html]
+\begin{lstlisting}[caption={Ukázka aria rolí}, label={lst:example}, language=html, float=htb]
 <ul>
     <li role="menuitem">Open file</li>
     <li role="menuitem">Save file</li>
@@ -29,7 +33,7 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 
 \subsection{ARIA stavy}
 
-\begin{lstlisting}[caption={Ukázka aria stavových attributů}, label={lst:example}, language=html]
+\begin{lstlisting}[caption={Ukázka aria stavových attributů}, label={lst:example}, language=html, float=htb]
 <button aria-pressed="false">
     Send order
 </button>
@@ -37,7 +41,7 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 
 \subsection{ARIA vlastnosti}
 
-\begin{lstlisting}[caption={Ukázka aria vlastností}, label={lst:example}, language=html]
+\begin{lstlisting}[caption={Ukázka aria vlastností}, label={lst:example}, language=html, float=htb]
 <label for="username">Username</label>
 <input id="username" aria-describedby="username-error" />
 <p id="username-error">Username is required</p>
@@ -85,7 +89,7 @@ Mezi základní pravidla pro optimalizaci interakce za pomocí dotyku patří:
     \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
 \end{itemize}
 
-\subsection{Optimalizace ostatních způsobů interakce}
+\subsection{Ostatní způsoby interakce}
 
 % head pointer, eye-gaze system, or speech-controlled mouse emulator.
 % joystick, trackpad, graphics tablet, stylus
