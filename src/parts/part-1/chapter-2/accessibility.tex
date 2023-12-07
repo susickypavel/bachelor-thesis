@@ -6,6 +6,18 @@ V této kapitole se věnuji představení problematice přístupnosti na webu.
 
 Přístupnost na webu je definována jako schopnost webového obsahu být interpretován a používán nejširším možným spektrem uživatelů bez ohledu na jejich schopnosti, nebo fyzický stav~\cite{w3-accessibility}.
 
+\subsection{Typy postižení}
+
+% TODO: Elaborate on disabilities
+
+\begin{itemize}
+    \item Vizuální
+    \item Motorické
+    \item Sluchové
+    \item Záchvaty
+    \item Kognitivní
+\end{itemize}
+
 \section{W3C a WAI}
 
 % TODO: Potřebuje poupravit slova.
@@ -17,14 +29,15 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 \section{WAI-ARIA}
 
 \gls{waiaria} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii attributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
-Tyto atributy slouží pro definování sémantiky elementů, aby asistivní nástroje dokázali lépe interpretovat jejich význam a obsah pro uživatele s postižením.
-
-Je důležité podotknout, že většina HTML značek má svůj sémantický význam bez použití rolí.
-Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
+Asistivní technologie (například čtečky obrazovky) umožní uživatelům předat podrobnější informace o elementech na webu na základě těchto atributů.
 
 \clearpage
 
 \subsection{ARIA role}
+
+Je důležité podotknout, že většina HTML značek má svůj sémantický význam bez použití rolí.
+Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
+
 
 \begin{lstlisting}[caption={Ukázka aria rolí}, label={aria-roles}, language=html]
 <ul>
