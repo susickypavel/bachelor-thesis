@@ -29,18 +29,18 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 \section{WAI-ARIA}
 
 \gls{waiaria} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii attributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
-Asistivní technologie (například čtečky obrazovky) umožní uživatelům předat podrobnější informace o elementech na webu na základě těchto atributů.
-
-\clearpage
+Zmíněné atributy umožňují asistivním technologiím (například čtečky obrazovky) předat uživatelům význam a podrobnější informace o elementech, které se nachází na daném webu a tím jim pomoci s pochopením a manipulací obsahu stránky.
 
 \subsection{ARIA role}
 
-Je důležité podotknout, že většina HTML značek má svůj sémantický význam bez použití rolí.
+Role slouží k přidání sémantického významu HTML elementům tak, aby nevidomí či uživatelé s jinou formou postižení dokázali pochopit účel daného elementu.
+
+Některé HTML elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
 Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
 
 \begin{lstlisting}[caption={Ukázka aria rolí}, label={aria-roles}, language=html]
-<ul>
+<ul role="menu">\label{line:important}
     <li role="menuitem">Open file</li>
     <li role="menuitem">Save file</li>
 </ul>
