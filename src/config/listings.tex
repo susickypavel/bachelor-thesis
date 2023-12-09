@@ -1,5 +1,4 @@
-\usepackage{listings}
-\usepackage{xcolor}
+\usepackage{xcolor,listings}
 
 \renewcommand\lstlistlistingname{Ukázky kódu}
 \renewcommand\lstlistingname{Ukázka kódu}
@@ -31,7 +30,8 @@
     rulecolor=\color{backcolour},
     frame=single,
     xleftmargin=16pt,
-    xrightmargin=16pt
+    xrightmargin=16pt,
+    escapeinside={(*@}{@*)}
 }
 
 \lstset{style=mystyle}

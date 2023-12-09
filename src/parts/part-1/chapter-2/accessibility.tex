@@ -11,11 +11,11 @@ Přístupnost na webu je definována jako schopnost webového obsahu být interp
 % TODO: Elaborate on disabilities
 
 \begin{itemize}
-    \item Vizuální
-    \item Motorické
-    \item Sluchové
-    \item Záchvaty
-    \item Kognitivní
+  \item Vizuální
+  \item Motorické
+  \item Sluchové
+  \item Záchvaty
+  \item Kognitivní
 \end{itemize}
 
 \section{W3C a WAI}
@@ -38,13 +38,15 @@ Role slouží k přidání sémantického významu HTML elementům tak, aby nevi
 Některé HTML elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
 Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
-
 \begin{lstlisting}[caption={Aria role}, label={aria-roles}, language=html]
-<ul role="menu">
-  <li role="menuitem">Open file</li>
-  <li role="menuitem">Save file</li>
+<ul role="menu">(*@\label{aria-roles-1}@*)
+  <li role="menuitem">Open file</li>(*@\label{aria-roles-2}@*)
+  <li role="menuitem">Save file</li>(*@\label{aria-roles-3}@*)
 </ul>
 \end{lstlisting}
+
+V ukázce~\ref{aria-roles} na řádku~\ref{aria-roles-1} můžeme vidět použití role menu na elementu pro neuspořádaný seznam.
+Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí menuitem, které reprezentují položky v menu.
 
 \subsection{ARIA stavy}
 
@@ -84,9 +86,9 @@ Společně s odečítači obrazovky tvoří základní výbavu pro nevidomé už
 Přístupný web by měl splňovat základní pravidla pro optimální ovládaní klávesnicí~\cite{wcag-keyboard}:
 
 \begin{itemize}
-    \item Všechny funkcionality a interakce dostupné pomocí počítačové myši jsou dostupné i skrze klávesnici.
-    \item Všechny funkcionality a interakce nevyžadují stisk kláves v definovaném pořadí pokud to nevyžaduje povaha vstupu.
-    \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
+  \item Všechny funkcionality a interakce dostupné pomocí počítačové myši jsou dostupné i skrze klávesnici.
+  \item Všechny funkcionality a interakce nevyžadují stisk kláves v definovaném pořadí pokud to nevyžaduje povaha vstupu.
+  \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
 \end{itemize}
 
 \subsection{Ovládání pomocí dotyku}
@@ -102,8 +104,8 @@ Dle přednášky Iva Malého z kurzu principy mobilních aplikací rozdělujeme 
 Mezi základní pravidla pro optimalizaci interakce za pomocí dotyku patří:
 
 \begin{itemize}
-    \item Gesta nevyžadují přesnost, nebo je k dispozici alternativní způsob ovládání~\cite{wcag-pointer-gestures}.
-    \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
+  \item Gesta nevyžadují přesnost, nebo je k dispozici alternativní způsob ovládání~\cite{wcag-pointer-gestures}.
+  \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
 \end{itemize}
 
 \subsection{Ostatní způsoby interakce}
@@ -116,7 +118,7 @@ Další variantou může být hlasové zadávání.
 Výčet důležitých pravidel pro optimalizaci interakce za pomocí těchto způsobů~\cite{w3-accessibility-principles}:
 
 \begin{itemize}
-    \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtění pomocí odečítačů obrazovky a hlasovému zadávání.
+  \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtění pomocí odečítačů obrazovky a hlasovému zadávání.
 \end{itemize}
 
 \subsection{Dostatek času na interakci}
