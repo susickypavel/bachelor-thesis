@@ -39,24 +39,26 @@ Některé HTML elementy mohou mít svůj sémantický význam i bez použití ro
 Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
 
-\begin{lstlisting}[caption={Ukázka aria rolí}, label={aria-roles}, language=html]
-<ul role="menu">\label{line:important}
-    <li role="menuitem">Open file</li>
-    <li role="menuitem">Save file</li>
+\begin{lstlisting}[caption={Aria role}, label={aria-roles}, language=html]
+<ul role="menu">
+  <li role="menuitem">Open file</li>
+  <li role="menuitem">Save file</li>
 </ul>
 \end{lstlisting}
 
 \subsection{ARIA stavy}
 
-\begin{lstlisting}[caption={Ukázka aria stavových attributů}, label={aria-states}, language=html]
+\begin{lstlisting}[caption={Aria stavové atributy}, label={aria-states}, language=html]
 <button aria-pressed="false">
-    Send order
+  Send order
 </button>
 \end{lstlisting}
 
+\clearpage
+
 \subsection{ARIA vlastnosti}
 
-\begin{lstlisting}[caption={Ukázka aria vlastností}, label={aria-properties}, language=html]
+\begin{lstlisting}[caption={Aria vlastnosti}, label={aria-properties}, language=html]
 <label for="username">Username</label>
 <input id="username" aria-describedby="username-error" />
 <p id="username-error">Username is required</p>
