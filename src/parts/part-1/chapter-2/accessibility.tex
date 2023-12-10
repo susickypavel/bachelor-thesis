@@ -47,6 +47,16 @@ Například button element se používá pro interaktivní tlačítka a je vhodn
 
 V ukázce~\ref{aria-roles} na řádku~\ref{aria-roles-1} můžeme vidět použití role menu na elementu pro neuspořádaný seznam.
 Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí menuitem, které reprezentují položky v menu.
+Každá role kromě sémantikého významu s sebou nese i vlastnosti, které musí být dodrženy podle specifikace.
+Napříkad výše zmíněné menu musí obsahovat minimálně jeden prven s rolí menuitem (alternativně menuitemcheckbox nebo menuitemradio)~\cite{wai-required-owned-elements,wai-standard-guidelines-required-owned-elements}.
+
+Pro tvorbu moderních webových komponent je vhodné preferovat sémantické elementy, které mají svůj význam i bez použití explicitních rolí.
+Explicitně definované role jsou potřeba pokud informace o elementu nejsou dostatečné pro pochopení jeho účelu.
+
+V kontextu práce budu používat především role z kategorie widget podle \gls{waiaria} specifikace.
+% Existují však i další kategorie rolí určené pro strukturu webu, orientační body
+
+\clearpage
 
 \subsection{ARIA stavy}
 
@@ -55,8 +65,6 @@ Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí menui
   Send order
 </button>
 \end{lstlisting}
-
-\clearpage
 
 \subsection{ARIA vlastnosti}
 
@@ -70,7 +78,7 @@ Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí menui
 
 \section{Základní principy přístupnosti}
 
-V této sekci popisuji základní principy přístupnosti, které jsou relevantní v kontextu této práce, tedy vytváření znovpoužitelných komponent.
+V této sekci popisuji základní principy přístupnosti, které jsou relevantní v kontextu této práce, tedy vytváření znovupoužitelných komponent.
 Existují avšak i další principy, které se obecně zaměřují na webový obsah, porozumění textu anebo přístupnost audiovizuálního obsahu~\cite{w3-accessibility-principles}.
 
 \subsection{Ovládání pomocí klávesnice}
