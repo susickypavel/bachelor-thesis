@@ -54,17 +54,27 @@ Pro tvorbu moderních webových komponent je vhodné preferovat sémantické ele
 Explicitně definované role jsou potřeba pokud informace o elementu nejsou dostatečné pro pochopení jeho účelu.
 
 V kontextu práce budu používat především role z kategorie widget podle \gls{waiaria} specifikace.
-% Existují však i další kategorie rolí určené pro strukturu webu, orientační body
+Existují však i další kategorie rolí určené pro strukturu webu nebo orientační body~\cite{wai-catorization-of-roles}.
 
 \clearpage
 
 \subsection{ARIA stavy}
 
+Stavy slouží pro upozornění uživatele na změny ve stavu stránky nebo komponenty.
+Společně s rolemi tvoří základní dvojici pro přístupnost na webu.
+Je důležité poznamenat, že některé stavy nejdou použít pro libovolnou roli, ale jsou vázané ke specifickým účelům a rolím.
+
 \begin{lstlisting}[caption={Aria stavové atributy}, label={aria-states}, language=html]
-<button aria-pressed="false">
-  Send order
-</button>
+<button aria-pressed="false">(*@\label{aria-states-1}@*) <!-- true|false|mixed -->
+  Send order(*@\label{aria-states-2}@*)
+</button>(*@\label{aria-states-3}@*)
 \end{lstlisting}
+
+V ukázce~\ref{aria-states} na řádku~\ref{aria-states-1} můžeme vidět použití attributu aria-pressed.
+Tento atribut slouží jenom pro elementy s rolí button.
+Řádek~\ref{aria-states-1} nám zároveň ukazuje, že hodnota atributu je false, ale může nabývat i hodnot true nebo mixed.
+Button s takovým atributem představuje tzv. toggle button~\cite{mdn-aria-pressed}. Tedy tlačítko, které si drží svůj vlastní stav zakliknutí.
+Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatelova vstupu.
 
 \subsection{ARIA vlastnosti}
 
