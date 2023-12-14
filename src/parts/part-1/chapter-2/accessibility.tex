@@ -78,11 +78,19 @@ Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatel
 
 \subsection{ARIA vlastnosti}
 
+Vlastnosti jsou podobné stavům.
+Jedná se o HTML atributy jejichž primárním účelem je dodání více informací o daném elementu.
+Rozdíl oproti stavům vychází z četnosti změn, kde u stavů se předpokládá částá změna v životním cyklu stránky, která vede na upozornění uživatele.
+Oproti tomu vlastnosti se mění jenom zřídka.
+
 \begin{lstlisting}[caption={Aria vlastnosti}, label={aria-properties}, language=html]
-<label for="username">Username</label>
-<input id="username" aria-describedby="username-error" />
-<p id="username-error">Username is required</p>
+<label for="username">Username</label>(*@\label{aria-properties-1}@*)
+<input id="username" aria-describedby="username-error" />(*@\label{aria-properties-2}@*)
+<p id="username-error">Username is required</p>(*@\label{aria-properties-3}@*)
 \end{lstlisting}
+
+V ukázce~\ref{aria-properties} na řádku~\ref{aria-properties-2} můžeme vidět použití vlastnosti aria-describedby.
+Tento atribut slouží k přidání dodatečnému popisu daného input elementu. Hodnota atributu je id elementu, který obsahuje textový popis daného inputu.
 
 \section{WCAG}
 
