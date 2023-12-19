@@ -94,16 +94,28 @@ Tento atribut slouží k přidání dodatečnému popisu daného input elementu.
 
 \section{WCAG}
 
-\gls{wcag} je soubor pravidel pro tvorbu přístupných webů.
-Narozdíl od specifikace \gls{waiaria} se \gls{wcag} zaměřuje na pravidla, jak by se stránky měly chovat, aby byly pro uživatele co nejpřívětivější na používání.
-Nejedná se tak o technickou specifikaci, která by tvořila nové mechanismy pro přístupnost.
+\gls{wcag} je mezinárodní, metodický soubor pravidel (úspěchová kritéria) pro tvorbu přístupných webů.
+Narozdíl od technické specifikace \gls{waiaria} se \gls{wcag} zaměřuje na pravidla, jak by se stránky měly chovat, aby byly pro uživatele co nejpřívětivější na používání.
+Nejedná se tak o technickou specifikaci, která by tvořila nové mechanismy a technologie pro přístupnost.
 Všechny doporučení jsou dosažitelné pomocí existujících \gls{waiaria} atributů a JavaScriptu.
+
+\subsection{Verze WCAG}
 
 \subsection{Úrovně přístupnosti}
 
-TODO
+Každé úspěchové kritérium má přiřazenou úroveň, která rozlišuje jeho důležitost pro uživatele s postižením.
+Pokud web splňuje všechna kritéria dané úrovně, tak se označuje jako přístupný pro specifikovaný okruh lidí.
+\gls{wcag} definuje tři úrovně přístupnosti:
+
+\begin{itemize}
+  \item \textbf{Úroveň A} --- Jedná se o minimální úroveň obsahující několik kritérií, které zajišťují základní ovladatelnost webu pro uživatele s postižením.
+  \item \textbf{Úroveň AA} --- Obsahuje všechna kritéria úrovně A
+  \item \textbf{Úroveň AAA} --- Obsahuje všechna kritéria úrovně A a AA
+\end{itemize}
 
 \section{Základní principy přístupnosti}
+
+% TODO: https://www.w3.org/WAI/WCAG21/Understanding/intro#understanding-the-four-principles-of-accessibility
 
 V této sekci popisuji základní principy přístupnosti, které jsou relevantní v kontextu této práce, tedy vytváření znovupoužitelných komponent.
 Existují avšak i další principy, které se obecně zaměřují na webový obsah, porozumění textu anebo přístupnost audiovizuálního obsahu~\cite{w3-accessibility-principles}.
