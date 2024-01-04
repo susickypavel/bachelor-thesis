@@ -1,0 +1,19 @@
+\chapter{Implementace komponent}
+
+Tato kapitola popisuje implementanční detaily komponent od samotného repozitáře po jejich distribuci.
+
+\section{Repozitář}
+
+Samotný repozitář je tzv. monorepozitář, tedy repozitář s vícero projekty spravovanými pomocí balíčkovacího manažeru.
+Pro tento projekt jsem zvolil balíčkovací nástroj pnpm, který má skvělou podporu pro monorepozitáře a šetří místo na disku pomocí pevných odkazů.
+
+Níže je výčet všech projektů v rámi repozitáře:
+
+% TODO: SSR hodit do akronymu.
+
+\begin{itemize}
+    \item \textbf{./packages/svelte-apg} je SvelteKit aplikace s využitím exportu komponent do balíčku, zde se nachází naimplementované komponenty. Zároveň tento projekt obsahuje i Storybook.
+    \item \textbf{./projects/docs} je dokumentace pomocí Astro starlight template, zde je užitečný popis a ukázky využití komponent.
+    \item \textbf{./projects/sveltekit-demo} je prázdná SvelteKit aplikace pro testování komponent v praktické aplikaci.
+    \item \textbf{./projects/astro-demo} je prázdná Astro aplikace se Svelte pluginem, pro testování komponent v rámci island architektury.
+\end{itemize}
