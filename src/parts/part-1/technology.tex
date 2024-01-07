@@ -1,0 +1,59 @@
+\chapter{Technologie}
+
+V této kapitoly jsou rozebrány technologie použité pro tuto práci.
+
+\section{Svelte}\label{sec:Svelte}
+
+Svelte je reaktivní framework pro tvorbu uživatelských rozhraní obdobně jako populární alternativy React, nebo Vue.
+Největší rozdíl oproti těmto frameworkům se vyskytuje v tom, že Svelte neobsahuje runtime jako tomu je právě v Reactu.
+Při kompilaci se komponenty a reaktivní deklarace převedou na imperativní kód v JavaScriptu, který obsluhuje změny v \gls{dom}.
+
+\subsection{Výhody}
+
+Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
+
+\begin{itemize}
+    \item Vývojářská přívetivost (DX) - Svelte je v praxi jednoduché, intuitivní i pro nové vývojáře.
+\end{itemize}
+
+\clearpage
+
+\subsection{Virtual DOM vs Reaktivita}
+
+Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje Virtual DOM diffing algoritmus jako to je u Reactu, nebo Vue.
+Veškeré změny v \gls{dom} jsou řešený pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
+Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. \ref{sec:Svelte}).
+
+\begin{lstlisting}[caption={Počítadlo ve Svelte}, label={svelte-counter}, language=html]
+<script>
+	let count = 0
+	
+	function add() {
+		count++
+	}
+</script>
+
+<button on:click={add}>+1</button>
+<p>Current count: {count}</p>
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Počítadlo po kompilaci}, label={svelte-counter-compiled}, language=JavaScript]
+function instance($$self, $$props, $$invalidate) {
+    let count = 0;
+
+    function add() {
+        $$invalidate(0, count++, count);
+    }
+
+    return [count, add];
+}
+
+class App extends SvelteComponent {
+    constructor(options) {
+        super();
+        init(this, options, instance, create_fragment, safe_not_equal, {});
+    }
+}
+\end{lstlisting}
+
+\subsection{Svelte 5.0}
