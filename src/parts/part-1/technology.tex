@@ -20,9 +20,9 @@ Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
 
 \subsection{Virtual DOM vs Reaktivita}
 
-Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje Virtual DOM diffing algoritmus jako to je u Reactu, nebo Vue.
-Veškeré změny v \gls{dom} jsou řešený pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
-Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. \ref{sec:Svelte}).
+Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu, nebo Vue.
+Veškeré změny v \gls{dom} jsou ve Svelte řešené pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
+Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. sekce \ref{sec:Svelte} a ukázky kódu~\ref{svelte-counter} a~\ref{svelte-counter-compiled}).
 
 \begin{lstlisting}[caption={Počítadlo ve Svelte}, label={svelte-counter}, language=html]
 <script>
