@@ -13,8 +13,21 @@ Při kompilaci se komponenty a reaktivní deklarace převedou na imperativní k�
 Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
 
 \begin{itemize}
-    \item Vývojářská přívetivost (DX) - Svelte je v praxi jednoduché, intuitivní i pro nové vývojáře.
+    \item \textbf{Vývojářská přívetivost (DX)} --- Svelte je v praxi jednoduché a intuitivní i pro nové vývojáře.
 \end{itemize}
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabular}{c|c|c|c}
+            \bfseries Metrika & \bfseries Svelte & \bfseries Vue & \bfseries React \\\Midrule{}
+            Operations        & \textbf{1.29}    & 1.32          & 1.66            \\
+            Startup metrics   & \textbf{1.02}    & 1.26          & 1.66            \\
+            Memory allocation & \textbf{1.46}    & 1.86          & 2.58
+        \end{tabular}
+    \end{ctucolortab}
+    \caption{Porovnání rychlosti Svelte s populárními frameworky}
+    \label{tab:foobar}
+\end{table}
 
 \clearpage
 
@@ -22,7 +35,7 @@ Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
 
 Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu, nebo Vue.
 Veškeré změny v \gls{dom} jsou ve Svelte řešené pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
-Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. sekce \ref{sec:Svelte} a ukázky kódu~\ref{svelte-counter} a~\ref{svelte-counter-compiled}).
+Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. sekce~\ref{sec:Svelte} a ukázky kódu~\ref{svelte-counter} a~\ref{svelte-counter-compiled}).
 
 \begin{lstlisting}[caption={Počítadlo ve Svelte}, label={svelte-counter}, language=html]
 <script>
