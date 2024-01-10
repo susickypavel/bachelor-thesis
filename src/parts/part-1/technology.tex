@@ -5,6 +5,13 @@ V této kapitolě jsou rozebrány technologie použité pro tuto práci.
 \section{Svelte}\label{sec:Svelte}
 
 Svelte je kompilátor pro tvorbu uživatelských rozhraní obdobně jako populární alternativy React, nebo Vue.
+Každá komponenta se nachází v souboru s příponou ``.svelte'' a podobně jako Vue obsahuje tři části:
+
+\begin{itemize}
+    \item \textbf{Script tag} --- obsahuje logiku komponenty v JavaScriptu.
+    \item \textbf{Style tag} --- obsahuje styly komponenty.
+    \item \textbf{Template} --- obsahuje html kód komponenty.
+\end{itemize}
 
 \subsection{Rozdíly}
 
@@ -24,9 +31,6 @@ Prázdný projekt ve Svelte má minimální velikost, protože zde není potřeb
 To vede k tomu, že každá nová komponenta přidává unikátní kus kódu a zvyšuje tak velikost dat, které se posílají přes internet na klienta.
 Existuje tak inflexní bod, kdy velikost aplikace bude vyšší než aplikace napsané v Reactu.
 V praxi se však ukazuje, že toto může být potenciálně problémové pouze u velkých aplikací s velkým počtem komponent~\cite{svelte-scaling}.
-
-\clearpage
-
 \subsection{VDOM vs Reaktivita}
 
 Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu.
@@ -35,23 +39,30 @@ Sledování změn je zaručeno na základě vytvořeného imperativního kódu p
 
 \begin{lstlisting}[caption={Počítadlo ve Svelte 4}, label={svelte-counter}, language=html]
 <script>
-	let count = 0
+	let count = 0(*@\label{svelte-counter-2}@*)
 	
 	function add() {
 		count++
 	}
 </script>
 
-<button on:click={add}>+1</button>
-<p>Current count: {count}</p>
+<button on:click={add}>+1</button>(*@\label{svelte-counter-9}@*)
+<p>Current count: {count}</p>(*@\label{svelte-counter-10}@*)
 \end{lstlisting}
+
+V ukázce kódu~\ref{svelte-counter} je důležitá deklarace proměnné \texttt{count} na řádku~\ref{svelte-counter-2}.
+Veškeré změny této proměnné jsou sledovány (viz. ukázka kódu~\ref{svelte-counter-compiled}).
+Na řádku~\ref{svelte-counter-9} je vidět přiřazený callback \texttt{add} na událost click.
+Následně můžeme vidět použití proměnné \texttt{count} na řádku~\ref{svelte-counter-10} v rámci textového uzlu elementu.
+
+\clearpage
 
 \begin{lstlisting}[caption={Počítadlo po kompilaci}, label={svelte-counter-compiled}, language=JavaScript]
 function instance($$self, $$props, $$invalidate) {
     let count = 0;
 
     function add() {
-        $$invalidate(0, count++, count);
+        $$invalidate(0, count++, count);(*@\label{svelte-counter-compiled-5}@*)
     }
 
     return [count, add];
@@ -64,6 +75,9 @@ class App extends SvelteComponent {
     }
 }
 \end{lstlisting}
+
+V zjednodušené ukázce kódu~\ref{svelte-counter-compiled} je na řádku~\ref{svelte-counter-compiled-5} podstatné volání funkce \texttt{\$\$invalidate}, která zaručuje reaktivitu proměnné \texttt{count}.
+Každé přiřazení hodnoty je kompilátorem převedeno na volání funkce \texttt{\$\$invalidate}, které označí danou proměnnou jako změněnou a následně naplánuje její změnu včetně aktualizace elementů, kde se používá.
 
 \subsection{Rychlost}
 
