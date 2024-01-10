@@ -1,20 +1,36 @@
 \chapter{Technologie}
 
-V této kapitoly jsou rozebrány technologie použité pro tuto práci.
+V této kapitolě jsou rozebrány technologie použité pro tuto práci.
 
 \section{Svelte}\label{sec:Svelte}
 
-Svelte je reaktivní framework pro tvorbu uživatelských rozhraní obdobně jako populární alternativy React, nebo Vue.
-Největší rozdíl oproti těmto frameworkům se vyskytuje v tom, že Svelte neobsahuje runtime jako tomu je právě v Reactu.
-Při kompilaci se komponenty a reaktivní deklarace převedou na imperativní kód v JavaScriptu, který obsluhuje změny v \gls{dom}.
+Svelte je kompilátor pro tvorbu uživatelských rozhraní obdobně jako populární alternativy React, nebo Vue.
 
-\subsection{Výhody}
+% Největší rozdíl oproti těmto frameworkům se vyskytuje v tom, že Svelte neobsahuje runtime jako tomu je právě v Reactu.
+% Při kompilaci se komponenty a reaktivní deklarace převedou na imperativní kód v JavaScriptu, který obsluhuje změny v \gls{dom}.
 
-Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
+\subsection{Rozdíly}
+
+Mezi hlavní rozdíly Svelte oproti jiným frameworkům patří:
 
 \begin{itemize}
-    \item \textbf{Vývojářská přívetivost (DX)} --- Svelte je v praxi jednoduché a intuitivní i pro nové vývojáře.
+    \item \textbf{Kompilátor} --- Největší rozdíl oproti zmíněným frameworkům se vyskytuje v tom, že Svelte není runtime, který se posíla na klienta společně se zdrojovým kódem komponent.
+          Svelte je kompilátor souborů s příponou ``.svelte'', který převede komponenty na optimalizovaný imperativní kód v JavaScriptu.
+    \item \textbf{Reaktivita} --- Svelte používá reaktivní model pro změny v \gls{dom} namísto virtuálního \gls{dom}.
+    \item \textbf{Podpora komunity} --- Svelte není produktem velkých společností jako je React od Meta Platforms, nebo Angular od Google.
+          Zároveň už to není čistě produkt autora Riche Harrise a komunity, ale od roku 2021 je vývoj plně sponzorován platformou Vercel.
+    \item \textbf{Vývojářská přívetivost (DX)} --- Svelte je v praxi jednodušší na používání a intuitivní i pro nové vývojáře.
 \end{itemize}
+
+Kompilátor s sebou nese jednu nevýhodu a to je velikost výsledného kódu po kompilaci.
+Prázdný projekt ve Svelte má minimální velikost, protože zde není potřeba téměř žádného imperativního kódu pro zaručení reaktivity.
+To vede k tomu, že každá nová komponenta přidává unikátní kus kódu a zvyšuje tak velikost dat, které se posílají přes internet na klienta.
+Existuje tak inflexní bod, kdy velikost aplikace bude vyšší než aplikace napsané v Reactu.
+V praxi se však ukazuje, že toto může být potenciálně problémové pouze u velkých aplikací s velkým počtem komponent~\cite{svelte-scaling}.
+
+\subsection{Rychlost}
+
+TODO
 
 % TODO: Different background color for table
 
@@ -35,11 +51,11 @@ Mezi hlavní přednosti Svelte oproti jiným frameworkům patří:
 
 \subsection{Virtual DOM vs Reaktivita}
 
-Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu, nebo Vue.
+Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu.
 Veškeré změny v \gls{dom} jsou ve Svelte řešené pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
 Sledování změn je zaručeno na základě vytvořeného imperativního kódu při kompilaci (viz. sekce~\ref{sec:Svelte} a ukázky kódu~\ref{svelte-counter} a~\ref{svelte-counter-compiled}).
 
-\begin{lstlisting}[caption={Počítadlo ve Svelte}, label={svelte-counter}, language=html]
+\begin{lstlisting}[caption={Počítadlo ve Svelte 4}, label={svelte-counter}, language=html]
 <script>
 	let count = 0
 	

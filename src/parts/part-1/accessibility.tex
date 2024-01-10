@@ -47,6 +47,8 @@ Role slouží k přidání sémantického významu HTML elementům tak, aby nevi
 Některé HTML elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
 Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
+\clearpage
+
 \begin{lstlisting}[caption={Aria role}, label={aria-roles}, language=html]
 <ul role="menu">(*@\label{aria-roles-1}@*)
   <li role="menuitem">Open file</li>(*@\label{aria-roles-2}@*)
@@ -64,8 +66,6 @@ Explicitně definované role jsou potřeba pokud informace o elementu nejsou dos
 
 V kontextu práce budu používat především role z kategorie widget podle \gls{waiaria} specifikace.
 Existují však i další kategorie rolí určené pro strukturu webu nebo orientační body~\cite{wai-catorization-of-roles}.
-
-\clearpage
 
 \subsection{ARIA stavy}
 
