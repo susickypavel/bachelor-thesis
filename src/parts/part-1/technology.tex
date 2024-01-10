@@ -6,9 +6,6 @@ V této kapitolě jsou rozebrány technologie použité pro tuto práci.
 
 Svelte je kompilátor pro tvorbu uživatelských rozhraní obdobně jako populární alternativy React, nebo Vue.
 
-% Největší rozdíl oproti těmto frameworkům se vyskytuje v tom, že Svelte neobsahuje runtime jako tomu je právě v Reactu.
-% Při kompilaci se komponenty a reaktivní deklarace převedou na imperativní kód v JavaScriptu, který obsluhuje změny v \gls{dom}.
-
 \subsection{Rozdíly}
 
 Mezi hlavní rozdíly Svelte oproti jiným frameworkům patří:
@@ -16,7 +13,7 @@ Mezi hlavní rozdíly Svelte oproti jiným frameworkům patří:
 \begin{itemize}
     \item \textbf{Kompilátor} --- Největší rozdíl oproti zmíněným frameworkům se vyskytuje v tom, že Svelte není runtime, který se posíla na klienta společně se zdrojovým kódem komponent.
           Svelte je kompilátor souborů s příponou ``.svelte'', který převede komponenty na optimalizovaný imperativní kód v JavaScriptu.
-    \item \textbf{Reaktivita} --- Svelte používá reaktivní model pro změny v \gls{dom} namísto virtuálního \gls{dom}.
+    \item \textbf{Reaktivita} --- Svelte používá reaktivní model pro změny v \gls{dom} namísto \gls{vdom}.
     \item \textbf{Podpora komunity} --- Svelte není produktem velkých společností jako je React od Meta Platforms, nebo Angular od Google.
           Zároveň už to není čistě produkt autora Riche Harrise a komunity, ale od roku 2021 je vývoj plně sponzorován platformou Vercel.
     \item \textbf{Vývojářská přívetivost (DX)} --- Svelte je v praxi jednodušší na používání a intuitivní i pro nové vývojáře.
@@ -28,28 +25,9 @@ To vede k tomu, že každá nová komponenta přidává unikátní kus kódu a z
 Existuje tak inflexní bod, kdy velikost aplikace bude vyšší než aplikace napsané v Reactu.
 V praxi se však ukazuje, že toto může být potenciálně problémové pouze u velkých aplikací s velkým počtem komponent~\cite{svelte-scaling}.
 
-\subsection{Rychlost}
-
-TODO
-
-% TODO: Different background color for table
-
-\begin{table}[ht]
-    % \begin{ctucolortab}
-    \begin{tabular}{c|c|c|c|c}
-        \bfseries Metrika & \bfseries{Svelte 5} & \bfseries{Svelte 4} & \bfseries{Vue} & \bfseries{React} \\\Midrule{}
-        Operations        & 1.06                & \textbf{1.29}       & 1.32           & 1.66             \\
-        Startup metrics   & 1.06                & \textbf{1.02}       & 1.26           & 1.66             \\
-        Memory allocation & 1.48                & \textbf{1.46}       & 1.86           & 2.58
-    \end{tabular}
-    % \end{ctucolortab}
-    \caption{Porovnání rychlosti Svelte s populárními frameworky}
-    \label{tab:foobar}
-\end{table}
-
 \clearpage
 
-\subsection{Virtual DOM vs Reaktivita}
+\subsection{VDOM vs Reaktivita}
 
 Důležitý rozdíl mezi Svelte a podobnými frameworky je ten, že neobsahuje \gls{dom} diffing algoritmus jako to je u Reactu.
 Veškeré změny v \gls{dom} jsou ve Svelte řešené pomocí reaktivních proměnných, které automaticky při své změně vyvolají změnu i ve zmíněném \gls{dom}.
@@ -87,4 +65,36 @@ class App extends SvelteComponent {
 }
 \end{lstlisting}
 
+\subsection{Rychlost}
+
+Tabulka~\ref{tab:foobar} ukazuje porovnání Svelte s vybranými frameworky.
+Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc} implementované v daném frameworku, aby test byl spravedlivý.
+Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejrychlejší implementaci~\cite{krausest119,krausest120}.
+
+První metrika ``Operations'' je celkový vážený geometrický průměr skóre všech operací nad příkladovou aplikací (např. vytvoření řádku, smazání řádku, vybraní řádku a další\dots).
+
+Druhá metrika ``Startup metrics'' je vážený geometrický průměr skóre výsledků z \gls{lighthouse} testování.
+
+Poslední metrika ``Memory allocation'' je vážený geometrický průměr skóre využití paměti.
+
+% TODO: Different background color for table
+
+\begin{table}[ht]
+    % \begin{ctucolortab}
+    \begin{tabular}{c|c|c|c|c}
+        \bfseries Metrika & \bfseries{Svelte 5} & \bfseries{Svelte 4} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
+        Operations        & 1.06                & \textbf{1.26}       & 1.22                 & 1.43                    \\
+        Startup metrics   & 1.06                & \textbf{1.02}       & 1.27                 & 1.67                    \\
+        Memory allocation & 1.48                & \textbf{1.36}       & 1.86                 & 2.45
+    \end{tabular}
+    % \end{ctucolortab}
+    \caption{Porovnání rychlosti Svelte s populárními frameworky}
+    \label{tab:foobar}
+\end{table}
+
+Z výsledků můžeme vidět, že Svelte 4 je optimalizované velikostně pro start aplikace a využití paměti, což vychází z principu kompilátoru.
+V další kapitole se podívám na to, jak se mění princip Svelte v nové verzi 5.0, která přináší velké změny v architektuře Svelte.
+
 \subsection{Svelte 5.0}
+
+TODO
