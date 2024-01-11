@@ -107,9 +107,9 @@ Poslední metrika ``Memory allocation'' je vážený geometrický průměr skór
 \end{table}
 
 Z výsledků můžeme vidět, že Svelte 4 je optimalizované velikostně pro start aplikace a využití paměti, což vychází z principu kompilátoru.
-V další kapitole se podívám na to, jak se mění princip Svelte v nové verzi 5.0, která přináší velké změny v architektuře Svelte.
+V další kapitole se podívám na to, jak se mění princip Svelte v nové verzi 5, která přináší velké změny v architektuře Svelte.
 
-\subsection{Svelte 5.0}
+\subsection{Svelte 5}
 
 TODO
 
@@ -121,6 +121,24 @@ Nástroje jako TypeScript, Flow, nebo ReasonML se ukázaly jako vhodným řešen
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu.
 
-\section{Varianty UI knihoven}
+\section{Varianty distribuce komponent}
 
-TODO
+\begin{itemize}
+    \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale HTML kód komponent je téměř vždy neměnitelný.
+          Hodně se stává, že vývojáři potřebují odlišnou HTML strukturu než je dána.
+          Častým případem je právě řešení přístupnosti, kdy je potřeba přidat elementy navíc do komponenty pro např. správné fungování čteček obrazovky.
+    \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
+          Zde můžeme rozlišit dvě různé úrovně headless komponent.
+          \begin{itemize}
+              \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným HTML kódem.
+                    Ovšem HTML struktura v jednotlivých prvcích komponent není stále plně flexibilní.
+              \item Exportující pouze logiku v podobě ``primitiv''. V Reactu se jedná o ``custom hooks'', ve Vue ``composition utilities'' a ve Svelte to jsou prosté funkce, které pracují s reaktivními proměnnými.
+          \end{itemize}
+    \item \textbf{Copy and paste} není klasická knihovna.
+          Tato varianta vznikla jako reakce na headless komponenty a primitiva.
+          Jedná se o způsob distribuce komponent, kde konzumenti si zkopírují předpis komponenty.
+          Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
+          Zároveň má konzument plnou kontrolu nad HTML kódem komponenty.
+          Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
+\end{itemize}
+
