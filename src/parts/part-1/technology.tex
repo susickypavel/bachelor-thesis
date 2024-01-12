@@ -81,7 +81,7 @@ Každé přiřazení hodnoty je kompilátorem převedeno na volání funkce \tex
 
 \subsection{Rychlost}
 
-Tabulka~\ref{tab:foobar} ukazuje porovnání Svelte s vybranými frameworky.
+Tabulka~\ref{tab:technology1} ukazuje porovnání Svelte s vybranými frameworky.
 Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc} implementované v daném frameworku, aby test byl spravedlivý.
 Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejrychlejší implementaci~\cite{krausest119,krausest120}.
 
@@ -94,16 +94,16 @@ Poslední metrika ``Memory allocation'' je vážený geometrický průměr skór
 % TODO: Different background color for table
 
 \begin{table}[ht]
-    % \begin{ctucolortab}
-    \begin{tabular}{c|c|c|c|c}
-        \bfseries Metrika & \bfseries{Svelte 5} & \bfseries{Svelte 4} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
-        Operations        & 1.06                & \textbf{1.26}       & 1.22                 & 1.43                    \\
-        Startup metrics   & 1.06                & \textbf{1.02}       & 1.27                 & 1.67                    \\
-        Memory allocation & 1.48                & \textbf{1.36}       & 1.86                 & 2.45
-    \end{tabular}
-    % \end{ctucolortab}
+    \begin{ctucolortab}
+        \begin{tabular}{c c c c c}
+            \bfseries Metrika & \bfseries{Svelte 5} & \bfseries{Svelte 4} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
+            Operations        & 1.06                & \textbf{1.26}       & 1.22                 & 1.43                    \\
+            Startup metrics   & 1.06                & \textbf{1.02}       & 1.27                 & 1.67                    \\
+            Memory allocation & 1.48                & \textbf{1.36}       & 1.86                 & 2.45
+        \end{tabular}
+    \end{ctucolortab}
     \caption{Porovnání rychlosti Svelte s populárními frameworky}
-    \label{tab:foobar}
+    \label{tab:technology1}
 \end{table}
 
 Z výsledků můžeme vidět, že Svelte 4 je optimalizované velikostně pro start aplikace a využití paměti, což vychází z principu kompilátoru.
