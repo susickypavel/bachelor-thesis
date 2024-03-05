@@ -4,7 +4,14 @@ V této kapitolě jsou rozebrány důležité technologie a přístupy použité
 
 \section{Solid.js}
 
-TODO
+Solid.js je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
+Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchronizování změn v \gls{dom}.
+
+Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí diffing algoritmu.
+
+Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v domu.
+Prakticky Solid.js využívá principu “dependency tracking”, kde přístupy k reaktivním proměnným jsou sledovány tzv. “subscribers”, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
+Tento princip hodně připomíná designový vzor “Observer”.
 
 % \section{Svelte}\label{sec:Svelte}
 
@@ -112,10 +119,6 @@ TODO
 
 % Z výsledků můžeme vidět, že Svelte 4 je optimalizované velikostně pro start aplikace a využití paměti, což vychází z principu kompilátoru.
 % V další kapitole se podívám na to, jak se mění princip Svelte v nové verzi 5, která přináší velké změny v architektuře Svelte.
-
-% \subsection{Svelte 5}
-
-% TODO
 
 \section{TypeScript}
 
