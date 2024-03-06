@@ -5,6 +5,10 @@ V této kapitolě jsou rozebrány důležité technologie a přístupy použité
 \section{Solid.js}
 
 Solid.js je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
+
+
+\subsection{Rozdíly}
+
 Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchronizování změn v \gls{dom}.
 
 Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí diffing algoritmu.
@@ -12,6 +16,36 @@ Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je 
 Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v domu.
 Prakticky Solid.js využívá principu “dependency tracking”, kde přístupy k reaktivním proměnným jsou sledovány tzv. “subscribers”, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
 Tento princip připomíná designový vzor “Observer”.
+
+\subsection{Rychlost}
+
+Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými frameworky.
+Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc} implementované v daném frameworku, aby test byl spravedlivý.
+Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
+
+První metrika ``Operations'' je vážený geometrický průměr skóre všech operací nad příkladovou aplikací (např. vytvoření řádku, smazání řádku, vybraní řádku a další\dots).
+
+Druhá metrika ``Transferred size'' je vážený geometrický průměr skóre přenesených dat po síti při použití daného frameworku.
+
+Poslední metrika ``Memory allocation'' je vážený geometrický průměr skóre využití paměti.
+
+% % TODO: Different background color for table
+
+\begin{table}[ht]
+      \begin{ctucolortab}
+            \begin{tabular}{c c c c c}
+                  \bfseries Metrika & \bfseries{Solid 1.8.0} & \bfseries{Svelte 5} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
+                  Operations        & \textbf{1.08}          & 1.08                & 1.24                 & 1.53                    \\
+                  Transferred size  & \textbf{2.29}          & 3.04                & 7.16                 & 15.32                   \\
+                  Memory allocation & \textbf{1.45}          & 1.52                & 2.13                 & 2.81
+            \end{tabular}
+      \end{ctucolortab}
+      \caption{Porovnání rychlosti Solid.js s populárními frameworky}
+      \label{tab:technology1}
+\end{table}
+
+Z výsledku benchmarku můžeme vidět, že Solid.js obdobně jako Svelte je velice blízko 1, tedy je jenom o 8\% pomalejší než nejrychlejší implementace.
+Svelte od verze 5 má obdobný styl reaktivivního modelu jako Solid.js, což vysvětluje podobné výsledky~\cite{svelte-reactivity}.
 
 % \section{Svelte}\label{sec:Svelte}
 
