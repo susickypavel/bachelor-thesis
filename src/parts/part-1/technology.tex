@@ -11,7 +11,7 @@ Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je 
 
 Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v domu.
 Prakticky Solid.js využívá principu “dependency tracking”, kde přístupy k reaktivním proměnným jsou sledovány tzv. “subscribers”, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
-Tento princip hodně připomíná designový vzor “Observer”.
+Tento princip připomíná designový vzor “Observer”.
 
 % \section{Svelte}\label{sec:Svelte}
 
@@ -147,6 +147,7 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
             Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
             Zároveň má konzument plnou kontrolu nad HTML kódem komponenty.
             Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
+            Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
 
 % Sebek review:
