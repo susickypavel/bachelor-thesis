@@ -171,7 +171,7 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
       \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
             Zde můžeme rozlišit dvě různé úrovně headless komponent.
             \begin{itemize}
-                  \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným HTML kódem.
+                  \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným kódem komponenty.
                         Ovšem HTML struktura v jednotlivých prvcích komponent není stále plně flexibilní.
                   \item Exportující pouze logiku v podobě ``primitiv''. V Reactu se jedná o ``custom hooks'', ve Vue ``composition utilities'', ve Svelte to jsou prosté funkce, které pracují s reaktivními proměnnými a obdobně i ve Solid.js.
             \end{itemize}
@@ -183,6 +183,15 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
             Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
             Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{./assets/figures/component-lib-distribution-comparison.png}
+      \captionsetup{justification=centering}
+      \caption{Diagram abstrakce a flexibility různých přístupu k distribuci komponent}
+\end{figure}
+
+\section{Závěr technologií}
 
 % Sebek review:
 % TODO: Zaver dane kapitoly (proc to Svelte atp.)
