@@ -189,8 +189,9 @@ export const Dashboard = () => {
       \item \textbf{Copy and paste} není klasická knihovna.
             Tato varianta vznikla jako reakce na headless komponenty a primitiva.
             Jedná se o způsob distribuce komponent, kde konzumenti si zkopírují předpis komponenty.
+            Využívá tak existujících headless komponent, nebo UI primitiv.
             Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
-            Zároveň má konzument plnou kontrolu nad HTML kódem komponenty.
+            Zároveň má konzument plnou kontrolu nad kódem komponenty.
             Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
             Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
@@ -224,12 +225,28 @@ export const Toolbar = () => {
 
 \clearpage
 
+V porovnání všech tří přístupů na obrázku~\ref{component-lib-distribution-comparison} můžeme vidět, že vyšší flexibilita přináší i vyšší úroveň abstrakce.
+To znamená, že čím flexibilnější je API komponenty, tím více času je potřeba pro pochopení, použití a údržbu komponent.
+
+Knihovny komponent\footnote{\url{https://mui.com}} jsou nejvýhodnější, pokud není potřeba vlastního brand designu a zároveň jsme spokojení s úrovní přístupnosti, kterou nám komponenta dodává.
+
+Headless komponenty\footnote{\url{https://headlessui.com}} jsou lepší v situacích, kde potřebujeme zasáhnout významně do designu (kaskádových stylů) komponenty pro vlastní potřeby.
+Nicméně se tím navyšuje i čas strávený na vývoji.
+
+UI primitiva\footnote{\url{https://react-spectrum.adobe.com/react-aria}} jsou nejvýhodnější při budování vlastního designového systému, kde potřebujeme plnou kontrolu nad kódem komponenty.
+
+Copy and paste přístup\footnote{\url{https://ui.shadcn.com}} je nejvýhodnější, pokud chceme to nejlepší ze všech přístupů.
+Flexibilitu headless komponent případně UI primitiv a zároveň rychlost vývoji jako při použití knihovny komponent.
+
 \begin{figure}[h]
       \centering
       \includegraphics[width=\textwidth]{./assets/figures/component-lib-distribution-comparison.png}
       \captionsetup{justification=centering}
       \caption{Diagram abstrakce a flexibility různých přístupu k distribuci komponent}
+      \label{component-lib-distribution-comparison}
 \end{figure}
+
+\clearpage
 
 \section{Závěr technologií}
 
