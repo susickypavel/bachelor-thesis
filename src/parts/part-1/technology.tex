@@ -168,6 +168,17 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
       \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale HTML kód komponent je téměř vždy neměnitelný.
             Hodně se stává, že vývojáři potřebují odlišnou HTML strukturu než je dána.
             Častým případem je právě řešení přístupnosti, kdy je potřeba přidat elementy navíc do komponenty pro např. správné fungování čteček obrazovky.
+            \begin{lstlisting}[caption={Ukázka použití komponentové knihovny}, label={component-distribution}, language=html]
+import { Button } from "component-library"
+
+export const Dashboard = () => {
+      return (
+            <div>
+                  <Button>Open file</Button>
+            </div>
+      )
+}
+\end{lstlisting}
       \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
             Zde můžeme rozlišit dvě různé úrovně headless komponent.
             \begin{itemize}
@@ -183,6 +194,33 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
             Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
             Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
+
+\begin{lstlisting}[caption={Ukázka použití headless knihovny}, label={component-distribution-2}, language=html]
+import { Tab } from "headless-component-library"
+
+export const Toolbar = () => {
+  return (
+    <Tab.Group>
+      <Tab.List className="flex flex-col gap-4">
+        <Tab>
+          {({ selected }) => (
+            <button
+              className={
+                selected ? 'bg-blue-500' : 'bg-white'
+              }
+            >
+              Tab 1
+            </button>
+          )}
+        </Tab>
+      </Tab.List>
+      <Tab.Panels>
+        <Tab.Panel>Content 1</Tab.Panel>
+      </Tab.Panels>
+    </Tab.Group>
+  )
+}
+\end{lstlisting}
 
 \clearpage
 
