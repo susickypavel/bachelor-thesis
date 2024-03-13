@@ -8,7 +8,7 @@ Následně se podívám na Solid.js a rozeberu chybějící části v rámci jeh
 
 \subsection{React Aria}
 
-React Aria je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu komponent a primitiv v podobě React hooks.
+React Aria\footnote{https://react-spectrum.adobe.com/react-aria} je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu komponent a primitiv v podobě React hooks.
 Obsahuje velké množství komponent a interakcí, od nejzákladnějších jako jsou tlačítka, formulářové prvky až po složitější komponenty jako kalendáře.
 Knihovna je velice dobře dokumentovaná a podporována komunitou.
 Zároveň je distribuovaná bez stylů, proto je vhodná pro využití v rámci designových systémů.
@@ -26,10 +26,10 @@ Zároveň je distribuovaná bez stylů, proto je vhodná pro využití v rámci 
 
 \subsection{Radix UI}
 
-Radix UI je knihovna komponent, která je zároveň postavená nad Radix UI primitives.
+Radix UI\footnote{https://radix-ui.com} je knihovna komponent, která je zároveň postavená nad Radix UI primitives.
 Radix primitives využívá na pozadí headless komponent, ačkoliv by název mohl evokovat opak.
 
-To je zásadní rozdíl oproti React Aria, kde jsou komponenty vytvořené pomocí reálných primitives.
+To je zásadní rozdíl oproti React Aria, kde jsou komponenty vytvořené pomocí primitives.
 
 \begin{table}[ht]
     \begin{ctucolortab}
@@ -44,7 +44,9 @@ To je zásadní rozdíl oproti React Aria, kde jsou komponenty vytvořené pomoc
 
 \subsection{Shadcn UI}
 
-TODO
+Shadcn UI\footnote{https://ui.shadcn.com} je copy and paste knihovna.
+Z dokumentace nebo \gls{cli} dostupného skrze npm je možné nakopírovat předpis komponenty do uživatelem vybraného projektu.
+Hodně komponent je založeno na Radix UI primitives.
 
 \begin{table}[ht]
     \begin{ctucolortab}
@@ -78,7 +80,7 @@ TODO
 
 \subsection{Melt UI}
 
-Podobně jako React Aria je Melt UI knihovna primitiv, v kontextu této knihovny se primitiva nazývají ``builders''.
+Podobně jako React Aria je Melt UI\footnote{https://melt-ui.com} knihovna primitiv, v kontextu této knihovny se primitiva nazývají ``builders''.
 Uživatelé konzumují tyto primitiva vytváří si tak komponenty s vlastní HTML strukturou.
 Z toho plyne, že je knihovna velice flexibilní na používání, ale zároveň je tak zvýšená náročnost na udržování komponent.
 Výhodou je, že je možnost zde vytvořit příkladové použití těchto primitiv včetně základních stylů a usnadnit tak konzumentům práci.
@@ -110,14 +112,17 @@ TODO
 
 \section{Solid.js}
 
-TODO
-
 \subsection{Solid Aria}
 
-TODO
+Solid Aria\footnote{https://github.com/solidjs-community/solid-aria} je port React Aria do Solid.js ekosystému podporovaný komunitou.
+Bohužel vývoj zde již není přílis aktivní, protože narozdíl od React Aria tento projekt není sponzorovaný větší společností.
+Nicméně je zde možnost navázat na práci komunity a pokračovat v rozvoji této knihovny.
+
+Velkou výhodou je, že port React kódu do Solid.js je na hodně místech velice podobný, proto je možné využít pokrok na samotné React Aria knihovně i zde.
 
 \subsection{Kobalte}
 
-TODO
+Kobalte\footnote{https://kobalte.dev} je UI toolkit pro Solid.js, který obsahuje headless komponenty a primitiva.
+Hodně práce na Kobalte vychází ze Solid Aria, protože minimálně jeden z hlavních vývojářů Kobalte hojně pracoval i na Solid Aria.
 
 \section{Závěr analýzy}
