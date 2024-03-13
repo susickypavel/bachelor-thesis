@@ -4,7 +4,7 @@ V této kapitolě jsou rozebrány důležité technologie a přístupy použité
 
 \section{Solid.js}
 
-Solid.js je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
+Solid.js\footnote{\url{https://solidjs.com}} je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
 
 
 \subsection{Rozdíly}
@@ -20,7 +20,7 @@ Tento princip připomíná designový vzor “Observer”.
 \subsection{Rychlost}
 
 Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými frameworky.
-Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc} implementované v daném frameworku, aby test byl spravedlivý.
+Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc}\footnote{\url{https://todomvc.com}} implementované v daném frameworku, aby test byl spravedlivý.
 Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
 
 První metrika ``Operations'' je vážený geometrický průměr skóre všech operací nad příkladovou aplikací (např. vytvoření řádku, smazání řádku, vybraní řádku a další\dots).
@@ -158,7 +158,7 @@ Svelte od verze 5 má obdobný styl reaktivivního modelu jako Solid.js, což vy
 
 JavaScript je dynamicky typovaný jazyk, což se v praxi ukázalo jako těžkopádné při škálování velkých projektů.
 Postupem času existovaly různé nástroje a nadstavby nad samotným jazykem, které mu přidávali statické typování.
-Nástroje jako TypeScript, Flow, nebo ReasonML se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
+Nástroje jako TypeScript\footnote{\url{https://typescriptlang.org}}, Flow\footnote{\url{https://flow.org}}, nebo ReasonML\footnote{\url{https://reasonml.github.io}} se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu.
 
@@ -228,14 +228,14 @@ export const Toolbar = () => {
 V porovnání všech tří přístupů na obrázku~\ref{component-lib-distribution-comparison} můžeme vidět, že vyšší flexibilita přináší i vyšší úroveň abstrakce.
 To znamená, že čím flexibilnější je API komponenty, tím více času je potřeba pro pochopení, použití a údržbu komponent.
 
-Knihovny komponent\footnote{\url{https://mui.com}} jsou nejvýhodnější, pokud není potřeba vlastního brand designu a zároveň jsme spokojení s úrovní přístupnosti, kterou nám komponenta dodává.
+Knihovny komponent jsou nejvýhodnější, pokud není potřeba vlastního brand designu a zároveň jsme spokojení s úrovní přístupnosti, kterou nám komponenta dodává.
 
-Headless komponenty\footnote{\url{https://headlessui.com}} jsou lepší v situacích, kde potřebujeme zasáhnout významně do designu (kaskádových stylů) komponenty pro vlastní potřeby.
+Headless komponenty jsou lepší v situacích, kde potřebujeme zasáhnout významně do designu (kaskádových stylů) komponenty pro vlastní potřeby.
 Nicméně se tím navyšuje i čas strávený na vývoji.
 
-UI primitiva\footnote{\url{https://react-spectrum.adobe.com/react-aria}} jsou nejvýhodnější při budování vlastního designového systému, kde potřebujeme plnou kontrolu nad kódem komponenty.
+UI primitiva jsou nejvýhodnější při budování vlastního designového systému, kde potřebujeme plnou kontrolu nad kódem komponenty.
 
-Copy and paste přístup\footnote{\url{https://ui.shadcn.com}} je nejvýhodnější, pokud chceme to nejlepší ze všech přístupů.
+Copy and paste přístup je nejvýhodnější, pokud chceme to nejlepší ze všech přístupů.
 Flexibilitu headless komponent případně UI primitiv a zároveň rychlost vývoji jako při použití knihovny komponent.
 
 \begin{figure}[h]
