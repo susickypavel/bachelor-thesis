@@ -250,7 +250,8 @@ Flexibilitu headless komponent případně UI primitiv a zároveň rychlost výv
 
 \section{Závěr technologií}
 
-V této kapitole jsem popsal technologie a přístupy, které jsou využity v rámci této práce.
+V této kapitole jsem popsal nejdůležitější technologie a přístupy, které jsou využity v rámci této práce.
+Plná funkčnost celého projektu je závislá na dalších důležitých technologiích, které zde nejsou popsány neboť nejsou přímo relevantní k problematice tvorby znovupoužitelných komponent.
 
 Samotná knihovna bude psána stylem UI primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako props a reference.
 Taková knihovna může poté sloužit jako základ pro tvorbu designových systémů a knihoven (headless) komponent.
@@ -258,12 +259,14 @@ Taková knihovna může poté sloužit jako základ pro tvorbu designových syst
 Solid.js knihovnu jsem zvolil ze dvou důvodů:
 
 \begin{enumerate}
-      \item Jeho ekosystém je stále v raních fázích a podobná knihovna respektive její části zde chybí.
-      \item Solid.js má unikátní vlastnosti, které ho odlišují od ostatních knihoven. Hlavně co se týče performance a reaktivity.
+      \item Její ekosystém knihoven je stále v raních fázích a podobná knihovna respektive její části zde chybí.
+      \item Solid.js má unikátní vlastnosti, které ho odlišují od ostatních knihoven.
+            Hlavně co se týče performance a reaktivity.
+            Tato knihovna má potenciál zlepšit a optimalizovat uživatelská rozhraní.
 \end{enumerate}
 
 TypeScript je velice důležitý pro nové knihovny, neboť usnadňuje budoucí údržbu kódu a vývojářskou přívětivost.
-Ve světě webového vývoje je TypeScript dnes už téměř standardem a jeho nepoužití by vedlo k výrazně snížené adopci knihovny komunitou vývojářů.
+Ve světě webového vývoje je TypeScript dnes už téměř standardem a jeho nepoužití by vedlo k výrazně snížené adopci knihovny komunitou vývojářů~\cite{stateofjs-2022}.
 
 % Sebek review:
 % TODO: Zaver dane kapitoly (proc to Svelte atp.)
