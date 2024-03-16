@@ -13,7 +13,7 @@ Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchroni
 
 Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí diffing algoritmu.
 
-Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v domu.
+Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v \gls{dom}.
 Prakticky Solid.js využívá principu “dependency tracking”, kde přístupy k reaktivním proměnným jsou sledovány tzv. “subscribers”, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
 Tento princip připomíná designový vzor “Observer”.
 
