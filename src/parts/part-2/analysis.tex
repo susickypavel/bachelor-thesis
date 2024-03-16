@@ -10,7 +10,7 @@ React má obrovské zastoupení v rámci JavaScriptového ekosystému, proto kva
 
 \subsection{React Aria}
 
-React Aria\footnote{https://react-spectrum.adobe.com/react-aria} je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu komponent a primitiv v podobě React hooks.
+React Aria\footnote{\url{https://react-spectrum.adobe.com/react-aria}} je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu komponent a primitiv v podobě React hooks.
 Obsahuje velké množství komponent a interakcí, od nejzákladnějších jako jsou tlačítka, formulářové prvky až po složitější komponenty jako kalendáře.
 Knihovna je velice dobře dokumentovaná a podporována komunitou.
 Zároveň je distribuovaná bez stylů, proto je vhodná pro využití v rámci designových systémů.
@@ -19,8 +19,8 @@ Zároveň je distribuovaná bez stylů, proto je vhodná pro využití v rámci 
     \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{Y Y}
             \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody} \\\Midrule{}
-            Flexibilita použití              & Větší úsilí na udržování               \\
-            Rozmanitost komponent
+            Flexibilita použití              & Vyšší nároky na udržování              \\
+            Rozmanitost komponent            & ---
         \end{tabularx}
     \end{ctucolortab}
     \caption{Shrnutí výhod a nevýhod knihovny React Aria}
@@ -37,8 +37,8 @@ To je zásadní rozdíl oproti React Aria, kde jsou komponenty vytvořené pomoc
     \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{Y Y}
             \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody} \\\Midrule{}
-            TODO                             & TODO                                   \\
-            TODO                             & TODO
+            Jednoduchost použití             & Vyšší nároky na udržování              \\
+            ---                              & Nižší rozmanitost komponent
         \end{tabularx}
     \end{ctucolortab}
     \caption{Shrnutí výhod a nevýhod knihovny Radix UI}
@@ -53,15 +53,13 @@ Hodně komponent je založeno na Radix UI primitives.
 \begin{table}[ht]
     \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{Y Y}
-            \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody} \\\Midrule{}
-            TODO                             & TODO                                   \\
-            TODO                             & TODO
+            \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody}         \\\Midrule{}
+            Jednoduchost použití             & Flexibilita je závislá na použitých knihovnách \\
+            Možnost upravit zdrojový kód     & ---
         \end{tabularx}
     \end{ctucolortab}
     \caption{Shrnutí výhod a nevýhod Shadcn UI}
 \end{table}
-
-\clearpage
 
 \section{Svelte}
 
@@ -70,7 +68,7 @@ Rozhodl jsem se provést rešerši v rámci tohoto frameworku, protože Solid.js
 
 \subsection{Melt UI}
 
-Podobně jako React Aria je Melt UI\footnote{https://melt-ui.com} knihovna primitiv, v kontextu této knihovny se primitiva nazývají ``builders''.
+Podobně jako React Aria je Melt UI\footnote{\url{https://melt-ui.com}} knihovna primitiv, v kontextu této knihovny se primitiva nazývají ``builders''.
 Uživatelé konzumují tyto primitiva vytváří si tak komponenty s vlastní HTML strukturou.
 Z toho plyne, že je knihovna velice flexibilní na používání, ale zároveň je tak zvýšená náročnost na udržování komponent.
 Výhodou je, že je možnost zde vytvořit příkladové použití těchto primitiv včetně základních stylů a usnadnit tak konzumentům práci.
@@ -92,16 +90,38 @@ Případně zjistit, zda lze navázat na práci již existujících knihoven.
 
 \subsection{Solid Aria}
 
-Solid Aria\footnote{https://github.com/solidjs-community/solid-aria} je port React Aria do Solid.js ekosystému podporovaný komunitou.
+Solid Aria\footnote{\url{https://github.com/solidjs-community/solid-aria}} je port React Aria do Solid.js ekosystému podporovaný komunitou.
 Bohužel vývoj zde již není přílis aktivní, protože narozdíl od React Aria tento projekt není sponzorovaný větší společností.
 Nicméně je zde možnost navázat na práci komunity a pokračovat v rozvoji této knihovny.
 
 Velkou výhodou je, že port React kódu do Solid.js je na hodně místech velice podobný, proto je možné využít pokrok na samotné React Aria knihovně i zde.
 
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{Y Y}
+            \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody} \\\Midrule{}
+            Flexibilita použití              & Neaktivní vývoj                        \\
+            ---                              & Chybějící základní komponenty
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Shrnutí výhod a nevýhod Solid Aria}
+\end{table}
+
 \subsection{Kobalte}
 
-Kobalte\footnote{https://kobalte.dev} je UI toolkit pro Solid.js, který obsahuje headless komponenty a primitiva.
+Kobalte\footnote{\url{https://kobalte.dev}} je UI toolkit pro Solid.js, který obsahuje headless komponenty a primitiva.
 Hodně práce na Kobalte vychází ze Solid Aria, protože minimálně jeden z hlavních vývojářů Kobalte hojně pracoval i na Solid Aria.
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{Y Y}
+            \bfseries \textcolor{OK}{Výhody} & \bfseries \textcolor{NOT_OK}{Nevýhody} \\\Midrule{}
+            Jednoduchost použití             & Nižší flexibilita                      \\
+                                             &
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Shrnutí výhod a nevýhod knihovny Radix UI}
+\end{table}
 
 \section{Závěr rešerše}
 
