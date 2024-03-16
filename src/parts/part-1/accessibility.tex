@@ -1,6 +1,6 @@
 \chapter{Přístupnost na webu}
 
-V této kapitole se věnuji představení problematice přístupnosti na webu.
+Tato kapitola se věnuje představení problematice přístupnosti na webu.
 
 \section{Přístupný web}
 
@@ -90,7 +90,7 @@ Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatel
 Vlastnosti jsou podobné stavům.
 Jedná se o HTML atributy jejichž primárním účelem je dodání více informací o daném elementu.
 Rozdíl oproti stavům vychází z četnosti změn, kde u stavů se předpokládá částá změna v životním cyklu stránky, která vede na upozornění uživatele.
-Oproti tomu vlastnosti se mění jenom zřídka.
+Oproti tomu vlastnosti se mění jenom zřídka~\cite[sekce 6.1]{wai-aria}.
 
 \begin{lstlisting}[caption={Aria vlastnosti}, label={aria-properties}, language=html]
 <label for="username">Username</label>(*@\label{aria-properties-1}@*)
@@ -103,7 +103,7 @@ Tento atribut slouží k přidání dodatečnému popisu daného input elementu.
 
 \section{WCAG}
 
-\gls{wcag} je mezinárodní, metodický soubor pravidel (úspěchová kritéria) pro tvorbu přístupných webů.
+\gls{wcag}\footnote{\url{https://www.w3.org/TR/WCAG21}} je mezinárodní, metodický soubor pravidel (úspěchová kritéria) pro tvorbu přístupných webů.
 Narozdíl od technické specifikace \gls{waiaria} se \gls{wcag} zaměřuje na pravidla, jak by se stránky měly chovat, aby byly pro uživatele co nejpřívětivější na používání.
 Nejedná se tak o technickou specifikaci, která by tvořila nové mechanismy a technologie pro přístupnost.
 Všechny doporučení jsou dosažitelné pomocí existujících \gls{waiaria} atributů a JavaScriptu.
@@ -140,7 +140,7 @@ Každá úroveň přináší kritéria, která jsou těžší na splnění, ale 
 
 % TODO: https://www.w3.org/WAI/WCAG21/Understanding/intro#understanding-the-four-principles-of-accessibility
 
-V této sekci popisuji základní principy přístupnosti, které jsou relevantní v kontextu této práce, tedy vytváření znovupoužitelných komponent.
+Tato sekce popisuje základní principy přístupnosti, které jsou relevantní v kontextu této práce, tedy vytváření znovupoužitelných komponent.
 Existují avšak i další principy, které se obecně zaměřují na webový obsah, porozumění textu anebo přístupnost audiovizuálního obsahu~\cite{w3-accessibility-principles}.
 
 \subsection{Ovládání pomocí klávesnice}
@@ -200,7 +200,7 @@ Přílis rychlé uzavírání, mizení, schování interaktivních prvků kompon
 \section{APG}
 
 \gls{apg}\footnote{\url{https://www.w3.org/WAI/ARIA/apg}} je technická specifikace nejčastějších návrhových vzorů a widgetů vyskytujících se na webu.
-V této specifikaci jde vidět paralela s komponentovým návrhovým vzorem, který je dnes moderní pro tvorbu na webu.
+Ve specifikaci jde vidět paralela s komponentovým návrhovým vzorem, který je dnes moderní pro tvorbu na webu.
 Každý widget (widget zde můžeme chápat jako komponentu) má svoji vlastní stránku s popisem, účelem, klávesovou navigací a používanými atributy, rolemi a stavy z \gls{waiaria}.
 Kromě specifikace widgetů obsahuje i další praktická doporučení mezi která patří~\cite{apg}:
 
