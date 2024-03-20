@@ -11,15 +11,15 @@ Solid.js\footnote{\url{https://solidjs.com}} je JavaScriptová knihovna pro tvor
 
 Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchronizování změn v \gls{dom}.
 
-Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí diffing algoritmu.
+Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí \textit{diffing} algoritmu.
 
 Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v \gls{dom}.
-Prakticky Solid.js využívá principu “dependency tracking”, kde přístupy k reaktivním proměnným jsou sledovány tzv. “subscribers”, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
-Tento princip připomíná designový vzor “Observer”.
+Prakticky Solid.js využívá principu \textit{dependency tracking}, kde přístupy k reaktivním proměnným jsou sledovány skrze \textit{subscribers}, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
+Tento princip připomíná designový vzor \textit{observer}.
 
 \subsection{Rychlost}
 
-Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými frameworky.
+Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými \textit{frameworky}.
 Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc}\footnote{\url{https://todomvc.com}} implementované v daném frameworku, aby test byl spravedlivý.
 Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
 
@@ -44,7 +44,7 @@ Poslední metrika ``Memory allocation'' je vážený geometrický průměr skór
       \label{tab:technology1}
 \end{table}
 
-Z výsledku benchmarku můžeme vidět, že Solid.js obdobně jako Svelte je velice blízko 1, tedy je jenom o 8\% pomalejší než nejrychlejší implementace.
+Z výsledku \textit{benchmarku} můžeme vidět, že Solid.js obdobně jako Svelte je velice blízko 1, tedy je jenom o 8\% pomalejší než nejrychlejší implementace.
 Svelte od verze 5 má obdobný styl reaktivivního modelu jako Solid.js, což vysvětluje podobné výsledky~\cite{svelte-reactivity}.
 
 % \section{Svelte}\label{sec:Svelte}
@@ -157,7 +157,7 @@ Svelte od verze 5 má obdobný styl reaktivivního modelu jako Solid.js, což vy
 \section{TypeScript}
 
 JavaScript je dynamicky typovaný jazyk, což se v praxi ukázalo jako těžkopádné při škálování velkých projektů.
-Postupem času existovaly různé nástroje a nadstavby nad samotným jazykem, které mu přidávali statické typování.
+Postupem času vznikly různé nástroje a nadstavby nad samotným jazykem, které přidávají statické typování.
 Nástroje jako TypeScript\footnote{\url{https://typescriptlang.org}}, Flow\footnote{\url{https://flow.org}}, nebo ReasonML\footnote{\url{https://reasonml.github.io}} se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu.
@@ -180,7 +180,7 @@ export const Dashboard = () => {
 }
 \end{lstlisting}
       \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
-            Zde můžeme rozlišit dvě různé úrovně headless komponent.
+            Zde můžeme rozlišit dvě různé úrovně \textit{headless} komponent.
             \begin{itemize}
                   \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným kódem komponenty.
                         Ovšem HTML struktura v jednotlivých prvcích komponent není stále plně flexibilní.
@@ -228,7 +228,7 @@ export const Toolbar = () => {
 V porovnání všech tří přístupů na obrázku~\ref{component-lib-distribution-comparison} můžeme vidět, že vyšší flexibilita přináší i vyšší úroveň abstrakce.
 To znamená, že čím flexibilnější je API komponenty, tím více času je potřeba pro pochopení, použití a údržbu komponent.
 
-Knihovny komponent jsou nejvýhodnější, pokud není potřeba vlastního brand designu a zároveň jsme spokojení s úrovní přístupnosti, kterou nám komponenta dodává.
+Knihovny komponent jsou nejvýhodnější, pokud není potřeba vlastního \textit{brand}\footnote{Brand designem se rozumí vlastní barvy, fonty, styl ikon a celkově unikátní vizuál.} designu a zároveň jsme spokojení s úrovní přístupnosti, kterou nám komponenta dodává.
 
 Headless komponenty jsou lepší v situacích, kde potřebujeme zasáhnout významně do designu (kaskádových stylů) komponenty pro vlastní potřeby.
 Nicméně se tím navyšuje i čas strávený na vývoji.
@@ -253,7 +253,7 @@ Flexibilitu headless komponent případně UI primitiv a zároveň rychlost výv
 Tato kapitola popsala nejdůležitější technologie a přístupy, které jsou využity v rámci této práce.
 Plná funkčnost celého projektu je závislá na dalších důležitých technologiích, které zde nejsou popsány neboť nejsou přímo relevantní k problematice tvorby znovupoužitelných komponent.
 
-Samotná knihovna bude psána stylem UI primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako props a reference.
+Samotná knihovna bude psána stylem UI primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako props a reference (viz kapitola~\ref{chap:analysis}).
 Taková knihovna může poté sloužit jako základ pro tvorbu designových systémů a knihoven (headless) komponent.
 
 Solid.js knihovnu jsem zvolil ze dvou důvodů:

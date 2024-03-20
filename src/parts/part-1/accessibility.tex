@@ -33,11 +33,11 @@ Mezi další kategorie postižení patří například poruchy řeči, ale v kon
 
 \gls{w3c}\footnote{\url{https://www.w3.org}} je mezinárodní konsorcium, které vyvíjí standardy pro web.
 \gls{wai} je jedním z projektů \gls{w3c}, který se zaměřuje na přístupnost webu.
-WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na webu, od user agentů, evaluačních nástrojů až po nástroje pro tvorbu digitálního obsahu.
+WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na webu, od \textit{user agentů}, evaluačních nástrojů až po nástroje pro tvorbu digitálního obsahu.
 
 \section{WAI-ARIA}
 
-\gls{waiaria}\footnote{\url{https://www.w3.org/TR/wai-aria}} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii attributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
+\gls{waiaria}\footnote{\url{https://www.w3.org/TR/wai-aria}} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii atributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
 Zmíněné atributy umožňují asistivním technologiím (například čtečky obrazovky) předat uživatelům význam a podrobnější informace o elementech, které se nachází na daném webu a tím jim pomoci s pochopením a manipulací obsahu stránky.
 
 \subsection{ARIA role}
@@ -45,7 +45,7 @@ Zmíněné atributy umožňují asistivním technologiím (například čtečky 
 Role slouží k přidání sémantického významu HTML elementům tak, aby nevidomí či uživatelé s jinou formou postižení dokázali pochopit účel daného elementu.
 
 Některé HTML elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
-Například button element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
+Například \textit{button} element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesemantického divu s rolí button.
 
 \clearpage
 
@@ -57,14 +57,14 @@ Například button element se používá pro interaktivní tlačítka a je vhodn
 \end{lstlisting}
 
 V ukázce~\ref{aria-roles} na řádku~\ref{aria-roles-1} můžeme vidět použití role menu na elementu pro neuspořádaný seznam.
-Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí menuitem, které reprezentují položky v menu.
+Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí \textit{menuitem}, které reprezentují položky v menu.
 Každá role kromě sémantikého významu s sebou nese i vlastnosti, které musí být dodrženy podle specifikace.
-Napříkad výše zmíněné menu musí obsahovat minimálně jeden prven s rolí menuitem (alternativně menuitemcheckbox nebo menuitemradio)~\cite{wai-required-owned-elements,wai-standard-guidelines-required-owned-elements}.
+Napříkad výše zmíněné menu musí obsahovat minimálně jeden prven s rolí menuitem (alternativně \textit{menuitemcheckbox} nebo \textit{menuitemradio})~\cite{wai-required-owned-elements,wai-standard-guidelines-required-owned-elements}.
 
 Pro tvorbu moderních webových komponent je vhodné preferovat sémantické elementy, které mají svůj význam i bez použití explicitních rolí.
 Explicitně definované role jsou potřeba pokud informace o elementu nejsou dostatečné pro pochopení jeho účelu.
 
-V kontextu práce budu používat především role z kategorie widget podle \gls{waiaria} specifikace.
+V kontextu práce budu používat především role z kategorie widget podle \gls{waiaria} specifikace, protože jsou vhodné pro komponentový vývoj.
 Existují však i další kategorie rolí určené pro strukturu webu nebo orientační body~\cite{wai-catorization-of-roles}.
 
 \subsection{ARIA stavy}
@@ -79,10 +79,10 @@ Je důležité poznamenat, že některé stavy nejdou použít pro libovolnou ro
 </button>(*@\label{aria-states-3}@*)
 \end{lstlisting}
 
-V ukázce~\ref{aria-states} na řádku~\ref{aria-states-1} můžeme vidět použití attributu aria-pressed.
-Tento atribut slouží jenom pro elementy s rolí button.
-Řádek~\ref{aria-states-1} nám zároveň ukazuje, že hodnota atributu je false, ale může nabývat i hodnot true nebo mixed.
-Button s takovým atributem představuje tzv. toggle button~\cite{mdn-aria-pressed}. Tedy tlačítko, které si drží svůj vlastní stav zakliknutí.
+V ukázce~\ref{aria-states} na řádku~\ref{aria-states-1} můžeme vidět použití attributu \textit{aria-pressed}.
+Tento atribut slouží jenom pro elementy s rolí \textit{button}.
+Řádek~\ref{aria-states-1} nám zároveň ukazuje, že hodnota atributu je \textit{false}, ale může nabývat i hodnot \textit{true} nebo \textit{mixed}.
+Button s takovým atributem představuje tzv. \textit{toggle button}~\cite{mdn-aria-pressed}. Tedy tlačítko, které si drží svůj vlastní stav zakliknutí.
 Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatelova vstupu.
 
 \subsection{ARIA vlastnosti}
@@ -98,12 +98,12 @@ Oproti tomu vlastnosti se mění jenom zřídka~\cite[sekce 6.1]{wai-aria}.
 <p id="username-error">Username is required</p>(*@\label{aria-properties-3}@*)
 \end{lstlisting}
 
-V ukázce~\ref{aria-properties} na řádku~\ref{aria-properties-2} můžeme vidět použití vlastnosti aria-describedby.
-Tento atribut slouží k přidání dodatečnému popisu daného input elementu. Hodnota atributu je id elementu, který obsahuje textový popis daného inputu.
+V ukázce~\ref{aria-properties} na řádku~\ref{aria-properties-2} můžeme vidět použití vlastnosti \textit{aria-describedby}.
+Tento atribut slouží k přidání dodatečnému popisu daného \textit{input} elementu. Hodnota atributu je id elementu, který obsahuje textový popis daného \textit{inputu}.
 
 \section{WCAG}
 
-\gls{wcag}\footnote{\url{https://www.w3.org/TR/WCAG21}} je mezinárodní, metodický soubor pravidel (úspěchová kritéria) pro tvorbu přístupných webů.
+\gls{wcag}\footnote{\url{https://www.w3.org/TR/WCAG21}} je mezinárodní, metodický soubor pravidel (úspěchových kritérií) pro tvorbu přístupných webů.
 Narozdíl od technické specifikace \gls{waiaria} se \gls{wcag} zaměřuje na pravidla, jak by se stránky měly chovat, aby byly pro uživatele co nejpřívětivější na používání.
 Nejedná se tak o technickou specifikaci, která by tvořila nové mechanismy a technologie pro přístupnost.
 Všechny doporučení jsou dosažitelné pomocí existujících \gls{waiaria} atributů a JavaScriptu.
@@ -150,7 +150,7 @@ Klávesnice je jedna z nejdůležitějších, ale i mnohdy opomíjených perifé
 
 % TODO: Focus označit, nebo dát do akronymů.
 
-Klíčovým prvkem přístupnosti pomocí klávesnice je focus, tedy kde se uživatel zrovna nachází na dané stránce.
+Klíčovým prvkem přístupnosti pomocí klávesnice je \textit{focus}, tedy kde se uživatel zrovna nachází na dané stránce.
 Společně s odečítači obrazovky tvoří základní výbavu pro nevidomé uživatele, kteří si za jejich pomocí dokáží přečíst a používat obsah na webu.
 
 Přístupný web by měl splňovat základní pravidla pro optimální ovládaní klávesnicí~\cite{wcag-keyboard}:
@@ -169,7 +169,7 @@ Ovládání za pomocí dotyku je rozmanité, uživatel může používat jednodu
 % TODO: path-based označit, nebo dát do akronymů.
 
 Dle přednášky Iva Malého z kurzu principy mobilních aplikací rozdělujeme gesta dle počtu použitých prstů, charakteristiky pohybu a použitých technologií~\cite{ctu-pda-11}.
-\gls{wcag} definuje gesta více abstraktně na tzv. path-based (kromě koncové pozice prstu záleží i na přechodných pozicích) a multipoint (gesto vyžadující více prstů)~\cite{wcag-pointer-gestures}.
+\gls{wcag} definuje gesta více abstraktně na tzv. \textit{path-based} (kromě koncové pozice prstu záleží i na přechodných pozicích) a \textit{multipoint} (gesto vyžadující více prstů)~\cite{wcag-pointer-gestures}.
 
 Mezi základní pravidla pro optimalizaci interakce za pomocí dotyku patří:
 
@@ -199,7 +199,7 @@ Přílis rychlé uzavírání, mizení, schování interaktivních prvků kompon
 
 \section{APG}
 
-\gls{apg}\footnote{\url{https://www.w3.org/WAI/ARIA/apg}} je technická specifikace nejčastějších návrhových vzorů a widgetů vyskytujících se na webu.
+\gls{apg}\footnote{\url{https://www.w3.org/WAI/ARIA/apg}} je technická specifikace nejčastějších návrhových vzorů a \textit{widgetů} vyskytujících se na webu.
 Ve specifikaci jde vidět paralela s komponentovým návrhovým vzorem, který je dnes moderní pro tvorbu na webu.
 Každý widget (widget zde můžeme chápat jako komponentu) má svoji vlastní stránku s popisem, účelem, klávesovou navigací a používanými atributy, rolemi a stavy z \gls{waiaria}.
 Kromě specifikace widgetů obsahuje i další praktická doporučení mezi která patří~\cite{apg}:
@@ -211,3 +211,5 @@ Kromě specifikace widgetů obsahuje i další praktická doporučení mezi kter
 \end{itemize}
 
 % \section{Čtečky obrazovky}
+
+% TODO
