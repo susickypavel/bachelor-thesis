@@ -7,3 +7,5 @@ This is a repository of my Bachelor thesis at Czech Technical University in Prag
 - glossaries
 - listings
 - biblatex-iso690
+- enumitem
+- adjustbox
