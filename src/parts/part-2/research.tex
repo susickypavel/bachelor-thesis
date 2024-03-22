@@ -10,7 +10,7 @@ React má obrovské zastoupení v rámci JavaScriptového ekosystému, proto kva
 
 \subsection{React Aria}
 
-React Aria\footnote{\url{https://react-spectrum.adobe.com/react-aria}} je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu komponent a primitiv v podobě React hooks.
+React Aria\footnote{\url{https://react-spectrum.adobe.com/react-aria}} je open-source projekt od společnosti Adobe, který obsahuje velice robustní sadu primitiv v podobě React hooks.
 Obsahuje velké množství komponent a interakcí, od nejzákladnějších jako jsou tlačítka, formulářové prvky až po složitější komponenty jako kalendáře.
 Knihovna je velice dobře dokumentovaná a podporována komunitou.
 Zároveň je distribuovaná bez stylů, proto je vhodná pro využití v rámci designových systémů.
@@ -84,6 +84,7 @@ Výhodou je, že je možnost zde vytvořit příkladové použití těchto primi
 \end{table}
 
 \section{Solid.js}
+\label{sec:solid}
 
 Solid.js je knihovna použitá v rámci této práce, proto je důležité provést rešerši a určit tak chybějící komponenty v rámci ekosystému.
 Případně zjistit, zda lze navázat na práci již existujících knihoven.
@@ -109,7 +110,7 @@ Velkou výhodou je, že port React kódu do Solid.js je na hodně místech velic
 
 \subsection{Kobalte}
 
-Kobalte\footnote{\url{https://kobalte.dev}} je UI toolkit pro Solid.js, který obsahuje headless komponenty a primitiva.
+Kobalte\footnote{\url{https://kobalte.dev}} je UI toolkit pro Solid.js, který obsahuje headless komponenty.
 Hodně práce na Kobalte vychází ze Solid Aria, protože minimálně jeden z hlavních vývojářů Kobalte hojně pracoval i na Solid Aria.
 
 \begin{table}[ht]
@@ -122,19 +123,8 @@ Hodně práce na Kobalte vychází ze Solid Aria, protože minimálně jeden z h
     \caption{Shrnutí výhod a nevýhod knihovny Radix UI}
 \end{table}
 
-\section{Výběr komponent k implementaci}
-
-Z rešerše vyplynulo, že Solid.js ekosystém má existující knihovny, které se snaží pokrýt problematiku znovupoužitelných knihoven.
-V rámci této sekce jsem se rozhodl provést rešerši, které komponenty z \gls{apg} návrhových vzorů chybí v rámci Solid.js ekosystému.
-V tabulce~\ref{tab:implemented-components} jsou vypsány všechny návrhové vzory z \gls{apg} a jejich stav existence ve vybraných knihovnách z Solid.js ekosystému.
-
-Z tabulky se lze dočíst, že z \gls{apg} chybí 8 návrhových vzorů.
-Některé návrhové vzory nebyly zahrnuty v analýze, protože jejich implementace je triviální.
-
-TODO: Finish
-
 \section{Závěr rešerše}
 
-Nejdůležitějším zjištění z rešerše je, které komponenty v ekosystému chybí a bylo by je vhodné implementovat.
-Zároveň je možné navázat na již existující práci v rámci Solid Aria knihovny, která má podobný cíl jako tato práce.
+Z rešerše vyplynulo, že ekosystém okolo Solid.js obsahuje několik knihoven, které řeší problematiku znovupoužitelných, přístupných komponent.
+Další kapitola se zaměří na analýzu chybějících komponent z \gls{apg} návrhových vzorů a zda je možné navázat na práci již existujících knihoven.
 

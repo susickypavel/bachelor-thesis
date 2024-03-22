@@ -5,6 +5,23 @@ V této kapitole se rozebírá vybrané řešení pro tuto práci.
 
 \section{Aktuální stav}
 
+Z rešerše vyplynulo, že Solid.js ekosystém má existující knihovny, které se snaží pokrýt problematiku znovupoužitelných knihoven.
+V rámci této sekce jsem se rozhodl provést rešerši, které komponenty z \gls{apg} návrhových vzorů chybí v rámci Solid.js ekosystému.
+V tabulce~\ref{tab:implemented-components} jsou vypsány všechny návrhové vzory z \gls{apg} a jejich stav existence ve vybraných knihovnách z Solid.js ekosystému.
+Z tabulky se lze dočíst, že z \gls{apg} chybí implementace 8 návrhových vzorů.
+
+\subsection{Navázání na existující knihovny}
+
+Z rešerše jsem se rozhodl navázat na existující knihovnu Solid Aria z následujících důvodů:
+
+\begin{itemize}
+    \item Solid Aria je knihovna primitiv pro Solid.js. Primitiva mají výhodu, že jejich flexibilita umožňuje vytvořit headless komponenty, které by se mohly přidat do Kobalte.
+    \item Vývoj Solid Aria je neaktivní narozdíl od Kobalte.
+    \item Solid Aria je port React Aria, což znamená, že práce na React Aria může být využita i zde.
+\end{itemize}
+
+\subsection{Výběr komponent pro implementaci}
+
 TODO
 
 \section{Funkční požadavky}
