@@ -210,6 +210,25 @@ Kromě specifikace widgetů obsahuje i další praktická doporučení mezi kter
   \item Používání strukturových rolí
 \end{itemize}
 
-% \section{Čtečky obrazovky}
+\section{Odečítače obrazovky}
 
-% TODO
+Odečítač obrazovky je software, který převádí textový a grafický obsah na zvukový výstup.
+Nejčastěji je používaný nevidomými uživateli, kteří tak mohou číst obsah na obrazovce zařízení.
+
+Mezi nejpoužívanější odečítače obrazovky patří~\cite{webaim-survey-2024}:
+
+\begin{enumerate}
+  \item JAWS\footnote{\url{https://www.freedomscientific.com/products/software/jaws}} na Windows (40.5\%)
+  \item NVDA\footnote{\url{https://www.nvaccess.org}} na Windows (37.7\%)
+  \item VoiceOver\footnote{\url{https://en.wikipedia.org/wiki/VoiceOver}} na MacOS (9.7\%)
+  \item Other (12.1\%)
+\end{enumerate}
+
+V rámci práce budu testovat komponenty s VoiceOver, protože s tímto odečítačem obrazovky mám nejvíce zkušeností a z rozsahu práce je nežádoucí testovat všechny populární odečítače.
+
+Důležitá poznámka k testování komponent pomocí odečítačů obrazovky je, že tyto testy zatím nejdou plně automatizovat.
+Je důležitá interpretace výstupu odečítače obrazovky člověkem, protože podobně jako ve vytváření uživatelských rozhraní je důležité jak uživatel chápe výstup aplikace.
+
+\section{Závěr kapitoly}
+
+TODO
