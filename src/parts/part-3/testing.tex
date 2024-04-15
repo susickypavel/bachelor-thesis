@@ -1,15 +1,37 @@
 \chapter{Testování}
 
-Tatola kapitola popisuje testování implementovaných komponent.
+Tato kapitola popisuje testování implementovaných komponent.
 
 \section{Jednotkové testy}
 
-TODO
+Jednotkové testy kontrolují logiku komponent, aby byla zaručena jejich správná implementace podle \gls{apg} návrhového vzoru.
+Zvolený \textit{runner}\footnote{Software, který spouští testy a generuje výsledek.} pro jednotkové testy je \fr{vitest}\footnote{\url{https://vitest.dev}} a k tomu další pomocné knihovny:
+
+\begin{enumerate}
+    \item \fr{@vitest/coverage-v8}\footnote{\url{https://vitest.dev/guide/coverage}} --- pro generování pokrytí kódu testy.
+    \item \fr{@vitest/ui}\footnote{\url{https://vitest.dev/guide/ui}} --- pro generování grafického zobrazení výsledků testů.
+    \item \fr{@testing-library/*}\footnote{\url{https://testing-library.com}} --- pro testování uživatelského rozhraní.
+    \item \fr{happy-dom}\footnote{\url{https://npmjs.com/package/happy-dom}} --- pro testování DOM interakcí bez prohlížeče.
+\end{enumerate}
+
+Cílem testů bylo pokrýt většinu požadavků z \gls{apg} návrhových vzorů, proto by pokrytí testů mělo být vysoké a u všech komponent přesahuje >90\% otestovaných řádků implementace\footnote{\url{https://susickypavel.github.io/solid-apg/coverage}}.
+
+% TODO: Odkázat se na testy, kde se to testuje, abych dokázal, že ty testy opravdu existují.
+
+Nejčastěji testovaná logika se týkala správného nastavení \gls{waiaria} atributů a klávesové navigace komponenty.
+Také byly testovány různé varianty vstupních argumentů a návratových hodnot.
 
 \section{Testování v prohlížeči}
 
-TODO
+Nefunkční požadavek \hyperref[nfr11]{\fr{NFR 1.1}} říká, že komponenty by neměly vyhazovat výjimky ve výše definovaných prohlížečích.
+Pro tento účel a nefunkční požadavek \hyperref[nfr15]{\fr{NFR 1.5}} vznikla demo aplikace, kde je možné implementované komponenty vyzkoušet\footnote{\url{https://solid-apg-app.vercel.app}}.
+V budoucnu bych chtěl zautomatizovat testování v prohlížeči pomocí \gls{e2e} testovacího nástroje \fr{playwright}\footnote{\url{https://playwright.dev}}.
+Z časových důvodů se \gls{e2e} testování nepodařilo implementovat v rámci této práce.
 
 \section{Testování s odečítačem obrazovky}
 
-TODO
+Nefunkční požadavek \hyperref[nfr12]{\fr{NFR 1.2}} říká, že by komponenty měly fungovat správně s odečítačem obrazovky VoiceOver na MacOS.
+Pro kontrolu, že implementace funguje správně jsem zvolil manuální testování v prohlížeči na bázi chromia\footnote{\url{https://chromium.org/chromium-projects}}.
+Jako referenční výsledek odečítače obrazovky jsem použil implementaci stejné komponenty z knihovny React Aria, která má velice dobrou podporu pro různé \textit{edge cases}.
+Takto vznikly dvě videa a to referenční řešení a manuální testování implementované komponenty, které se porovnaly a vyhodnotil se výsledek a případné nesrovnalosti byly vyřešeny v rámci implementace.
+Videa jsou dostupná v dokumentaci na stránce o vybrané komponentě\footnote{\url{https://solid-apg-docs.vercel.app}}.
