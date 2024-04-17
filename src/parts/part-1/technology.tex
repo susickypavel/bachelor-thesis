@@ -4,7 +4,7 @@ Tato kapitola představuje důležité technologie a přístupy použité v rám
 
 \section{Solid.js}
 
-Solid.js\footnote{\url{https://solidjs.com}} je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
+\fr{Solid.js}\footnote{\url{https://solidjs.com}} je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
 
 
 \subsection{Rozdíly}
@@ -20,7 +20,7 @@ Tento princip připomíná designový vzor \textit{observer}.
 \subsection{Rychlost}
 
 Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými \textit{frameworky}.
-Všechny metriky jsou vypočítané na příkladové aplikaci \gls{todomvc}\footnote{\url{https://todomvc.com}} implementované v daném frameworku, aby test byl spravedlivý.
+Všechny metriky jsou vypočítané na příkladové aplikaci \fr{\gls{todomvc}}\footnote{\url{https://todomvc.com}} implementované v daném frameworku, aby test byl spravedlivý.
 Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
 
 První metrika ``Operations'' je vážený geometrický průměr skóre všech operací nad příkladovou aplikací (např. vytvoření řádku, smazání řádku, vybraní řádku a další\dots).
@@ -159,7 +159,7 @@ Svelte od verze 5 má obdobný styl reaktivního modelu jako Solid.js, což vysv
 
 JavaScript je dynamicky typovaný jazyk, což se v praxi ukázalo jako těžkopádné při škálování velkých projektů.
 Postupem času vznikly různé nástroje a nadstavby nad samotným jazykem, které přidávají statické typování.
-Nástroje jako TypeScript\footnote{\url{https://typescriptlang.org}}, Flow\footnote{\url{https://flow.org}}, nebo ReasonML\footnote{\url{https://reasonml.github.io}} se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
+Nástroje jako \fr{TypeScript}\footnote{\url{https://typescriptlang.org}}, \fr{Flow}\footnote{\url{https://flow.org}}, nebo \fr{ReasonML}\footnote{\url{https://reasonml.github.io}} se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu.
 
