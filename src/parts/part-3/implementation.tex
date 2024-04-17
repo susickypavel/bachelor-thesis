@@ -27,6 +27,33 @@ Tento mechanismus lze použít pro vložení příkladové implementace komponen
 
 Další důvod pro výběr Astro knihovny je možnost použití \fr{MDX}\footnote{\url{https://mdxjs.com}} syntaxe pro psaní dokumentace, která kombinuje markdown syntaxi s \gls{jsx}.
 
+\begin{lstlisting}[caption={Ukázka použití headless knihovny}, label={component-distribution-2}, language=html]
+---
+title: Toolbar
+description: a primitive for creating a Toolbar component
+sidebar:
+    badge:
+        text: v0
+        variant: success
+---
+
+<Links github="https://example.com" />
+
+## Anatomy
+
+<Anatomy viewBox="0 0 64 64" alt="0" caption="Example">
+    <ToolbarAnatomy />
+</Anatomy>
+
+## API Reference
+
+<PropTable name="ToolbarArguments" />
+
+## Example
+
+<Toolbar client:idle />
+\end{lstlisting}
+
 \section{Demo aplikace}
 
 Důležitým aspektem pro demo aplikaci je co nejbližší simulace reálného prostředí, kde se komponenty budou používat.
