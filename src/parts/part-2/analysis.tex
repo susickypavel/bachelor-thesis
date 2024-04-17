@@ -23,17 +23,27 @@ Z rešerše jsem se rozhodl navázat na existující knihovnu Solid Aria z násl
 \subsection{Výběr komponent k implementaci}
 
 Pro úspěšný výsledek této práce je potřeba si definovat, které komponenty budou implementovány.
-Z tabulky~\ref{tab:implemented-components} vychází, že v ekosystému chybí 7 komponent.
-V rámci analýzy jsem vynechal některé komponenty, protože jejich implementace by byla triviální až zbytečná:
+Z tabulky~\ref{tab:implemented-components} vychází, že v ekosystému chybí 5 komponent.
+V rámci analýzy jsem vynechal některé komponenty, protože jejich implementace by byla triviální, zbytečná, nebo nepraktická:
 
 \begin{itemize}
       \item \textbf{Landmarks} --- Landmarks není komponenta, ale doporučení jak používat role pro popisování různých oblastí na webu.
-      \item \textbf{Table} --- Obsahuje hlavně poznatky k správnému použití HTML prvků. Neobsahuje složitou klávesovou či jinou logiku.
       \item \textbf{Link} --- Prohlížeče podporují správnou přístupnost.
+      \item \textbf{Table} --- Obsahuje hlavně poznatky k správnému použití HTML prvků. Neobsahuje složitou klávesovou či jinou logiku.
       \item \textbf{Window Splitter} --- Není zkontrolovaná specifikace.
 \end{itemize}
 
-TODO
+% TODO
+
+Z rozhodnutí navázat na Solid Aria knihovnu jsem se rozhodl zaměřit na komponenty, které zde chybí a často se vyskytují na webu.
+
+\begin{enumerate}
+      \item \textbf{Carousel}
+      \item \textbf{Disclosure}
+      \item \textbf{Feed}
+      \item \textbf{SpinButton}
+      \item \textbf{Toolbar}
+\end{enumerate}
 
 \section{Funkční požadavky}
 
