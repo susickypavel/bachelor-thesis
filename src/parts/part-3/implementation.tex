@@ -21,23 +21,23 @@ TODO
 \section{Dokumentace}
 
 Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad \fr{Astro}\footnote{\url{https://astro.build}} knihovnou.
-Astro je statický generátor stránek, který používá vlastní syntaxi pro vytváření komponent.
-Velkou výhodou je, že Astro umožňuje vnořit komponenty z jiných frameworků přímo na stránku bez použití \textit{iframe}.
+Astro je \gls{ssg}, který používá vlastní syntaxi pro vytváření komponent.
+Velkou výhodou je, že Astro umožňuje vnořit komponenty z jiných frameworků (React, Vue, Solid.js, Svelte a další) do Astro komponent bez použití \textit{iframe}.
 Tento mechanismus lze použít pro vložení příkladové implementace komponenty přímo na stránku s dokumentací a zjednodušit tak uživatelům pochopení a účel komponenty.
 
 Další důvod pro výběr Astro knihovny je možnost použití \fr{MDX}\footnote{\url{https://mdxjs.com}} syntaxe pro psaní dokumentace, která kombinuje markdown syntaxi s \gls{jsx}.
 
-\begin{lstlisting}[caption={Ukázka použití headless knihovny}, label={component-distribution-2}, language=html]
----
+\begin{lstlisting}[caption={Ukázka stránky dokumentace psané v MDX}, label={docs-page-example}, language=html]
+---(*@\label{docs-page-example-1}@*)
 title: Toolbar
 description: a primitive for creating a Toolbar component
 sidebar:
     badge:
         text: v0
         variant: success
----
+---(*@\label{docs-page-example-8}@*)
 
-<Links github="https://example.com" />
+<Links github="https://example.com" />(*@\label{docs-page-example-10}@*)
 
 ## Anatomy
 
@@ -47,12 +47,18 @@ sidebar:
 
 ## API Reference
 
-<PropTable name="ToolbarArguments" />
+<PropTable name="ToolbarArguments" />(*@\label{docs-page-example-20}@*)
 
 ## Example
 
-<Toolbar client:idle />
+<Toolbar client:idle />(*@\label{docs-page-example-24}@*)
 \end{lstlisting}
+
+Řádek \ref{docs-page-example-1} až \ref{docs-page-example-8} definuje tzv. \textit{frontmatter}, který obsahuje metadata o stránce jako je název a popis.
+Komponenta \fr{Links} (řádek \ref{docs-page-example-10}) je Astro komponenta, která zobrazuje odkazy na různé užitečné zdroje jako je zdrojový kód, \gls{apg} dokumentace dané komponenty, pokrytí kódu, nebo vygenerovaná typedoc dokumentace.
+Další užitečnou Astro komponentou je \fr{PropTable} (řádek \ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
+V neposlední řadě na řádku \ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
+Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
 
 \section{Demo aplikace}
 
