@@ -7,7 +7,7 @@ Tato kapitola popisuje implementaci dokumentace a komponent.
 
 Všechna logika komponenty je zapouzdřena v primitivní funkci.
 Tato funkce nese název \texttt{create*}, kde \texttt{*} je název komponenty.
-Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s následujícími klíči:
+Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s následujícími \textit{properties}:
 
 \begin{itemize}
     \item \textbf{props} --- objekt s ARIA a HTML atributy a \textit{event listeners}.
@@ -15,12 +15,12 @@ Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s násl
     \item \textbf{reference} --- některé komponenty potřebují referenci na přímý HTML element, který se v Solid.js předává pomocí proměnných\footnote{\url{https://solidjs.com/tutorial/bindings_refs}} a direktiv\footnote{\url{https://solidjs.com/tutorial/bindings_directives}}.
 \end{itemize}
 
-Některé komponenty (například \fr{SpinButton}) mají více HTML elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} klíčů (například buttonProps, rootProps).
+Některé komponenty (například \fr{SpinButton}) mají více HTML elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} properties (například buttonProps, rootProps).
+Při více \textbf{props} properties je potřeba navázat danou property na odpovídající HTML element, který je zmíněn v dokumentaci.
 
 Koncový uživatel tuto primitivní funkci zavolá v definici komponenty a předá jí všechny potřebné argumenty.
-Manuálně naváže \textbf{props} na HTML elementy, předá potřebné reference a využije \textbf{state} pro vykreslení stavu komponenty.
+Manuálně naváže \textbf{props} na HTML elementy, předá potřebné \textbf{reference} a využije \textbf{state} pro vykreslení stavu komponenty.
 Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad HTML strukturou komponenty a použitým CSS řešením.
-
 \clearpage
 
 \begin{lstlisting}[caption={Příklad implementace komponenty pomocí primitivní funkce}, label={implementation-example}, language=html]
@@ -50,7 +50,17 @@ Na řádku~\ref{docs-page-example-14} je ukázka využití vnitřního stavu kom
 
 \subsection{Adresářová struktura}
 
-TODO
+Každá komponenta má svůj adresář, který obsahuje všechny soubory týkající se její implementace:
+
+\vspace{11pt}
+
+\dirtree{%
+    .1 example.
+    .2 \textbf{example.spec.ts} (jednotkové testy).
+    .2 \textbf{example.ts} (logika komponenty).
+    .2 \textbf{index.ts} (barrel export z types.ts a example.ts).
+    .2 \textbf{types.ts} (definice typů pro komponentu).
+}
 
 \section{Carousel}
 
