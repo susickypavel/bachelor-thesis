@@ -2,6 +2,46 @@
 
 Tato kapitola popisuje implementaci dokumentace a komponent.
 
+\section{Struktura logiky}
+
+Všechna logika komponenty je zapouzdřena v primitivní funkci.
+Tato funkce nese název \texttt{create*}, kde \texttt{*} je název komponenty.
+Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s následujícími klíči:
+
+\begin{itemize}
+    \item \textbf{props} --- objekt s ARIA a HTML atributy a \textit{event listeners}.
+    \item \textbf{state} --- stav komponenty, většinou se jedná o vnitřní stav komponenty, který chceme vystavit uživateli komponenty.
+    \item \textbf{reference} --- některé komponenty potřebují referenci na přímý HTML element, který se v Solid.js předává pomocí proměnných\footnote{\url{https://solidjs.com/tutorial/bindings_refs}} a direktiv\footnote{\url{https://solidjs.com/tutorial/bindings_directives}}.
+\end{itemize}
+
+Některé komponenty (například \fr{SpinButton}) mají více HTML elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} klíčů (například buttonProps, rootProps).
+
+Koncový uživatel tuto primitivní funkci zavolá v definici komponenty a předá jí všechny potřebné argumenty.
+Manuálně naváže \textbf{props} na HTML elementy, předá potřebné reference a využije \textbf{state} pro vykreslení stavu komponenty.
+Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad HTML strukturou komponenty a použitým CSS řešením.
+
+\clearpage
+
+\begin{lstlisting}[caption={Příklad implementace komponenty pomocí primitivní funkce}, label={implementation-example}, language=html]
+import { createExample, type ExampleArgs } from "lib"
+import type { Component } from "solid-js";
+
+export const Example: Component<ExampleArgs> = (args) => {
+    const {
+        rootProps,
+        buttonProps,
+        state
+    } = createExample(args)
+
+    return (
+        <div {...rootProps}>
+            <button {...buttonProps}>Toggle</button>
+            {state.isVisible() ? <p>Content</p> : null}
+        </div>
+    )
+}
+\end{lstlisting}
+
 \section{Carousel}
 
 TODO
@@ -17,6 +57,8 @@ TODO
 \section{Toolbar}
 
 TODO
+
+\clearpage
 
 \section{Dokumentace}
 
@@ -54,10 +96,10 @@ sidebar:
 <Toolbar client:idle />(*@\label{docs-page-example-24}@*)
 \end{lstlisting}
 
-Řádek \ref{docs-page-example-1} až \ref{docs-page-example-8} definuje tzv. \textit{frontmatter}, který obsahuje metadata o stránce jako je název a popis.
-Komponenta \fr{Links} (řádek \ref{docs-page-example-10}) je Astro komponenta, která zobrazuje odkazy na různé užitečné zdroje jako je zdrojový kód, \gls{apg} dokumentace dané komponenty, pokrytí kódu, nebo vygenerovaná typedoc dokumentace.
-Další užitečnou Astro komponentou je \fr{PropTable} (řádek \ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
-V neposlední řadě na řádku \ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
+Řádek~\ref{docs-page-example-1} až~\ref{docs-page-example-8} definuje tzv. \textit{frontmatter}, který obsahuje metadata o stránce jako je název a popis.
+Komponenta \fr{Links} (řádek~\ref{docs-page-example-10}) je Astro komponenta, která zobrazuje odkazy na různé užitečné zdroje jako je zdrojový kód, \gls{apg} dokumentace dané komponenty, pokrytí kódu, nebo vygenerovaná typedoc dokumentace.
+Další užitečnou Astro komponentou je \fr{PropTable} (řádek~\ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
+V neposlední řadě na řádku~\ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
 Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
 
 \section{Demo aplikace}
