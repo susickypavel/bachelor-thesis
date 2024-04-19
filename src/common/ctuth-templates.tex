@@ -184,16 +184,21 @@
 		\clearpage
 		\ctutemplate{twocolumn.tableofcontents}
 		% The "loft" template is included only if at least one of the lists is enabled
-		\bool_if:nTF {
-			\ctuthesis_if_switch_p:n { front-list-of-figures }
-			|| \ctuthesis_if_switch_p:n { front-list-of-tables }
-		} {
-			\clearpage
-			\ctutemplate{twocolumn.loft}
-		} { }
-		\ctutemplate{twocolumn.glossary}
+		% \bool_if:nTF {
+		% 	\ctuthesis_if_switch_p:n { front-list-of-figures }
+		% 	|| \ctuthesis_if_switch_p:n { front-list-of-tables }
+		% } {
+
+		% 	\clearpage
+		% } { }
+		\clearpage
+		\ctutemplate{twocolumn.listoftables}
 		\newpage
+		\ctutemplate{twocolumn.listoffigures}
+		\clearpage
 		\ctutemplate{twocolumn.lols}
+		\newpage
+		\ctutemplate{twocolumn.glossary}
 	\end{twocolumnfrontmatterpage}
 }
 
