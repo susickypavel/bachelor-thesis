@@ -37,7 +37,7 @@ export const Example: Component<ExampleArgs> = (args) => {
     return (
         <div {...rootProps}>(*@\label{docs-page-example-12}@*)
             <button {...buttonProps}>Toggle</button>(*@\label{docs-page-example-13}@*)
-            {state.isVisible() ? <p>Content</p> : null}(*@\label{docs-page-example-14}@*)
+            {state.isVisible ? <p>Content</p> : null}(*@\label{docs-page-example-14}@*)
         </div>
     )
 }
