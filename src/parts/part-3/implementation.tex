@@ -76,7 +76,56 @@ TODO
 
 \section{Toolbar}
 
-TODO
+Stěžejní logikou komponenty \fr{Toolbar} je klávesová navigace.
+Zásadní je správné chování focusu, které jsem přejal z knihovny React Aria, které má robustní řešení s ohledem na různé druhy prohlížečů a kombinace odečítačů obrazovky.
+
+Přejaté soubory jsou popsané níže:
+
+\begin{itemize}
+    \item \textbf{dom-helpers.ts} --- Pomocné funkce pro získání správného \texttt{ownerDocument} a \texttt{ownerWindow} objektu z \gls{dom}.
+    \item \textbf{focus-safely.ts} --- Funkce pro přesun focusu na element bez vedlejších efektů pro odečítače obrazovky.
+    \item \textbf{focus-without-scrolling.ts} --- Funkce pro přesun focusu na element bez posunu stránky.
+    \item \textbf{focus.ts} --- Funkce pro přesun focusu v rámci elementu.
+    \item \textbf{interactions.ts} --- Kód, který detekuje jakým způsobem uživatel interaguje se stránkou (klávesnice, dotek, nebo virtualizované klikání)
+    \item \textbf{is-element-visible.ts} --- Funkce kontrolující zda je daný element viditelný.
+    \item \textbf{is-virtual-click.ts} --- Funkce detekující virtuální klikání.
+    \item \textbf{live-announcer.ts} --- Třída \texttt{LiveAnnouncer}, která přidává neviditelné elementy do \gls{dom} s oznámením změn pro odečítače obrazovky.
+    \item \textbf{platform.ts} --- Funkce pro detekci platformy na kterém běží kód. Slouží pro případnou korekci chování v různých prohlížečích.
+    \item \textbf{run-after-transition.ts} --- Funkce, která zavolá callback funkci jakmile skončí všechny přechody v rámci stránky.
+\end{itemize}
+
+Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef} pro předání reference za pomocí direktivy pokud nebyla reference předána jako druhý argument.
+První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
+
+\begin{lstlisting}[caption={Ukázka implementace Toolbar komponenty}, label={toolbar-example}, language=html]
+export const Toolbar: VoidComponent<Props> = (props) => {
+    const {
+        toolbarProps,
+        toolbarRef
+    } = createToolbar<HTMLDivElement>({
+        orientation: "horizontal"
+    });
+
+    return (
+        <div use:toolbarRef {...toolbarProps}>
+            <button onClick={() => alert("Bold")}>
+                Bold
+            </button>
+
+            <button onClick={() => alert("Italics")}>
+                Italics
+            </button>
+
+            <button disabled>
+                Underline
+            </button>
+        </div>
+    );
+};
+\end{lstlisting}
+
+Požadavek \hyperref[tfr11]{\fr{TFR 1.1}} je splněn pomocí \texttt{toolbarProps} objektu, který je předán na kořenový element komponenty.
+Kořenový element, tak může obsahovat libovolný počet \textit{children} objektů, které se skládají z focusovatelných elementů či subkomponent a oddělovačů obsahu.
 
 \clearpage
 
