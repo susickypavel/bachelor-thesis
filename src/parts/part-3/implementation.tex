@@ -67,15 +67,23 @@ TODO
 
 \section{Disclosure}
 
-TODO
+Požadavek na klávesovou navigaci \hyperref[ofr11]{\fr{OFR 1.1}} a otevírání/zavírání obsahu \hyperref[dfr11]{\fr{DFR 1.1}} je splněn pomocí primitivní funkce \texttt{createDisclosure}.
+Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{state} a nepovinně \texttt{id}.
+Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
-\subsection{Controlled vs Uncontrolled}
-
-TODO
+% \begin{itemize}
+%     \item \textbf{defaultVisible} --- Jestli má být obsah viditelný při prvním vykreslení (pro uncontrolled komponenty).
+%     \item \textbf{id} --- HTML id elementu, který je otevírán a zavírán.
+%     \item \textbf{isButtonElement} --- Tlačítko pro otevírání a zavírání obsahu nemusí být nutně HTML \texttt{button} element, ale pak je potřeba navázat správnou ARIA roli a další atributy pro správné fungování s odečítačem obrazovky.
+%     \item \textbf{isVisible} ---
+%     \item \textbf{onVisibilityChange} ---
+% \end{itemize}
 
 \section{SpinButton}
 
 TODO
+
+\clearpage
 
 \section{Toolbar}
 

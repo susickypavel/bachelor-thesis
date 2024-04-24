@@ -28,6 +28,24 @@ Typicky se skládá z tlačítka, které otevírá nebo zavírá obsah, a samotn
 
 Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit, že klávesové zkratky \texttt{Space}, nebo \texttt{Enter} mění stav otevření obsahu.
 
+\subsection{Controlled vs Uncontrolled}
+
+Pro splnění požadavku \hyperref[dfr12]{\fr{DFR 1.2}} je potřeba zajistit, že komponenta může být tzv. \textit{controlled} nebo \textit{uncontrolled}.
+Většina implementací je ve výchozím režimu uncontrolled, kdy je stav otevření obsahu řízen interním stavem komponenty.
+Druhou možností je, aby byla komponenta controlled, kdy je stav otevření obsahu řízen vnějším zdrojem.
+V Solid.js je toto řešení implementované pomocí props, kdy z vnějšku komponentě předáme náš vlastní stav, který je následně používaný na místo interního stavu.
+
+\begin{lstlisting}[caption={Ukázka primitivní funkce s vnějším stavem (controlled stav)}, label={disclosure-controlled-vs-uncontrolled}, language=html]
+const [open, setOpen] = createSignal(false);
+
+const { toggleProps } = createDisclosure({
+    isVisible: open,
+    onVisibilityChange(state) {
+        setOpen(state);
+    }
+});
+\end{lstlisting}
+
 \section{SpinButton}
 
 SpinButton je formulářová komponenta, která vymezuje rozsah diskrétních hodnot a typicky umožňuje uživateli změnit její hodnotu pomocí tlačítek snížit a navýšit, nebo alternativně skrze textový vstup.
