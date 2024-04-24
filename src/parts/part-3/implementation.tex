@@ -9,17 +9,17 @@ Tato funkce nese název \texttt{create*}, kde \texttt{*} je název komponenty.
 Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s následujícími \textit{properties}:
 
 \begin{itemize}
-    \item \textbf{props} --- objekt s ARIA a HTML atributy a \textit{event listeners}.
+    \item \textbf{props} --- objekt s ARIA a \gls{html} atributy a \textit{event listeners}.
     \item \textbf{state} --- stav komponenty, většinou se jedná o vnitřní stav komponenty, který chceme vystavit uživateli komponenty.
-    \item \textbf{reference} --- některé komponenty potřebují referenci na přímý HTML element, který se v Solid.js předává pomocí proměnných\footnote{\url{https://solidjs.com/tutorial/bindings_refs}} a direktiv\footnote{\url{https://solidjs.com/tutorial/bindings_directives}}.
+    \item \textbf{reference} --- některé komponenty potřebují referenci na přímý \gls{html} element, který se v Solid.js předává pomocí proměnných\footnote{\url{https://solidjs.com/tutorial/bindings_refs}} a direktiv\footnote{\url{https://solidjs.com/tutorial/bindings_directives}}.
 \end{itemize}
 
-Některé komponenty (například \fr{SpinButton}) mají více HTML elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} properties (například buttonProps, rootProps).
-Při více \textbf{props} properties je potřeba navázat danou property na odpovídající HTML element, který je zmíněn v dokumentaci.
+Některé komponenty (například \fr{SpinButton}) mají více \gls{html} elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} properties (například buttonProps, rootProps).
+Při více \textbf{props} properties je potřeba navázat danou property na odpovídající \gls{html} element, který je zmíněn v dokumentaci.
 
 Koncový uživatel tuto primitivní funkci zavolá v definici komponenty a předá jí všechny potřebné argumenty.
-Manuálně naváže \textbf{props} na HTML elementy, předá potřebné \textbf{reference} a využije \textbf{state} pro vykreslení stavu komponenty.
-Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad HTML strukturou komponenty a použitým CSS řešením.
+Manuálně naváže \textbf{props} na \gls{html} elementy, předá potřebné \textbf{reference} a využije \textbf{state} pro vykreslení stavu komponenty.
+Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad \gls{html} strukturou komponenty a použitým CSS řešením.
 \clearpage
 
 \begin{lstlisting}[caption={Příklad implementace komponenty pomocí primitivní funkce}, label={implementation-example}, language=html]

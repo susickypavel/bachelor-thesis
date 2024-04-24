@@ -12,17 +12,17 @@ Moderní internet je plný různorodého multimediálního obsahu a každý má 
 Mezi nejčastější a prozkoumané kategorie patří~\cite{w3-disabilities}:
 
 \begin{itemize}
-  \item \textbf{Vizuální} --- Barvoslepost, zhoršené vidění či úplná slepota.
-        Je důležité udržovat pravidla správného kontrastu barev a správné velikosti písma, nebo minimálně umožnit uživateli tyto hodnoty změnit.
-  \item \textbf{Sluchové} --- Částečně zhoršené slyšení, nebo úplná hluchota v jednom či obou uších.
-        Média, která využívají zvuk pro přenos informací je potřeba doplnit o možnosti změny hlasitosti, nebo doplnění o textový přepis či titulky.
-  \item \textbf{Motorické} --- Chybějící končetina, třes, zhoršená koordinace a paralýza.
-        Pro uživatele s motorickými postiženími je důležité mít přístupné ovládání pomocí klávesnice.
-        Uživatelé využívají alternativních zařízení pro manipulaci s obsahem webu jako jsou ergonomické příslušenství, ústní myš, trackbally a další.
-        Přístupnost přes klávesnici velice často pomáhá zmíněným zařízením fungovat dle potřeby uživatele.
-  \item \textbf{Kognitivní} --- Kognitivní potíže mohou zasáhnout některou část nervové soustavy člověka.
-        Ať už je to vnímaní informací, paměť, učení čí porozumění.
-        V kontextu webu je důležité informace prezentovat nejjednodušším, jasným způsobem a nechat uživatelům dostatek času na pochopení a reakci.
+    \item \textbf{Vizuální} --- Barvoslepost, zhoršené vidění či úplná slepota.
+          Je důležité udržovat pravidla správného kontrastu barev a správné velikosti písma, nebo minimálně umožnit uživateli tyto hodnoty změnit.
+    \item \textbf{Sluchové} --- Částečně zhoršené slyšení, nebo úplná hluchota v jednom či obou uších.
+          Média, která využívají zvuk pro přenos informací je potřeba doplnit o možnosti změny hlasitosti, nebo doplnění o textový přepis či titulky.
+    \item \textbf{Motorické} --- Chybějící končetina, třes, zhoršená koordinace a paralýza.
+          Pro uživatele s motorickými postiženími je důležité mít přístupné ovládání pomocí klávesnice.
+          Uživatelé využívají alternativních zařízení pro manipulaci s obsahem webu jako jsou ergonomické příslušenství, ústní myš, trackbally a další.
+          Přístupnost přes klávesnici velice často pomáhá zmíněným zařízením fungovat dle potřeby uživatele.
+    \item \textbf{Kognitivní} --- Kognitivní potíže mohou zasáhnout některou část nervové soustavy člověka.
+          Ať už je to vnímaní informací, paměť, učení čí porozumění.
+          V kontextu webu je důležité informace prezentovat nejjednodušším, jasným způsobem a nechat uživatelům dostatek času na pochopení a reakci.
 \end{itemize}
 
 Mezi další kategorie postižení patří například poruchy řeči, ale v kontextu této práce se jimi nebudu zabývat, neboť nejsou relevantní pro tvorbu znovupoužitelných komponent.
@@ -37,14 +37,14 @@ WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na web
 
 \section{WAI-ARIA}
 
-\gls{waiaria}\footnote{\url{https://www.w3.org/TR/wai-aria}} je technická specifikace, která rožšiřuje webové technologie (HTML, JavaScript, Ajax) o ontologii atributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
+\gls{waiaria}\footnote{\url{https://www.w3.org/TR/wai-aria}} je technická specifikace, která rožšiřuje webové technologie \gls{html} a JavaScript o ontologii atributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
 Zmíněné atributy umožňují asistivním technologiím (například čtečky obrazovky) předat uživatelům význam a podrobnější informace o elementech, které se nachází na daném webu a tím jim pomoci s pochopením a manipulací obsahu stránky.
 
 \subsection{ARIA role}
 
-Role slouží k přidání sémantického významu HTML elementům tak, aby nevidomí či uživatelé s jinou formou postižení dokázali pochopit účel daného elementu.
+Role slouží k přidání sémantického významu \gls{html} elementům tak, aby nevidomí či uživatelé s jinou formou postižení dokázali pochopit účel daného elementu.
 
-Některé HTML elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
+Některé \gls{html} elementy mohou mít svůj sémantický význam i bez použití rolí~\cite{wai-implicit-semantics}.
 Například \textit{button} element se používá pro interaktivní tlačítka a je vhodnější jej použít namísto nesémantického divu s rolí button.
 
 \clearpage
@@ -88,7 +88,7 @@ Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatel
 \subsection{ARIA vlastnosti}
 
 Vlastnosti jsou podobné stavům.
-Jedná se o HTML atributy jejichž primárním účelem je dodání více informací o daném elementu.
+Jedná se o \gls{html} atributy jejichž primárním účelem je dodání více informací o daném elementu.
 Rozdíl oproti stavům vychází z četnosti změn, kde u stavů se předpokládá častá změna v životním cyklu stránky, která vede na upozornění uživatele.
 Oproti tomu vlastnosti se mění jenom zřídka~\cite[sekce 6.1]{wai-aria}.
 
@@ -122,9 +122,9 @@ Pokud web splňuje všechna kritéria dané úrovně, tak se označuje jako př�
 \gls{wcag} definuje tři úrovně přístupnosti~\cite[Sekce 5.2.1]{wcag}:
 
 \begin{enumerate}
-  \item \textbf{Úroveň A} --- Jedná se o minimální úroveň zajišťují základní ovladatelnost a funkcionalitu webu pro uživatele s postižením.
-  \item \textbf{Úroveň AA} --- Obsahuje všechna kritéria úrovně A
-  \item \textbf{Úroveň AAA} --- Obsahuje všechna kritéria úrovně A a AA
+    \item \textbf{Úroveň A} --- Jedná se o minimální úroveň zajišťují základní ovladatelnost a funkcionalitu webu pro uživatele s postižením.
+    \item \textbf{Úroveň AA} --- Obsahuje všechna kritéria úrovně A
+    \item \textbf{Úroveň AAA} --- Obsahuje všechna kritéria úrovně A a AA
 \end{enumerate}
 
 Weby úrovně A obsahují nezbytnou funkcionalitu a přístupnost pro základní používání.
@@ -152,9 +152,9 @@ Společně s odečítači obrazovky tvoří základní výbavu pro nevidomé už
 Přístupný web by měl splňovat základní pravidla pro optimální ovládaní klávesnicí~\cite{wcag-keyboard}:
 
 \begin{itemize}
-  \item Všechny funkcionality a interakce dostupné pomocí počítačové myši jsou dostupné i skrze klávesnici.
-  \item Všechny funkcionality a interakce nevyžadují stisk kláves v definovaném pořadí pokud to nevyžaduje povaha vstupu.
-  \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
+    \item Všechny funkcionality a interakce dostupné pomocí počítačové myši jsou dostupné i skrze klávesnici.
+    \item Všechny funkcionality a interakce nevyžadují stisk kláves v definovaném pořadí pokud to nevyžaduje povaha vstupu.
+    \item Nedochází k uváznutí focusu v jakékoliv sekci stránky.
 \end{itemize}
 
 \subsection{Ovládání pomocí dotyku}
@@ -168,8 +168,8 @@ Dle přednášky Iva Malého z kurzu principy mobilních aplikací rozdělujeme 
 Mezi základní pravidla pro optimalizaci interakce za pomocí dotyku patří:
 
 \begin{itemize}
-  \item Gesta nevyžadují přesnost, nebo je k dispozici alternativní způsob ovládání~\cite{wcag-pointer-gestures}.
-  \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
+    \item Gesta nevyžadují přesnost, nebo je k dispozici alternativní způsob ovládání~\cite{wcag-pointer-gestures}.
+    \item Interaktivní prvky jsou dostatečně velké pro dotyk prstem~\cite{wcag-target-size}.
 \end{itemize}
 
 \subsection{Ostatní způsoby interakce}
@@ -178,8 +178,8 @@ Kromě myši a klávesnice existují další způsoby interakce mezi které pat�
 Výčet důležitých pravidel pro optimalizaci interakce za pomocí těchto způsobů~\cite{w3-accessibility-principles}:
 
 \begin{itemize}
-  \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtení pomocí odečítačů obrazovky a hlasovému zadávání.
-  \item Uživatelé mají možnost pozastavit, prodloužit, nebo upravit časové limity pro interakci.
+    \item Popisky interaktivních prvků jsou řádně propojeny v kódu pro korektní čtení pomocí odečítačů obrazovky a hlasovému zadávání.
+    \item Uživatelé mají možnost pozastavit, prodloužit, nebo upravit časové limity pro interakci.
 \end{itemize}
 
 \subsection{Dostatek času na interakci}
@@ -195,18 +195,18 @@ Nejčastěji je používaný nevidomými uživateli, kteří tak mohou číst ob
 Mezi nejpoužívanější odečítače obrazovky patří~\cite{webaim-survey-2024}:
 
 \begin{enumerate}
-  \item JAWS\footnote{\url{https://www.freedomscientific.com/products/software/jaws}} na Windows (40.5\%)
-  \item NVDA\footnote{\url{https://www.nvaccess.org}} na Windows (37.7\%)
-  \item VoiceOver\footnote{\url{https://en.wikipedia.org/wiki/VoiceOver}} na MacOS (9.7\%)
-  \item Other (12.1\%)
+    \item JAWS\footnote{\url{https://www.freedomscientific.com/products/software/jaws}} na Windows (40.5\%)
+    \item NVDA\footnote{\url{https://www.nvaccess.org}} na Windows (37.7\%)
+    \item VoiceOver\footnote{\url{https://en.wikipedia.org/wiki/VoiceOver}} na MacOS (9.7\%)
+    \item Other (12.1\%)
 \end{enumerate}
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[max size={\linewidth}{\textheight}]{./assets/figures/screen-reader-trend.png}
-  \captionsetup{justification=centering}
-  \caption[Trend používání populárních odečítačů obrazovky]{Trend používání populárních odečítačů obrazovky~\cite{webaim-survey-2024}}
-  \label{fig:}
+    \centering
+    \includegraphics[max size={\linewidth}{\textheight}]{./assets/figures/screen-reader-trend.png}
+    \captionsetup{justification=centering}
+    \caption[Trend používání populárních odečítačů obrazovky]{Trend používání populárních odečítačů obrazovky~\cite{webaim-survey-2024}}
+    \label{fig:}
 \end{figure}
 
 V rámci práce budu testovat komponenty s VoiceOver, protože s tímto odečítačem obrazovky mám nejvíce zkušeností a z rozsahu práce a časové dotace je testování všech populárních odečítačů nemožné.
@@ -221,9 +221,9 @@ Každý widget má svoji vlastní stránku s popisem, účelem, klávesovou navi
 Kromě specifikace widgetů obsahuje i další praktická doporučení mezi která patří~\cite{apg}:
 
 \begin{itemize}
-  \item Používání orientačních bodů na stránce
-  \item Používání přístupných názvu a popisků pro elementy
-  \item Používání strukturovaných rolí
+    \item Používání orientačních bodů na stránce
+    \item Používání přístupných názvu a popisků pro elementy
+    \item Používání strukturovaných rolí
 \end{itemize}
 
 \gls{apg} je praktickým zdrojem pro tvorbu přístupných komponent, protože jsou zde popsány důležité informace jako použité role, vlastnosti, stavy z \gls{waiaria}.
@@ -235,8 +235,8 @@ Tato kapitola popsala principy přístupnosti na webu a její základní mechani
 Výčet důležitých poznatků pro další části práce je následující:
 
 \begin{itemize}
-  \item Vlastnosti, stavy a role z \gls{waiaria} jsou důležitou součástí přístupných rozhraní.
-  \item Návrhové vzory z \gls{apg} jsou praktickým zdrojem pro tvorbu přístupných komponent.
-  \item Je důležité neopomíjet alternativní způsoby ovládání.
-  \item Testování čteček obrazovky bude provedeno pomocí VoiceOver na MacOS.
+    \item Vlastnosti, stavy a role z \gls{waiaria} jsou důležitou součástí přístupných rozhraní.
+    \item Návrhové vzory z \gls{apg} jsou praktickým zdrojem pro tvorbu přístupných komponent.
+    \item Je důležité neopomíjet alternativní způsoby ovládání.
+    \item Testování čteček obrazovky bude provedeno pomocí VoiceOver na MacOS.
 \end{itemize}

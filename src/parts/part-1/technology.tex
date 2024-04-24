@@ -30,17 +30,17 @@ Druhá metrika ``Transferred size'' je vážený geometrický průměr skóre p�
 Poslední metrika ``Memory allocation'' je vážený geometrický průměr skóre využití paměti.
 
 \begin{table}[ht]
-      \begin{ctucolortab}
-            \begin{tabular}{c c c c c}
-                  \bfseries Metrika & \bfseries{Solid 1.8.0} & \bfseries{Svelte 5} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
-                  Operations        & \textbf{1.08}          & 1.08                & 1.24                 & 1.53                    \\
-                  Transferred size  & \textbf{2.29}          & 3.04                & 7.16                 & 15.32                   \\
-                  Memory allocation & \textbf{1.45}          & 1.52                & 2.13                 & 2.81
-            \end{tabular}
-      \end{ctucolortab}
-      \captionsetup{justification=centering}
-      \caption[Porovnání rychlosti Solid.js s populárními frameworky.]{Porovnání rychlosti Solid.js s populárními frameworky. \newline Zdroj: Data převzata od Stefana Krause~\cite{krausest120,krausest122}.}
-      \label{tab:technology1}
+    \begin{ctucolortab}
+        \begin{tabular}{c c c c c}
+            \bfseries Metrika & \bfseries{Solid 1.8.0} & \bfseries{Svelte 5} & \bfseries{Vue 3.3.6} & \bfseries{React 18.2.0} \\\Midrule{}
+            Operations        & \textbf{1.08}          & 1.08                & 1.24                 & 1.53                    \\
+            Transferred size  & \textbf{2.29}          & 3.04                & 7.16                 & 15.32                   \\
+            Memory allocation & \textbf{1.45}          & 1.52                & 2.13                 & 2.81
+        \end{tabular}
+    \end{ctucolortab}
+    \captionsetup{justification=centering}
+    \caption[Porovnání rychlosti Solid.js s populárními frameworky.]{Porovnání rychlosti Solid.js s populárními frameworky. \newline Zdroj: Data převzata od Stefana Krause~\cite{krausest120,krausest122}.}
+    \label{tab:technology1}
 \end{table}
 
 Z výsledku \textit{benchmarku} můžeme vidět, že Solid.js obdobně jako Svelte je velice blízko 1, tedy je jenom o 8\% pomalejší než nejrychlejší implementace.
@@ -162,10 +162,10 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
 \section{Distribuce komponent}
 
 \begin{itemize}
-      \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale HTML kód komponent je téměř vždy neměnitelný.
-            Hodně se stává, že vývojáři potřebují odlišnou HTML strukturu než je dána.
-            Častým případem je právě řešení přístupnosti, kdy je potřeba přidat elementy navíc do komponenty pro např. správné fungování čteček obrazovky.
-            \begin{lstlisting}[caption={Ukázka použití komponentové knihovny}, label={component-distribution}, language=html]
+    \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale \gls{html} kód komponent je téměř vždy neměnitelný.
+          Hodně se stává, že vývojáři potřebují odlišnou \gls{html} strukturu než je dána.
+          Častým případem je právě řešení přístupnosti, kdy je potřeba přidat elementy navíc do komponenty pro např. správné fungování čteček obrazovky.
+          \begin{lstlisting}[caption={Ukázka použití komponentové knihovny}, label={component-distribution}, language=html]
 import { Button } from "component-library"
 
 export const Dashboard = () => {
@@ -176,21 +176,21 @@ export const Dashboard = () => {
       )
 }
 \end{lstlisting}
-      \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
-            Zde můžeme rozlišit dvě různé úrovně \textit{headless} komponent.
-            \begin{itemize}
-                  \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným kódem komponenty.
-                        Ovšem HTML struktura v jednotlivých prvcích komponent není stále plně flexibilní.
-                  \item Exportující pouze logiku v podobě ``primitiv''. V Reactu se jedná o ``custom hooks'', ve Vue ``composition utilities'', ve Svelte to jsou prosté funkce, které pracují s reaktivními proměnnými a obdobně i ve Solid.js.\label{technology:dist}
-            \end{itemize}
-      \item \textbf{Copy and paste} není klasická knihovna.
-            Tato varianta vznikla jako reakce na headless komponenty a primitiva.
-            Jedná se o způsob distribuce komponent, kde konzumenti si zkopírují předpis komponenty.
-            Využívá tak existujících headless komponent, nebo UI primitiv.
-            Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
-            Zároveň má konzument plnou kontrolu nad kódem komponenty.
-            Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
-            Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
+    \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
+          Zde můžeme rozlišit dvě různé úrovně \textit{headless} komponent.
+          \begin{itemize}
+              \item Exportující jednotlivé prvky komponenty, konzument tak má větší kontrolu nad výsledným kódem komponenty.
+                    Ovšem \gls{html} struktura v jednotlivých prvcích komponent není stále plně flexibilní.
+              \item Exportující pouze logiku v podobě ``primitiv''. V Reactu se jedná o ``custom hooks'', ve Vue ``composition utilities'', ve Svelte to jsou prosté funkce, které pracují s reaktivními proměnnými a obdobně i ve Solid.js.\label{technology:dist}
+          \end{itemize}
+    \item \textbf{Copy and paste} není klasická knihovna.
+          Tato varianta vznikla jako reakce na headless komponenty a primitiva.
+          Jedná se o způsob distribuce komponent, kde konzumenti si zkopírují předpis komponenty.
+          Využívá tak existujících headless komponent, nebo UI primitiv.
+          Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
+          Zároveň má konzument plnou kontrolu nad kódem komponenty.
+          Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
+          Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
 
 \begin{lstlisting}[caption={Ukázka použití headless knihovny}, label={component-distribution-2}, language=html]
@@ -234,11 +234,11 @@ Copy and paste přístup je nejvýhodnější, pokud chceme to nejlepší ze vš
 Flexibilitu headless komponent případně UI primitiv a zároveň rychlost vývoji jako při použití knihovny komponent.
 
 \begin{figure}[h]
-      \centering
-      \includegraphics[width=\textwidth]{./assets/figures/component-lib-distribution-comparison.png}
-      \captionsetup{justification=centering}
-      \caption{Diagram abstrakce a flexibility různých přístupu k distribuci komponent}
-      \label{component-lib-distribution-comparison}
+    \centering
+    \includegraphics[width=\textwidth]{./assets/figures/component-lib-distribution-comparison.png}
+    \captionsetup{justification=centering}
+    \caption{Diagram abstrakce a flexibility různých přístupu k distribuci komponent}
+    \label{component-lib-distribution-comparison}
 \end{figure}
 
 \section{Astro}
@@ -261,10 +261,10 @@ Taková knihovna může poté sloužit jako základ pro tvorbu designových syst
 Solid.js knihovnu jsem zvolil ze dvou důvodů:
 
 \begin{enumerate}
-      \item Její ekosystém knihoven je stále v raných fázích a podobná knihovna respektive její části zde chybí.
-      \item Knihovna solid.js má jisté vlastnosti, které ji odlišují od ostatních knihoven.
-            Její reaktivní model je unikátní a přináší obrovské výhody z hlediska \textit{performance} na webu.
-            Tato knihovna má potenciál optimalizovat a zlepšit uživatelská rozhraní.
+    \item Její ekosystém knihoven je stále v raných fázích a podobná knihovna respektive její části zde chybí.
+    \item Knihovna solid.js má jisté vlastnosti, které ji odlišují od ostatních knihoven.
+          Její reaktivní model je unikátní a přináší obrovské výhody z hlediska \textit{performance} na webu.
+          Tato knihovna má potenciál optimalizovat a zlepšit uživatelská rozhraní.
 \end{enumerate}
 
 TypeScript je velice důležitý pro nové knihovny, neboť usnadňuje budoucí údržbu kódu a vývojářskou přívětivost.
