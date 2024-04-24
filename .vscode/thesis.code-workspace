@@ -10,6 +10,18 @@
 		"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/.build",
 		"latex-workshop.linting.chktex.enabled": true,
 		"latex-workshop.linting.run": "onSave",
-		"cSpell.language": "en,cs"
+		"cSpell.language": "en,cs",
+		"cSpell.words": [
+			"Carniatem",
+			"focusovatelných",
+			"focusu",
+			"frameworků",
+			"frameworky",
+			"frontmatter",
+			"odečítače",
+			"odečítačů",
+			"Ryanem",
+			"typedoc"
+		]
 	}
 }
