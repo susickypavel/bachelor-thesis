@@ -68,16 +68,53 @@ TODO
 \section{Disclosure}
 
 Požadavek na klávesovou navigaci \hyperref[ofr11]{\fr{OFR 1.1}} a otevírání/zavírání obsahu \hyperref[dfr11]{\fr{DFR 1.1}} je splněn pomocí primitivní funkce \texttt{createDisclosure}.
-Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{state} a nepovinně \texttt{id}.
+Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{contentProps} a \texttt{state}.
 Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
-% \begin{itemize}
-%     \item \textbf{defaultVisible} --- Jestli má být obsah viditelný při prvním vykreslení (pro uncontrolled komponenty).
-%     \item \textbf{id} --- HTML id elementu, který je otevírán a zavírán.
-%     \item \textbf{isButtonElement} --- Tlačítko pro otevírání a zavírání obsahu nemusí být nutně HTML \texttt{button} element, ale pak je potřeba navázat správnou ARIA roli a další atributy pro správné fungování s odečítačem obrazovky.
-%     \item \textbf{isVisible} ---
-%     \item \textbf{onVisibilityChange} ---
-% \end{itemize}
+\begin{table}[ht]
+    \begin{ctucolortab}\label{table:disclosure-params}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název             & \bfseries Datový typ & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{defaultVisible}     & \texttt{boolean}     & \texttt{false}            \\
+            \texttt{id}                 & \texttt{string}      & ---                       \\
+            \texttt{isButtonElement}    & \texttt{boolean}     & \texttt{false}            \\
+            \texttt{isVisible}          & \texttt{boolean}     & ---                       \\
+            \texttt{onVisibilityChange} & \texttt{Function}    & ---
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Parametry pro primitivní funkci createDisclosure}
+\end{table}
+
+Z ukázky kódu~\ref{disclosure-controlled-vs-uncontrolled} je patrné, že \texttt{isVisible} a \texttt{onVisibilityChange} slouží pro řízení stavu komponenty z vnějšku (komponenta typu controlled), jinak je komponenta uncontrolled.
+Pro případ uncontrolled komponent slouží property \texttt{defaultVisible} pro změnu výchozího zobrazení obsahu.
+
+Property \texttt{isButtonElement} je určena pro případ, kdy element pro otevírání a zavírání obsahu není \texttt{button} a je potřeba přidat správnou ARIA roli a další atributy pro správnou interpretaci odečítači obrazovky.
+
+V neposlední řadě property \texttt{id} slouží pro definování vlastního identifikátoru elementu s obsahem.
+Ve výchozím stavu je identifikátor generován automaticky pomocí \texttt{createUniqueId}\footnote{\url{https://docs.solidjs.com/reference/component-apis/create-unique-id}}.
+
+\clearpage
+
+\begin{lstlisting}[caption={Ukázka implementace Disclosure komponenty}, label={disclosure-example}, language=html]
+const Disclosure: VoidComponent<Props> = (props) => {
+    const {
+        toggleProps,
+        contentProps,
+        state
+    } = createDisclosure();
+
+    return (
+        <div>
+            <button {...toggleProps}>Toggle</button>
+            {state.isVisible ? (
+                <div {...contentProps}>
+                    {props.children}
+                </div>
+            ) : null}
+        </div>
+    );
+};
+\end{lstlisting}
 
 \section{SpinButton}
 
@@ -109,7 +146,7 @@ Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která
 První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
 
 \begin{lstlisting}[caption={Ukázka implementace Toolbar komponenty}, label={toolbar-example}, language=html]
-export const Toolbar: VoidComponent<Props> = (props) => {
+const Toolbar: VoidComponent<Props> = (props) => {
     const {
         toolbarProps,
         toolbarRef
