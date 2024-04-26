@@ -72,7 +72,8 @@ Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{contentProp
 Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
 \begin{table}[ht]
-    \begin{ctucolortab}\label{table:disclosure-params}
+    \label{table:disclosure-params}
+    \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{X X X}
             \bfseries Název             & \bfseries Datový typ & \bfseries Výchozí hodnota \\\Midrule{}
             \texttt{defaultVisible}     & \texttt{boolean}     & \texttt{false}            \\
@@ -85,7 +86,7 @@ Funkce má jeden parametr, kterým je objekt s následujícími properties:
     \caption{Parametry primitivní funkce createDisclosure}
 \end{table}
 
-Z ukázky kódu~\ref{disclosure-controlled-vs-uncontrolled} je patrné, že \texttt{isVisible} a \texttt{onVisibilityChange} slouží pro řízení stavu komponenty z vnějšku (komponenta typu controlled), jinak je komponenta uncontrolled.
+Z ukázky kódu~\ref{disclosure-controlled-vs-uncontrolled} je patrné, že \texttt{isVisible} a \texttt{onVisibilityChange} properties slouží pro řízení stavu komponenty z vnějšku (komponenta typu controlled), jinak je komponenta uncontrolled.
 Pro případ uncontrolled komponent slouží property \texttt{defaultVisible} pro změnu výchozího zobrazení obsahu.
 
 Property \texttt{isButtonElement} je určena pro případ, kdy element pro otevírání a zavírání obsahu není \texttt{button} a je potřeba přidat správnou ARIA roli a další atributy pro správnou interpretaci odečítači obrazovky.
@@ -130,7 +131,7 @@ Zásadní je správné chování focusu, které jsem přejal z knihovny React Ar
 Přejaté soubory jsou popsané níže:
 
 \begin{itemize}
-    \item \textbf{dom-helpers.ts} --- Pomocné funkce pro získání správného \texttt{ownerDocument} a \texttt{ownerWindow} objektu z \gls{dom}.
+    \item \textbf{dom-helpers.ts} --- Pomocné funkce pro získání správného \texttt{ownerWindow} a \texttt{ownerDocument} objektů z \gls{dom}.
     \item \textbf{focus-safely.ts} --- Funkce pro přesun focusu na element bez vedlejších efektů pro odečítače obrazovky.
     \item \textbf{focus-without-scrolling.ts} --- Funkce pro přesun focusu na element bez posunu stránky.
     \item \textbf{focus.ts} --- Funkce pro přesun focusu v rámci elementu.
@@ -144,6 +145,8 @@ Přejaté soubory jsou popsané níže:
 
 Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef} pro předání reference za pomocí direktivy pokud nebyla reference předána jako druhý argument.
 První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
+
+\clearpage
 
 \begin{lstlisting}[caption={Ukázka implementace Toolbar komponenty}, label={toolbar-example}, language=html]
 const Toolbar: VoidComponent<Props> = (props) => {
@@ -176,6 +179,11 @@ Požadavek \hyperref[tfr11]{\fr{TFR 1.1}} je splněn pomocí \texttt{toolbarProp
 Kořenový element, tak může obsahovat libovolný počet \textit{children} objektů, které se skládají z focusovatelných elementů či subkomponent a oddělovačů obsahu.
 
 \clearpage
+
+\section{Tooltip}
+
+TODO
+
 
 \section{Dokumentace}
 
