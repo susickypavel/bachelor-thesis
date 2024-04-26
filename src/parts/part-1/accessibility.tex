@@ -128,13 +128,28 @@ Pokud web splňuje všechna kritéria dané úrovně, tak se označuje jako př�
 \end{enumerate}
 
 Weby úrovně A obsahují nezbytnou funkcionalitu a přístupnost pro základní používání.
-Všechny webové stránky i aplikace by měly splňovat alespoň tuto úroveň, ale v praxi WCAG doporučuje alespoň úroveň AA.
+Všechny webové stránky i aplikace by měly splňovat alespoň tuto úroveň, ale v praxi \gls{wcag} doporučuje alespoň úroveň AA.
 Rozdíl mezi úrovněmi jsou dohledatelné na referenční stránce provozované \gls{wai}.
 Obecně se dá říci, že každá úroveň přináší více funkcí pro uživatele a jednoduchost používání.
 Nejzákladnější funkce jako je ovládání klávesnicí, přístupnost formulářových prvků, ukazatele chyb a další jsou v úrovni A, protože to jsou nejčastější problémy se kterými se může uživatel setkat.
 Každá úroveň přináší kritéria, která jsou těžší na splnění, ale také se méně často vyskytují, protože existují alternativní varianty implementace stejné funkcionality.
 
 Úroveň AAA je nejvyšší možná úroveň přístupnosti, ale v praxi složitá na splnění, proto \gls{wcag} doporučuje se k této úrovni alespoň přiblížit.
+
+\section{APG}
+
+\gls{apg}\footnote{\url{https://www.w3.org/WAI/ARIA/apg}} je soubor nejčastějších návrhových vzorů a \textit{widgetů}\footnote{V kontextu této práce je widget to samé jako komponenta} vyskytujících se na webu.
+Každý widget má svoji vlastní stránku s popisem, účelem, klávesovou navigací a používanými atributy, rolemi a stavy z \gls{waiaria}.
+Kromě specifikace widgetů obsahuje i další praktická doporučení mezi která patří~\cite{apg}:
+
+\begin{itemize}
+    \item Používání orientačních bodů na stránce
+    \item Používání přístupných názvu a popisků pro elementy
+    \item Používání strukturovaných rolí
+\end{itemize}
+
+\gls{apg} je praktickým zdrojem pro tvorbu přístupných komponent, protože jsou zde popsány důležité informace jako použité role, vlastnosti, stavy z \gls{waiaria}.
+Jsou zde i doporučení pro klávesovou navigaci a obecné informace o tom, jak by komponenta měla být použita.
 
 \section{Základní principy přístupnosti}
 
@@ -213,21 +228,6 @@ V rámci práce budu testovat komponenty s VoiceOver, protože s tímto odečít
 
 Důležitá poznámka k testování komponent pomocí odečítačů obrazovky je, že tyto testy zatím nejdou plně automatizovat.
 Je důležitá interpretace výstupu odečítače obrazovky člověkem, protože podobně jako ve vytváření uživatelských rozhraní je důležité jak uživatel chápe výstup aplikace.
-
-\section{APG}
-
-\gls{apg}\footnote{\url{https://www.w3.org/WAI/ARIA/apg}} je soubor nejčastějších návrhových vzorů a \textit{widgetů}\footnote{V kontextu této práce je widget to samé jako komponenta} vyskytujících se na webu.
-Každý widget má svoji vlastní stránku s popisem, účelem, klávesovou navigací a používanými atributy, rolemi a stavy z \gls{waiaria}.
-Kromě specifikace widgetů obsahuje i další praktická doporučení mezi která patří~\cite{apg}:
-
-\begin{itemize}
-    \item Používání orientačních bodů na stránce
-    \item Používání přístupných názvu a popisků pro elementy
-    \item Používání strukturovaných rolí
-\end{itemize}
-
-\gls{apg} je praktickým zdrojem pro tvorbu přístupných komponent, protože jsou zde popsány důležité informace jako použité role, vlastnosti, stavy z \gls{waiaria}.
-Jsou zde i doporučení pro klávesovou navigaci a obecné informace o tom, jak by komponenta měla být použita.
 
 \section{Závěr kapitoly}
 
