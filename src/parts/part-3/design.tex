@@ -45,9 +45,17 @@ SpinButton je formulářová komponenta, která vymezuje rozsah diskrétních ho
     \caption{Low-fidelity wireframe komponenty SpinButton}
 \end{figure}
 
+Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} a \hyperref[sfr12]{\fr{SFR 1.2}} je potřeba splnit následující podmínky:
+
+\begin{enumerate}
+    \item Šipky nahoru a dolů zvýší, respektive sníží hodnotu o jedna.
+    \item Klávesy \texttt{PageUp} a \texttt{PageDown} zvýší, respektive sníží hodnotu o vybraný krok.
+    \item Klávesy \texttt{Home} a \texttt{End} nastaví hodnotu na minimum, respektive maximum.
+\end{enumerate}
+
 \section{Toolbar}
 
-Toolbar je strukturní komponenta, která obsahuje skupinu focusovatelných elementů.
+Toolbar je strukturální komponenta, která obsahuje skupinu focusovatelných elementů.
 
 \begin{figure}[htp]
     \centering
@@ -70,7 +78,7 @@ Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba splnit násl
 
 \section{Tooltip}
 
-TODO
+Tooltip je komponenta, která zobrazí nápovědu u vybraného elementu (nejčastěji se bude jednat o interaktivní element) po najetí myši, nebo při předání focusu na daný element (viz funkční požadavek \hyperref[tlfr11]{\fr{TLFR 1.1}}).
 
 \begin{figure}[htp]
     \centering
@@ -78,6 +86,8 @@ TODO
     \captionsetup{justification=centering}
     \caption{Low-fidelity wireframe komponenty Tooltip}
 \end{figure}
+
+Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit jedinou klávesovou interakci pomocí klávesy \texttt{Escape}, která uzavře obsah pokud je zobrazený.
 
 \section{Dokumentace}
 
