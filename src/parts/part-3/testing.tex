@@ -32,6 +32,7 @@ Z časových důvodů se \gls{e2e} testování nepodařilo implementovat v rámc
 
 Nefunkční požadavek \hyperref[nfr12]{\fr{NFR 1.2}} říká, že by komponenty měly fungovat správně s odečítačem obrazovky VoiceOver na MacOS.
 Pro kontrolu, že implementace funguje správně jsem zvolil manuální testování v prohlížeči na bázi chromia\footnote{\url{https://chromium.org/chromium-projects}}.
-Jako referenční výsledek odečítače obrazovky jsem použil implementaci stejné komponenty z knihovny React Aria, která má velice dobrou podporu pro různé \textit{edge cases}.
-Takto vznikly dvě videa a to referenční řešení a manuální testování implementované komponenty, které se porovnaly a vyhodnotil se výsledek a případné nesrovnalosti byly vyřešeny v rámci implementace.
-Videa jsou dostupná v dokumentaci na stránce o vybrané komponentě\footnote{\url{https://solid-apg-docs.vercel.app}}.
+Videa z testování jsou dostupná v dokumentaci na stránce o vybrané komponentě\footnote{\url{https://solid-apg-docs.vercel.app}}.
+
+Je důležité podotknout, že podobně jako testování přívětivosti uživatelského prostředí je důležité brát v potaz, že uživatelům nemusí vyhovovat jakým způsobem komponenty reagují na jejich změny a to i přestože jsou implementované podle standardu \gls{waiaria}.
+Vývojáři by v praxi měli využít zpětné vazby jejich uživatelů a případně upravit implementaci tak, aby vyhovovala jejich potřebám, avšak standard \gls{waiaria} vychází z dlouholetých zkoumání problematiky přístupnosti, proto komponenty splňující tento standard by měly být dostatečně přístupné pro většinu uživatelů.
