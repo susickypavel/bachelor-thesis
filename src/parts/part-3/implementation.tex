@@ -6,7 +6,7 @@ Tato kapitola popisuje implementaci dokumentace a komponent.
 
 Všechna logika komponenty je zapouzdřena v primitivní funkci.
 Tato funkce nese název \texttt{create*}, kde \texttt{*} je název komponenty.
-Všechny komponenty mají stejnou signaturu funkce, která vrací objekt s následujícími \textit{properties}:
+Komponenty mají většinou podobnou signaturu funkce, která vrací objekt s následujícími \textit{properties}:
 
 \begin{itemize}
     \item \textbf{props} --- objekt s ARIA a \gls{html} atributy a \textit{event listeners}.
@@ -64,7 +64,6 @@ Každá komponenta má svůj adresář, který obsahuje všechny soubory týkaj�
 \section{Disclosure}
 
 Požadavek na klávesovou navigaci \hyperref[ofr11]{\fr{OFR 1.1}} a otevírání/zavírání obsahu \hyperref[dfr11]{\fr{DFR 1.1}} je splněn pomocí primitivní funkce \texttt{createDisclosure}.
-Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{contentProps} a \texttt{state}.
 Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
 \begin{table}[ht]\label{table:disclosure-params}
@@ -89,9 +88,40 @@ Property \texttt{isButtonElement} je určena pro případ, kdy element pro otev�
 V neposlední řadě property \texttt{id} slouží pro definování vlastního identifikátoru elementu s obsahem.
 Ve výchozím stavu je identifikátor generován automaticky pomocí \texttt{createUniqueId}\footnote{\url{https://docs.solidjs.com/reference/component-apis/create-unique-id}}.
 
-\clearpage
+\subsection{Návratová hodnota}
 
-\begin{lstlisting}[caption={Ukázka implementace Disclosure komponenty}, label={disclosure-example}, language=html]
+Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{contentProps} a \texttt{state}.
+
+\begin{table}[ht]\label{table:disclosure-return}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{3cm} X}
+            \bfseries Název       & \bfseries Popis                                                     \\\Midrule{}
+            \texttt{contentProps} & Event listeners, atributy pro element držící obsah Disclosure.      \\
+            \texttt{state}        & Vnitřní stav komponenty.                                            \\
+            \texttt{toggleProps}  & Event listeners, atributy pro tlačítko pro otevření/zavření obsahu.
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createDisclosure}
+\end{table}
+
+\subsection{ARIA atributy}
+
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty doporučuje následující atributy:
+
+\begin{table}[ht]\label{table:disclosure-aria}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název        & \bfseries Objekt     & \bfseries Typ \\\Midrule{}
+            \texttt{aria-expanded} & \texttt{toggleProps} & Stav          \\
+            \texttt{aria-controls} & \texttt{toggleProps} & Vlastnost
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{ARIA atributy funkce createDisclosure}
+\end{table}
+
+Stavový atribut \texttt{aria-expanded}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a atribut \texttt{aria-controls}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
+
+\begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
 const Disclosure: VoidComponent<Props> = (props) => {
     const {
         toggleProps,
@@ -143,7 +173,7 @@ První argument přijímá objekt s property \texttt{orientation} (požadavek \h
 
 \clearpage
 
-\begin{lstlisting}[caption={Ukázka implementace Toolbar komponenty}, label={toolbar-example}, language=html]
+\begin{lstlisting}[caption={Ukázka použití createToolbar funkce}, label={toolbar-example}, language=html]
 const Toolbar: VoidComponent<Props> = (props) => {
     const {
         toolbarProps,
