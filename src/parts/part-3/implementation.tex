@@ -64,6 +64,9 @@ Každá komponenta má svůj adresář, který obsahuje všechny soubory týkaj�
 \section{Disclosure}
 
 Požadavek na klávesovou navigaci \hyperref[ofr11]{\fr{OFR 1.1}} a otevírání/zavírání obsahu \hyperref[dfr11]{\fr{DFR 1.1}} je splněn pomocí primitivní funkce \texttt{createDisclosure}.
+
+\subsection{Parametry}
+
 Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
 \begin{table}[ht]\label{table:disclosure-params}
@@ -106,7 +109,7 @@ Tato funkce vrací objekt s properties \texttt{toggleProps}, \texttt{contentProp
 
 \subsection{ARIA atributy}
 
-Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty doporučuje následující atributy:
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty vynucuje následující atributy:
 
 \begin{table}[ht]\label{table:disclosure-aria}
     \begin{ctucolortab}
@@ -168,8 +171,70 @@ Přejaté soubory jsou popsané níže:
     \item \textbf{run-after-transition.ts} --- Funkce, která zavolá callback funkci jakmile skončí všechny přechody v rámci stránky.
 \end{itemize}
 
-Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef} pro předání reference za pomocí direktivy pokud nebyla reference předána jako druhý argument.
-První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
+Samotná implementace komponenty exportuje funkci \texttt{createToolbar}.
+
+\subsection{Parametry}
+
+První parametr je objekt pro konfiguraci Toolbaru s následujícími properties:
+
+\clearpage
+
+\begin{table}[ht]\label{table:toolbar-params}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název            & \bfseries Datový typ               & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{orientation}       & \texttt{"horizontal" | "vertical"} & \texttt{"horizontal"}     \\
+            \texttt{"aria-labelledby"} & \texttt{string}                    & ---                       \\
+            \texttt{"aria-label"}      & \texttt{string}                    & ---
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Parametry createToolbar funkce}
+\end{table}
+
+Parametr \texttt{orientation} určuje jaké klávesy slouží pro navigaci v Toolbaru.
+Pokud je nastaveno \texttt{"horizontal"}, tak šipky vlevo a vpravo přesunou focus mezi focusovatelnými prvky v rámci Toolbaru.
+U hodnoty \texttt{"vertical"} se používají šipky nahoru a dolů.
+
+Parametry \texttt{"aria-labelledby"} a \texttt{"aria-label"} slouží pro pojmenování instance komponenty pro splnění požadavku \href{ofr13}{\fr{OFR 1.3}}.
+
+Druhým parametrem funkce je nepovinná Solid.js reference na kořenový element Toolbaru.
+Pokud není reference předána, tak je možné ji získat pomocí Solid.js direktivy \texttt{use:toolbarRef}, která je navrácena z volání funkce \texttt{createToolbar}.
+
+\subsection{Návratová hodnota}
+
+Tato funkce vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef}.
+
+\begin{table}[ht]\label{table:toolbar-return}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{3cm} X}
+            \bfseries Název       & \bfseries Popis                                              \\\Midrule{}
+            \texttt{toolbarProps} & Event listeners, atributy pro element držící obsah Toolbaru. \\
+            \texttt{toolbarRef}   & Solid.js direktiva pro předání reference na HTML element.
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createDisclosure}
+\end{table}
+
+\subsection{ARIA atributy}
+
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následující atributy:
+
+\begin{table}[ht]\label{table:toolbar-aria}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název             & \bfseries Objekt      & \bfseries Typ \\\Midrule{}
+            \texttt{role}               & \texttt{toolbarProps} & Role          \\
+            \texttt{"aria-label"}       & \texttt{toolbarProps} & Vlastnost     \\
+            \texttt{"aria-labelledby"}  & \texttt{toolbarProps} & Vlastnost     \\
+            \texttt{"aria-orientation"} & \texttt{toolbarProps} & Vlastnost
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{ARIA atributy funkce createDisclosure}
+\end{table}
+
+% TODO
+% Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef} pro předání reference za pomocí direktivy pokud nebyla reference předána jako druhý argument.
+% První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
 
 \clearpage
 
