@@ -35,9 +35,7 @@ const Toolbar: VoidComponent<Props> = (props) => {
     const {
         toolbarProps,
         toolbarRef
-    } = createToolbar<HTMLDivElement>({
-        orientation: "horizontal"
-    });
+    } = createToolbar<HTMLDivElement>(props);
 
     return (
         <div use:toolbarRef {...toolbarProps}>
@@ -53,14 +51,13 @@ const Toolbar: VoidComponent<Props> = (props) => {
 };
 \end{lstlisting}
 
-
 \begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
 const Disclosure: VoidComponent<Props> = (props) => {
     const {
         toggleProps,
         contentProps,
         state
-    } = createDisclosure();
+    } = createDisclosure(props);
 
     return (
         <div>
@@ -70,6 +67,34 @@ const Disclosure: VoidComponent<Props> = (props) => {
                     {props.children}
                 </div>
             ) : null}
+        </div>
+    );
+};
+\end{lstlisting}
+
+\clearpage
+
+\begin{lstlisting}[caption={Ukázka použití createSpinButton funkce}, label={spinbutton-example}, language=html]
+const SpinButton: VoidComponent<Props> = () => {
+    const { inputProps, incrementButtonProps, decrementButtonProps, state } = createSpinButton({
+        values: [1, 2, 3, 4, 5, 6, 7],
+        mapping: [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+        ],
+        step: 2
+    });
+
+    return (
+        <div>
+            <button {...incrementButtonProps}>up</button>
+            <input {...inputProps} value={state.value} />
+            <button {...decrementButtonProps}>down</button>
         </div>
     );
 };
