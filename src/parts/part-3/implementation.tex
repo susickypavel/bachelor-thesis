@@ -122,7 +122,7 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty vynucuje násl
     \caption{ARIA atributy funkce createDisclosure}
 \end{table}
 
-Stavový atribut \texttt{aria-expanded}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a atribut \texttt{aria-controls}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
+Stavový atribut \texttt{aria-expanded}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a vlastnost \texttt{aria-controls}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
 
 \begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
 const Disclosure: VoidComponent<Props> = (props) => {
@@ -145,7 +145,77 @@ const Disclosure: VoidComponent<Props> = (props) => {
 };
 \end{lstlisting}
 
+\clearpage
+
 \section{SpinButton}
+
+Požadavky \hyperref[sfr11]{\fr{SFR 1.1}} a \hyperref[sfr12]{\fr{SFR 1.2}} jsou splněny pomocí primitivní funkce\\ \texttt{createSpinButton}.
+
+\subsection{Parametry}
+
+Funkce má jeden parametr, kterým je objekt s následujícími properties:
+
+\begin{table}[ht]\label{table:spinbutton-params}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název   & \bfseries Datový typ & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{values *} & \texttt{T[]}         & ---                       \\
+            \texttt{mapping}  & \texttt{string[]}    & ---                       \\
+            \texttt{step}     & \texttt{number}      & 1
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Parametry primitivní funkce createSpinButton}
+\end{table}
+
+Property \texttt{values} je pole hodnot generického typu, který ale musí být typu \texttt{number}, nebo \texttt{string}.
+Je možné, že hodnoty ve \texttt{values} nemají sémantický význam, proto jejich význam je možné předat v property \texttt{mapping}.
+Poslední property \texttt{step} určuje o kolik se má hodnota zvýšit, nebo snížit při stisknutí kláves \texttt{PageUp} a \texttt{PageDown}.
+
+\subsection{Návratová hodnota}
+
+Tato funkce vrací objekt s properties \texttt{inputProps}, \texttt{decrementButtonProps}, \texttt{incrementButtonProps} a \texttt{state}.
+
+\begin{table}[ht]\label{table:spinbutton-return}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{5cm} X}
+            \bfseries Název               & \bfseries Popis                                           \\\Midrule{}
+            \texttt{decrementButtonProps} & Event listeners a atributy pro tlačítko snižující hodnotu \\
+            \texttt{incrementButtonProps} & Event listeners a atributy pro tlačítko zvyšující hodnotu \\
+            \texttt{inputProps}           & Event listeners a atributy pro vstupní pole.              \\
+            \texttt{state}                & Vnitřní stav komponenty.
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createSpinButton}
+\end{table}
+
+\clearpage
+
+\subsection{ARIA atributy}
+
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u SpinButton komponenty vynucuje následující atributy:
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název         & \bfseries Objekt    & \bfseries Typ \\\Midrule{}
+            \texttt{role}           & \texttt{inputProps} & Role          \\
+            \texttt{aria-valuenow}  & \texttt{inputProps} & Vlastnost     \\
+            \texttt{aria-valuemin}  & \texttt{inputProps} & Vlastnost     \\
+            \texttt{aria-valuemax}  & \texttt{inputProps} & Vlastnost     \\
+            \texttt{aria-valuetext} & \texttt{inputProps} & Vlastnost     \\
+            \texttt{aria-invalid}   & \texttt{inputProps} & Stav
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{ARIA atributy funkce createSpinButton}
+    \label{table:spinbutton-aria}
+\end{table}
+
+Role je nastavena na \texttt{"spinbutton"}.
+Vlastnost \texttt{aria-valuenow}\footnote{\url{https://w3c.github.io/aria/\#aria-valuenow}} definuje momentální index hodnoty komponenty a spolupracuje synergicky s atributem \texttt{aria-valuetext}\footnote{\url{https://w3c.github.io/aria/\#aria-valuetext}}, který definuje textovou podobu hodnoty.
+Dvě důležité vlastnosti \texttt{aria-valuemin}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemin}} a \texttt{aria-valuemax}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemax}} definují minimální, respektive maximální hodnotu, protože se jedná o diskrétní výběr hodnot z intervalu.
+Stavový atribut \texttt{aria-invalid}\footnote{\url{https://w3c.github.io/aria/\#aria-invalid}} definuje zda je hodnota vstupního pole validní, tedy zda se nachází v hodnotách z pole \texttt{values}.
+
+\subsection{Ukázka}
 
 TODO
 
@@ -182,10 +252,10 @@ První parametr je objekt pro konfiguraci Toolbaru s následujícími properties
 \begin{table}[ht]\label{table:toolbar-params}
     \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{X X X}
-            \bfseries Název            & \bfseries Datový typ               & \bfseries Výchozí hodnota \\\Midrule{}
-            \texttt{orientation}       & \texttt{"horizontal" | "vertical"} & \texttt{"horizontal"}     \\
-            \texttt{"aria-labelledby"} & \texttt{string}                    & ---                       \\
-            \texttt{"aria-label"}      & \texttt{string}                    & ---
+            \bfseries Název          & \bfseries Datový typ               & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{orientation}     & \texttt{"horizontal" | "vertical"} & \texttt{"horizontal"}     \\
+            \texttt{aria-labelledby} & \texttt{string}                    & ---                       \\
+            \texttt{aria-label}      & \texttt{string}                    & ---
         \end{tabularx}
     \end{ctucolortab}
     \caption{Parametry createToolbar funkce}
@@ -195,7 +265,7 @@ Parametr \texttt{orientation} určuje jaké klávesy slouží pro navigaci v Too
 Pokud je nastaveno \texttt{"horizontal"}, tak šipky vlevo a vpravo přesunou focus mezi focusovatelnými prvky v rámci Toolbaru.
 U hodnoty \texttt{"vertical"} se používají šipky nahoru a dolů.
 
-Parametry \texttt{"aria-labelledby"} a \texttt{"aria-label"} slouží pro pojmenování instance komponenty pro splnění požadavku \href{ofr13}{\fr{OFR 1.3}}.
+Parametry \texttt{aria-labelledby}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-labelledby}} a \texttt{aria-label}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-label}} slouží pro pojmenování instance komponenty pro splnění požadavku \href{ofr13}{\fr{OFR 1.3}}.
 
 Druhým parametrem funkce je nepovinná Solid.js reference na kořenový element Toolbaru.
 Pokud není reference předána, tak je možné ji získat pomocí Solid.js direktivy \texttt{use:toolbarRef}, která je navrácena z volání funkce \texttt{createToolbar}.
@@ -224,19 +294,19 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následu
 \begin{table}[ht]\label{table:toolbar-aria}
     \begin{ctucolortab}
         \begin{tabularx}{\textwidth}{X X X}
-            \bfseries Název             & \bfseries Objekt      & \bfseries Typ \\\Midrule{}
-            \texttt{role}               & \texttt{toolbarProps} & Role          \\
-            \texttt{"aria-label"}       & \texttt{toolbarProps} & Vlastnost     \\
-            \texttt{"aria-labelledby"}  & \texttt{toolbarProps} & Vlastnost     \\
-            \texttt{"aria-orientation"} & \texttt{toolbarProps} & Vlastnost
+            \bfseries Název           & \bfseries Objekt      & \bfseries Typ \\\Midrule{}
+            \texttt{role}             & \texttt{toolbarProps} & Role          \\
+            \texttt{aria-label}       & \texttt{toolbarProps} & Vlastnost     \\
+            \texttt{aria-labelledby}  & \texttt{toolbarProps} & Vlastnost     \\
+            \texttt{aria-orientation} & \texttt{toolbarProps} & Vlastnost
         \end{tabularx}
     \end{ctucolortab}
-    \caption{ARIA atributy funkce createDisclosure}
+    \caption{ARIA atributy funkce createToolbar}
 \end{table}
 
 Role je nastavena na \texttt{"toolbar"}, aby odečítače obrazovky správně interpretovali element jako Toolbar komponentu.
 Pokud je v rámci Toolbaru vnořený jiný Toolbar, tak role vnitřního Toolbaru je nastavena na \texttt{"group"}.
-Vlastnost \texttt{"aria-orientation"} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{"aria-label"} a \texttt{"aria-labelledby"}.
+Vlastnost \texttt{aria-orientation}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-orientation}} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{aria-label} a \texttt{aria-labelledby}.
 
 \subsection{Ukázka použití}
 
@@ -377,20 +447,9 @@ Tato funkce vrací objekt s properties \texttt{tooltipProps} a \texttt{triggerPr
 
 \subsubsection{ARIA atributy}
 
-Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u \texttt{createTooltipTrigger} vyžaduje jenom jediný atribut \texttt{"aria-describedby"}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-describedby}}, který by měl nést hodnotu \texttt{id} atributu elementu s obsahem Tooltipu.
-To je i důvod proč funkce vrací \texttt{tooltipProps} objekt, který s sebou nese atribut \texttt{"id"}, který odpovídá hodnotě předané v \texttt{"aria-describedby"}.
-Samotný atribut \texttt{"aria-describedby"} slouží pro dodatečný popis elementu, který se nachází na jiném elementu v textové podobě.
-
-\begin{table}[ht]
-    \begin{ctucolortab}
-        \begin{tabularx}{\textwidth}{X X X}
-            \bfseries Název             & \bfseries Objekt      & \bfseries Typ \\\Midrule{}
-            \texttt{"aria-describedby"} & \texttt{triggerProps} & Vlastnost
-        \end{tabularx}
-    \end{ctucolortab}
-    \caption{ARIA atributy funkce createTooltipTrigger}
-    \label{table:tooltip-trigger-aria}
-\end{table}
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u \texttt{createTooltipTrigger} vyžaduje jedinou vlastnost \texttt{aria-describedby}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-describedby}}, která by měla nést hodnotu \texttt{id} atributu elementu s obsahem Tooltipu.
+To je i důvod proč funkce vrací \texttt{tooltipProps} objekt, který s sebou nese atribut \texttt{id}, který odpovídá hodnotě předané v \texttt{aria-describedby}.
+Samotný atribut \texttt{aria-describedby} slouží pro dodatečný popis elementu, který se nachází na jiném elementu v textové podobě.
 
 \subsection{createTooltip}
 
