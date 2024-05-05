@@ -215,6 +215,8 @@ Tato funkce vrací objekt s properties \texttt{toolbarProps} a nepovinně \textt
     \caption{Návratová hodnota funkce createDisclosure}
 \end{table}
 
+\clearpage
+
 \subsection{ARIA atributy}
 
 Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následující atributy:
@@ -232,11 +234,11 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následu
     \caption{ARIA atributy funkce createDisclosure}
 \end{table}
 
-% TODO
-% Samotná implementace komponenty exportuje funkci \texttt{createToolbar}, která vrací objekt s properties \texttt{toolbarProps} a nepovinně \texttt{toolbarRef} pro předání reference za pomocí direktivy pokud nebyla reference předána jako druhý argument.
-% První argument přijímá objekt s property \texttt{orientation} (požadavek \hyperref[tfr12]{\fr{TFR 1.2}}), která určuje zda je klávesová navigace horizontální nebo vertikální.
+Role je nastavena na \texttt{"toolbar"}, aby odečítače obrazovky správně interpretovali element jako Toolbar komponentu.
+Pokud je v rámci Toolbaru vnořený jiný Toolbar, tak role vnitřního Toolbaru je nastavena na \texttt{"group"}.
+Vlastnost \texttt{"aria-orientation"} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{"aria-label"} a \texttt{"aria-labelledby"}.
 
-\clearpage
+\subsection{Ukázka použití}
 
 \begin{lstlisting}[caption={Ukázka použití createToolbar funkce}, label={toolbar-example}, language=html]
 const Toolbar: VoidComponent<Props> = (props) => {
@@ -256,10 +258,6 @@ const Toolbar: VoidComponent<Props> = (props) => {
             <button onClick={() => alert("Italics")}>
                 Italics
             </button>
-
-            <button disabled>
-                Underline
-            </button>
         </div>
     );
 };
@@ -268,12 +266,163 @@ const Toolbar: VoidComponent<Props> = (props) => {
 Požadavek \hyperref[tfr11]{\fr{TFR 1.1}} je splněn pomocí \texttt{toolbarProps} objektu, který je předán na kořenový element komponenty.
 Kořenový element, tak může obsahovat libovolný počet \textit{children} objektů, které se skládají z focusovatelných elementů či subkomponent a oddělovačů obsahu.
 
-\clearpage
-
 \section{Tooltip}
 
-TODO
+Pro implementaci Tooltipu bylo využito následujících primitiv ze Solid Aria knihovny:
 
+\begin{itemize}
+    \item \textbf{createFocusable} --- Vytvoří z elementu focusovatelný element.
+    \item \textbf{createFocusVisible} --- Sleduje jakým zařízení uživatel interaguje se stránkou a podle toho rozhoduje, zda má být viditelný focus.
+    \item \textbf{createHover} --- Normalizuje \textit{hover} interakci napříč prohlížeči a dotykovými zařízeními.
+    \item \textbf{createInteractionModality} --- Sleduje jakým zařízení uživatel interaguje se stránkou.
+    \item \textbf{createOverlayTriggerState} --- Vytvoří booleovský stav pro zobrazení obsahu.
+\end{itemize}
+
+Logika této komponenty vychází z React Aria implementace a celkově jě rozdělena do tří funkcí.
+
+\clearpage
+
+\subsection{createTooltipTriggerState}
+
+První funkce slouží pro správu stavu Tooltipu.
+Zároveň tato funkce spravuje globální stav všech otevřených Tooltipů tak, aby vždy byl otevřený jenom jeden z nich.
+Také se stará o rychlost zavírání a otevírání obsahu Tooltipu.
+
+Ze Solid Aria knihovny byla využita funkce \texttt{createOverlayTriggerState}.
+Jedná se o jednoduchou funkci, která vytváří booleovský stav.
+Na tuto funkci byla navázána vlastní logika pro správu globálního stavu otevření Tooltipů a časování otevírání obsahu.
+
+\subsubsection{Parametry}
+
+Tato funkce má jeden parametr, kterým je objekt s následujícími properties:
+
+\begin{table}[ht]\label{table:tooltip-trigger-state-params}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název       & \bfseries Datový typ & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{closeDelay}   & \texttt{number}      & \texttt{500}              \\
+            \texttt{defaultOpen}  & \texttt{boolean}     & ---                       \\
+            \texttt{delay}        & \texttt{number}      & 1500                      \\
+            \texttt{isOpen}       & \texttt{false}       & ---                       \\
+            \texttt{onOpenChange} & \texttt{Function}    & ---
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Parametry createTooltipTriggerState funkce}
+\end{table}
+
+Properties \texttt{closeDelay} a \texttt{delay} určují rychlost zavírání, respektive otevírání obsahu Tooltipu.
+Pro případ, kdy uživatel chce měnit stav Tooltipu z vnějšího prostředí (controlled), tak lze použít properties \texttt{isOpen} a \texttt{onOpenChange}.
+Pokud uživatel nechává interní stav komponenty, tak je možné použít property \texttt{defaultOpen} pro nastavení výchozího stavu otevření.
+
+\subsubsection{Návratová hodnota}
+
+Tato funkce vrací jeden objekt s properties \texttt{open}, \texttt{close} a \texttt{isOpen}.
+
+\begin{table}[ht]\label{table:tooltip-trigger-state-return}
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{3cm} X}
+            \bfseries Název & \bfseries Popis                             \\\Midrule{}
+            \texttt{close}  & Callback funkce pro zavření tooltipu.       \\
+            \texttt{isOpen} & Proměnná indikující stav otevření tooltipu. \\
+            \texttt{open}   & Callback funkce pro otevření tooltipu.
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createTooltipTriggerState}
+\end{table}
+
+\subsection{createTooltipTrigger}
+
+Druhá funkce slouží pro vytvoření elementu s ARIA atributy a event listeners pro který se má zobrazit Tooltip obsah.
+
+Ze Solid Aria knihovny jsou využity funkce \texttt{createInteractionModality}, \texttt{createFocusable}, \texttt{createHover} a \texttt{createFocusVisible}.
+
+\subsubsection{Parametry}
+
+Tato funkce má dva parametry.
+První parametr je objekt s properties v tabulce \ref{table:tooltip-trigger-params}.
+Druhý parametr je Solid.js reference na element, který má zobrazit Tooltip.
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název     & \bfseries Datový typ         & \bfseries Výchozí hodnota \\\Midrule{}
+            \texttt{isDisabled} & \texttt{boolean}             & \texttt{false}            \\
+            \texttt{trigger}    & \texttt{"focus" | undefined} & ---
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Parametry createTooltipTrigger funkce}
+    \label{table:tooltip-trigger-params}
+\end{table}
+
+Property \texttt{isDisabled} slouží pro deaktivaci Tooltipu, když je nastavena na \texttt{true}, tak Tooltip se nikdy nezobrazí.
+Property \texttt{trigger} určuje na jaký typ interakce se má Tooltip zobrazit.
+Ve výchozím režimu se Tooltip otevírá při hover i focus interakci.
+Při nastavení hodnoty \texttt{"focus"} se Tooltip otevírá pouze při focus interakci jinak se otevírá při všech výše zmíněných interakcích.
+
+\subsubsection{Návratová hodnota}
+
+Tato funkce vrací objekt s properties \texttt{tooltipProps} a \texttt{triggerProps}.
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{3cm} X}
+            \bfseries Název       & \bfseries Popis                                                           \\\Midrule{}
+            \texttt{tooltipProps} & Event listeners, atributy pro element držící obsah Tooltipu.              \\
+            \texttt{triggerProps} & Event listeners, atributy pro element, který má na sebe navázaný Tooltip. \\
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createTooltipTrigger}
+    \label{table:tooltip-trigger-return}
+\end{table}
+
+\subsubsection{ARIA atributy}
+
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u \texttt{createTooltipTrigger} vyžaduje jenom jediný atribut \texttt{"aria-describedby"}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-describedby}}, který by měl nést hodnotu \texttt{id} atributu elementu s obsahem Tooltipu.
+To je i důvod proč funkce vrací \texttt{tooltipProps} objekt, který s sebou nese atribut \texttt{"id"}, který odpovídá hodnotě předané v \texttt{"aria-describedby"}.
+Samotný atribut \texttt{"aria-describedby"} slouží pro dodatečný popis elementu, který se nachází na jiném elementu v textové podobě.
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{X X X}
+            \bfseries Název             & \bfseries Objekt      & \bfseries Typ \\\Midrule{}
+            \texttt{"aria-describedby"} & \texttt{triggerProps} & Vlastnost
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{ARIA atributy funkce createTooltipTrigger}
+    \label{table:tooltip-trigger-aria}
+\end{table}
+
+\subsection{createTooltip}
+
+Poslední funkce slouží pro vytvoření elementu s ARIA atributy a event listeners pro obsah Tooltipu.
+Zde je využita funkce \texttt{createHover} ze Solid Aria knihovny, protože když uživatel myší přejede na obsah Tooltipu, tak je nežádoucí aby se obsah zavřel.
+
+\subsubsection{Parametry}
+
+Tato funkce má dva parametry.
+První parametr je objekt, který přijímá veškeré validní \gls{dom} atributy.
+Druhý parametr je Solid.js reaktivní proměnná, která vrací hodnotu z \texttt{createTooltipTriggerState}, protože jsou zde potřeba metody \texttt{open} a \texttt{close} pro otevření, respektive zavření obsahu při hover interakci.
+
+\subsubsection{Návratová hodnota}
+
+Tato funkce vrací objekt s jedinou property \texttt{tooltipProps}.
+
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{p{3cm} X}
+            \bfseries Název       & \bfseries Popis                                              \\\Midrule{}
+            \texttt{tooltipProps} & Event listeners, atributy pro element držící obsah Tooltipu.
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Návratová hodnota funkce createTooltip}
+    \label{table:tooltip-return}
+\end{table}
+
+\subsection{Ukázka použití}
+
+V ukázce kódu~\ref{tooltip-example} je příklad použití všech tří funkcí pro vytvoření Tooltipu.
+
+\clearpage
 
 \section{Dokumentace}
 

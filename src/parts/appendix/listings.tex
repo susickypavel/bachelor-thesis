@@ -1,0 +1,29 @@
+\begin{lstlisting}[caption={Ukázka použití Tooltipu}, label={tooltip-example}, language=html]
+const Tooltip = (props) => {
+    const [local, rest] = splitProps(props, ["state"]);
+    const { tooltipProps } = createTooltip(props, () => local.state);
+    
+    return (
+        <div {...tooltipProps}>{props.children}</div>
+    );
+};
+
+export const TooltipTrigger = (props) => {
+    let trigger!: HTMLButtonElement;
+    
+    const state = createTooltipTriggerState(props);
+    const { tooltipProps, triggerProps } = createTooltipTrigger(props, state, () => trigger);
+    
+    return (
+        <button ref={trigger} {...triggerProps}>
+            Hover or Focus me
+            {state.isOpen ? (
+                <Tooltip {...tooltipProps} state={state}>
+                    {props.children}
+                </Tooltip>
+            ) : null}
+        </button>
+    );
+};
+
+\end{lstlisting}
