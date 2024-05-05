@@ -124,27 +124,6 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty vynucuje násl
 
 Stavový atribut \texttt{aria-expanded}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a vlastnost \texttt{aria-controls}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
 
-\begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
-const Disclosure: VoidComponent<Props> = (props) => {
-    const {
-        toggleProps,
-        contentProps,
-        state
-    } = createDisclosure();
-
-    return (
-        <div>
-            <button {...toggleProps}>Toggle</button>
-            {state.isVisible ? (
-                <div {...contentProps}>
-                    {props.children}
-                </div>
-            ) : null}
-        </div>
-    );
-};
-\end{lstlisting}
-
 \clearpage
 
 \section{SpinButton}
@@ -169,6 +148,7 @@ Funkce má jeden parametr, kterým je objekt s následujícími properties:
 
 Property \texttt{values} je pole hodnot generického typu, který ale musí být typu \texttt{number}, nebo \texttt{string}.
 Je možné, že hodnoty ve \texttt{values} nemají sémantický význam, proto jejich význam je možné předat v property \texttt{mapping}.
+
 Poslední property \texttt{step} určuje o kolik se má hodnota zvýšit, nebo snížit při stisknutí kláves \texttt{PageUp} a \texttt{PageDown}.
 
 \subsection{Návratová hodnota}
@@ -212,12 +192,10 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u SpinButton komponenty vynucuje násl
 
 Role je nastavena na \texttt{"spinbutton"}.
 Vlastnost \texttt{aria-valuenow}\footnote{\url{https://w3c.github.io/aria/\#aria-valuenow}} definuje momentální index hodnoty komponenty a spolupracuje synergicky s atributem \texttt{aria-valuetext}\footnote{\url{https://w3c.github.io/aria/\#aria-valuetext}}, který definuje textovou podobu hodnoty.
-Dvě důležité vlastnosti \texttt{aria-valuemin}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemin}} a \texttt{aria-valuemax}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemax}} definují minimální, respektive maximální hodnotu, protože se jedná o diskrétní výběr hodnot z intervalu.
+
+Dvě důležité vlastnosti \texttt{aria-valuemin}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemin}} a \texttt{aria-valuemax}\footnote{\url{https://w3c.github.io/aria/\#aria-valuemax}} definují minimální, respektive maximální hodnotu, kterou může komponenta nabývat.
+
 Stavový atribut \texttt{aria-invalid}\footnote{\url{https://w3c.github.io/aria/\#aria-invalid}} definuje zda je hodnota vstupního pole validní, tedy zda se nachází v hodnotách z pole \texttt{values}.
-
-\subsection{Ukázka}
-
-TODO
 
 \clearpage
 
@@ -307,34 +285,6 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následu
 Role je nastavena na \texttt{"toolbar"}, aby odečítače obrazovky správně interpretovali element jako Toolbar komponentu.
 Pokud je v rámci Toolbaru vnořený jiný Toolbar, tak role vnitřního Toolbaru je nastavena na \texttt{"group"}.
 Vlastnost \texttt{aria-orientation}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-orientation}} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{aria-label} a \texttt{aria-labelledby}.
-
-\subsection{Ukázka použití}
-
-\begin{lstlisting}[caption={Ukázka použití createToolbar funkce}, label={toolbar-example}, language=html]
-const Toolbar: VoidComponent<Props> = (props) => {
-    const {
-        toolbarProps,
-        toolbarRef
-    } = createToolbar<HTMLDivElement>({
-        orientation: "horizontal"
-    });
-
-    return (
-        <div use:toolbarRef {...toolbarProps}>
-            <button onClick={() => alert("Bold")}>
-                Bold
-            </button>
-
-            <button onClick={() => alert("Italics")}>
-                Italics
-            </button>
-        </div>
-    );
-};
-\end{lstlisting}
-
-Požadavek \hyperref[tfr11]{\fr{TFR 1.1}} je splněn pomocí \texttt{toolbarProps} objektu, který je předán na kořenový element komponenty.
-Kořenový element, tak může obsahovat libovolný počet \textit{children} objektů, které se skládají z focusovatelných elementů či subkomponent a oddělovačů obsahu.
 
 \section{Tooltip}
 
@@ -476,10 +426,6 @@ Tato funkce vrací objekt s jedinou property \texttt{tooltipProps}.
     \caption{Návratová hodnota funkce createTooltip}
     \label{table:tooltip-return}
 \end{table}
-
-\subsection{Ukázka použití}
-
-V ukázce kódu~\ref{tooltip-example} je příklad použití všech tří funkcí pro vytvoření Tooltipu.
 
 \clearpage
 

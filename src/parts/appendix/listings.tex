@@ -27,3 +27,50 @@ export const TooltipTrigger = (props) => {
 };
 
 \end{lstlisting}
+
+\clearpage
+
+\begin{lstlisting}[caption={Ukázka použití createToolbar funkce}, label={toolbar-example}, language=html]
+const Toolbar: VoidComponent<Props> = (props) => {
+    const {
+        toolbarProps,
+        toolbarRef
+    } = createToolbar<HTMLDivElement>({
+        orientation: "horizontal"
+    });
+
+    return (
+        <div use:toolbarRef {...toolbarProps}>
+            <button onClick={() => alert("Bold")}>
+                Bold
+            </button>
+
+            <button onClick={() => alert("Italics")}>
+                Italics
+            </button>
+        </div>
+    );
+};
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
+const Disclosure: VoidComponent<Props> = (props) => {
+    const {
+        toggleProps,
+        contentProps,
+        state
+    } = createDisclosure();
+
+    return (
+        <div>
+            <button {...toggleProps}>Toggle</button>
+            {state.isVisible ? (
+                <div {...contentProps}>
+                    {props.children}
+                </div>
+            ) : null}
+        </div>
+    );
+};
+\end{lstlisting}
