@@ -61,6 +61,8 @@ Každá komponenta má svůj adresář, který obsahuje všechny soubory týkaj�
     .2 \textbf{types.ts} (definice typů pro komponentu).
 }
 
+\clearpage
+
 \section{Disclosure}
 
 Požadavek na klávesovou navigaci \hyperref[ofr11]{\fr{OFR 1.1}} a otevírání/zavírání obsahu \hyperref[dfr11]{\fr{DFR 1.1}} je splněn pomocí primitivní funkce \texttt{createDisclosure}.
@@ -90,6 +92,8 @@ Property \texttt{isButtonElement} je určena pro případ, kdy element pro otev�
 
 V neposlední řadě property \texttt{id} slouží pro definování vlastního identifikátoru elementu s obsahem.
 Ve výchozím stavu je identifikátor generován automaticky pomocí \texttt{createUniqueId}\footnote{\url{https://docs.solidjs.com/reference/component-apis/create-unique-id}}.
+
+\clearpage
 
 \subsection{Návratová hodnota}
 
@@ -221,11 +225,11 @@ Přejaté soubory jsou popsané níže:
 
 Samotná implementace komponenty exportuje funkci \texttt{createToolbar}.
 
+\clearpage
+
 \subsection{Parametry}
 
 První parametr je objekt pro konfiguraci Toolbaru s následujícími properties:
-
-\clearpage
 
 \begin{table}[ht]\label{table:toolbar-params}
     \begin{ctucolortab}
@@ -260,7 +264,7 @@ Tato funkce vrací objekt s properties \texttt{toolbarProps} a nepovinně \textt
             \texttt{toolbarRef}   & Solid.js direktiva pro předání reference na HTML element.
         \end{tabularx}
     \end{ctucolortab}
-    \caption{Návratová hodnota funkce createDisclosure}
+    \caption{Návratová hodnota funkce createToolbar}
 \end{table}
 
 \clearpage
