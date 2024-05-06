@@ -163,7 +163,7 @@ Nástroje jako \fr{TypeScript}\footnote{\url{https://typescriptlang.org}}, \fr{F
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu, což je důležitá vlastnost pro splnění nefunkčního požadavku \hyperref[nfr13]{\fr{NFR 1.3}}.
 
-\section{Distribuce komponent}
+\section{Formát komponent}
 
 \begin{itemize}
   \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale \gls{html} kód komponent je téměř vždy neměnitelný.
@@ -189,7 +189,7 @@ export const Dashboard = () => {
         \end{itemize}
   \item \textbf{Copy and paste} není klasická knihovna.
         Tato varianta vznikla jako reakce na headless komponenty a primitiva.
-        Jedná se o způsob distribuce komponent, kde konzumenti si zkopírují předpis komponenty.
+        Jedná se o formát komponent, kde konzumenti si zkopírují předpis komponenty.
         Využívá tak existujících headless komponent, nebo UI primitiv.
         Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
         Zároveň má konzument plnou kontrolu nad kódem komponenty.
@@ -241,7 +241,7 @@ Flexibilitu headless komponent případně UI primitiv a zároveň rychlost výv
   \centering
   \includegraphics[width=\textwidth]{./assets/figures/component-lib-distribution-comparison.png}
   \captionsetup{justification=centering}
-  \caption[Diagram abstrakce a flexibility různých přístupu k distribuci komponent]{Diagram abstrakce a flexibility různých přístupu k distribuci komponent (diagram autora)}
+  \caption[Diagram abstrakce a flexibility různých formátů distribuce komponent]{Diagram abstrakce a flexibility různých přístupu k distribuci komponent (diagram autora)}
   \label{component-lib-distribution-comparison}
 \end{figure}
 
