@@ -61,6 +61,11 @@ Každá komponenta má svůj adresář, který obsahuje všechny soubory týkaj�
     .2 \textbf{types.ts} (definice typů pro komponentu).
 }
 
+\vspace{11pt}
+
+Soubor \texttt{index.ts} slouží pro export všech položek ze souborů \texttt{types.ts} a \texttt{example.ts} pro usnadnění distribuce.
+Tato technika se nazývá \textit{barrel} export.
+
 \clearpage
 
 \section{Disclosure}
@@ -441,7 +446,11 @@ Tato funkce vrací objekt s jedinou property \texttt{tooltipProps}.
 
 \section{Dokumentace}
 
-TODO
+Na ukázce~\ref{docs-page-example} řádek~\ref{docs-page-example-1} až~\ref{docs-page-example-8} definuje tzv. \textit{frontmatter}, který obsahuje metadata o stránce jako je název a popis.
+Komponenta \fr{Links} (řádek~\ref{docs-page-example-10}) je Astro komponenta, která zobrazuje odkazy na různé užitečné zdroje jako je zdrojový kód, \gls{apg} dokumentace dané komponenty, pokrytí kódu, nebo vygenerovaná typedoc dokumentace.
+Další užitečnou Astro komponentou je \fr{PropTable} (řádek~\ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
+V neposlední řadě na řádku~\ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
+Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
 
 \begin{lstlisting}[caption={Ukázka stránky dokumentace psané v MDX}, label={docs-page-example}, language=html]
 ---(*@\label{docs-page-example-1}@*)
@@ -469,12 +478,6 @@ sidebar:
 
 <Toolbar client:idle />(*@\label{docs-page-example-24}@*)
 \end{lstlisting}
-
-Na ukázce~\ref{docs-page-example} řádek~\ref{docs-page-example-1} až~\ref{docs-page-example-8} definuje tzv. \textit{frontmatter}, který obsahuje metadata o stránce jako je název a popis.
-Komponenta \fr{Links} (řádek~\ref{docs-page-example-10}) je Astro komponenta, která zobrazuje odkazy na různé užitečné zdroje jako je zdrojový kód, \gls{apg} dokumentace dané komponenty, pokrytí kódu, nebo vygenerovaná typedoc dokumentace.
-Další užitečnou Astro komponentou je \fr{PropTable} (řádek~\ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
-V neposlední řadě na řádku~\ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
-Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
 
 \section{Distribuce}
 
