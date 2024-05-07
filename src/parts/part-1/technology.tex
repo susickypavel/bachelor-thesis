@@ -1,11 +1,11 @@
 \chapter{Technologie}
 
-Tato kapitola představuje důležité technologie a přístupy použité v rámci této práce.
+Tato kapitola představuje technologie a přístupy použité v rámci této práce.
 
 \section{Solid.js}
 
 \fr{Solid.js}\footnote{\url{https://solidjs.com}} je JavaScriptová knihovna pro tvorbu uživatelských rozhraní obdobně jako React, Vue, nebo Svelte.
-
+Podobně jako React používá \gls{jsx} pro vytváření komponent a \gls{html} elementů.
 
 \subsection{Rozdíly}
 
@@ -48,7 +48,15 @@ Svelte od verze 5 má obdobný styl reaktivního modelu jako Solid.js, což vysv
 
 \subsection{Základní primitiva}
 
-TODO
+Solid.js obsahuje několik základních primitiv (funkcí), které umožňují vytvořit reaktivní chování v komponentách.
+
+\begin{itemize}
+  \item \textbf{createSignal} --- Vrací \textit{tuple} obsahující reaktivní proměnnou a její textit{setter} funkci.
+  \item \textbf{createEffect} --- Zavolá callback funkci při každé změně reaktivní proměnné v daném \textit{scope}.
+  \item \textbf{createMemo} --- Vytvoří memoizovanou odvozenou hodnotu.
+\end{itemize}
+
+Často je potřebné sledovat \textit{lifecycle} události komponenty, pro tyto účely slouží funkce \texttt{onMount} a \texttt{onCleanup}.
 
 % \section{Svelte}\label{sec:Svelte}
 
@@ -206,13 +214,7 @@ export const Toolbar = () => {
       <Tab.List className="flex flex-col gap-4">
         <Tab>
           {({ selected }) => (
-            <button
-              className={
-                selected ? 'bg-blue-500' : 'bg-white'
-              }
-            >
-              Tab 1
-            </button>
+            <button>Tab 1</button>
           )}
         </Tab>
       </Tab.List>
