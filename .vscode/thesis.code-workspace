@@ -6,6 +6,22 @@
 		}
 	],
 	"settings": {
+		"latex-workshop.latex.tools": [
+			{
+				"name": "latexmk",
+				"command": "latexmk",
+				"args": [
+					"-shell-escape",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-pdf",
+					"-outdir=%OUTDIR%",
+					"%DOC%"
+				],
+				"env": {}
+			},
+		],
 		"editor.formatOnSave": true,
 		"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/.build",
 		"latex-workshop.linting.chktex.enabled": true,
@@ -27,6 +43,7 @@
 			"frontmatter",
 			"Huřťák",
 			"Huřťákovi",
+			"inputu",
 			"labelledby",
 			"memoizovanou",
 			"Midrule",
@@ -43,6 +60,7 @@
 			"Ryanem",
 			"Scriptová",
 			"Scriptové",
+			"Scriptu",
 			"spinbutton",
 			"subfieldofstudy",
 			"TLFR",
@@ -51,6 +69,7 @@
 			"Tooltipů",
 			"tsup",
 			"typedoc",
+			"úspěchových",
 			"valuemax",
 			"valuemin",
 			"valuenow",

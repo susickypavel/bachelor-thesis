@@ -177,17 +177,7 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
   \item \textbf{Knihovna komponent} je taková knihovna komponent, která už má předepsané styly. Většinou je možnost přepsat většinu stylů pomocí ``themes'', ale \gls{html} kód komponent je téměř vždy neměnitelný.
         Hodně se stává, že vývojáři potřebují odlišnou \gls{html} strukturu než je dána.
         Častým případem je právě řešení přístupnosti, kdy je potřeba přidat elementy navíc do komponenty pro např. správné fungování čteček obrazovky.
-        \begin{lstlisting}[caption={Ukázka použití komponentové knihovny}, label={component-distribution}, language=html]
-import { Button } from "component-library"
 
-export const Dashboard = () => {
-      return (
-            <div>
-                  <Button>Open file</Button>
-            </div>
-      )
-}
-\end{lstlisting}
   \item \textbf{Knihovna headless komponent} se liší od klasické knihovny komponent tím, že neobsahuje předepsané styly.
         Zde můžeme rozlišit dvě různé úrovně \textit{headless} komponent.
         \begin{itemize}
@@ -195,6 +185,7 @@ export const Dashboard = () => {
                 Ovšem \gls{html} struktura v jednotlivých prvcích komponent není stále plně flexibilní.
           \item Exportující pouze logiku v podobě ``primitiv''. V Reactu se jedná o ``custom hooks'', ve Vue ``composition utilities'', ve Svelte to jsou prosté funkce, které pracují s reaktivními proměnnými a obdobně i ve Solid.js.\label{technology:dist}
         \end{itemize}
+
   \item \textbf{Copy and paste} není klasická knihovna.
         Tato varianta vznikla jako reakce na headless komponenty a primitiva.
         Jedná se o formát komponent, kde konzumenti si zkopírují předpis komponenty.
@@ -205,7 +196,8 @@ export const Dashboard = () => {
         Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
 \end{itemize}
 
-\begin{lstlisting}[caption={Ukázka použití headless knihovny}, label={component-distribution-2}, language=html]
+\begin{listing}[!ht]
+  \begin{minted}{jsx}
 import { Tab } from "headless-component-library"
 
 export const Toolbar = () => {
@@ -224,7 +216,10 @@ export const Toolbar = () => {
     </Tab.Group>
   )
 }
-\end{lstlisting}
+\end{minted}
+  \caption{Ukázka použití headless knihovny}
+  \label{component-distribution-2}
+\end{listing}
 
 V porovnání všech tří přístupů na obrázku~\ref{component-lib-distribution-comparison} můžeme vidět, že vyšší flexibilita přináší i vyšší úroveň abstrakce.
 To znamená, že čím flexibilnější je \gls{api} komponenty, tím více času je potřeba pro pochopení, použití a údržbu komponent.

@@ -23,7 +23,8 @@ Většina implementací je ve výchozím režimu uncontrolled, kdy je stav otev�
 Druhou možností je, aby byla komponenta controlled, kdy je stav otevření obsahu řízen vnějším zdrojem.
 V Solid.js je toto řešení implementované pomocí props, kdy z vnějšku komponentě předáme náš vlastní stav, který je následně používaný na místo interního stavu.
 
-\begin{lstlisting}[caption={Ukázka primitivní funkce s vnějším stavem (controlled stav)}, label={disclosure-controlled-vs-uncontrolled}, language=html]
+\begin{listing}[!ht]
+    \begin{minted}{typescript}
 const [open, setOpen] = createSignal(false);
 
 const { toggleProps } = createDisclosure({
@@ -32,7 +33,10 @@ const { toggleProps } = createDisclosure({
         setOpen(state);
     }
 });
-\end{lstlisting}
+\end{minted}
+    \caption{Ukázka primitivní funkce s vnějším stavem (controlled stav)}
+    \label{disclosure-controlled-vs-uncontrolled}
+\end{listing}
 
 \section{SpinButton}
 

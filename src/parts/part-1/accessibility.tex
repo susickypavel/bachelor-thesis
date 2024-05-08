@@ -49,12 +49,16 @@ Například \textit{button} element se používá pro interaktivní tlačítka a
 
 \clearpage
 
-\begin{lstlisting}[caption={Aria role}, label={aria-roles}, language=html]
-<ul role="menu">(*@\label{aria-roles-1}@*)
-  <li role="menuitem">Open file</li>(*@\label{aria-roles-2}@*)
-  <li role="menuitem">Save file</li>(*@\label{aria-roles-3}@*)
+\begin{listing}[!ht]
+    \begin{minted}{html}
+<ul role="menu">!\mintedlabel{aria-roles-1}!
+    <li role="menuitem">Open file</li>!\mintedlabel{aria-roles-2}!
+    <li role="menuitem">Save file</li>!\mintedlabel{aria-roles-3}!
 </ul>
-\end{lstlisting}
+\end{minted}
+    \caption{ARIA role}
+    \label{aria-roles}
+\end{listing}
 
 V ukázce~\ref{aria-roles} na řádku~\ref{aria-roles-1} můžeme vidět použití role menu na elementu pro neuspořádaný seznam.
 Na řádku~\ref{aria-roles-2} a~\ref{aria-roles-3} máme dva prvky s rolí \textit{menuitem}, které reprezentují položky v menu.
@@ -73,13 +77,17 @@ Stavy slouží pro upozornění uživatele na změny ve stavu stránky nebo komp
 Společně s rolemi tvoří základní dvojici pro přístupnost na webu.
 Je důležité poznamenat, že některé stavy nejdou použít pro libovolnou roli, ale jsou vázané ke specifickým účelům a rolím.
 
-\begin{lstlisting}[caption={Aria stavové atributy}, label={aria-states}, language=html]
-<button aria-pressed="false">(*@\label{aria-states-1}@*) <!-- true|false|mixed -->
-  Send order(*@\label{aria-states-2}@*)
-</button>(*@\label{aria-states-3}@*)
-\end{lstlisting}
+\begin{listing}[!ht]
+    \begin{minted}{html}
+<button aria-pressed="false"> <!-- true|false|mixed -->
+    Send order !\mintedlabel{aria-states-1}!
+</button>
+\end{minted}
+    \caption{ARIA stavové atributy}
+    \label{aria-state}
+\end{listing}
 
-V ukázce~\ref{aria-states} na řádku~\ref{aria-states-1} můžeme vidět použití attributu \textit{aria-pressed}.
+V ukázce~\ref{aria-state} na řádku~\ref{aria-states-1} můžeme vidět použití atributu \textit{aria-pressed}.
 Tento atribut slouží jenom pro elementy s rolí \textit{button}.
 Řádek~\ref{aria-states-1} nám zároveň ukazuje, že hodnota atributu je \textit{false}, ale může nabývat i hodnot \textit{true} nebo \textit{mixed}.
 Button s takovým atributem představuje tzv. \textit{toggle button}~\cite{mdn-aria-pressed}. Tedy tlačítko, které si drží svůj vlastní stav zakliknutí.
@@ -92,11 +100,15 @@ Jedná se o \gls{html} atributy jejichž primárním účelem je dodání více 
 Rozdíl oproti stavům vychází z četnosti změn, kde u stavů se předpokládá častá změna v životním cyklu stránky, která vede na upozornění uživatele.
 Oproti tomu vlastnosti se mění jenom zřídka~\cite[sekce 6.1]{wai-aria}.
 
-\begin{lstlisting}[caption={Aria vlastnosti}, label={aria-properties}, language=html]
-<label for="username">Username</label>(*@\label{aria-properties-1}@*)
-<input id="username" aria-describedby="username-error" />(*@\label{aria-properties-2}@*)
-<p id="username-error">Username is required</p>(*@\label{aria-properties-3}@*)
-\end{lstlisting}
+\begin{listing}[!ht]
+    \begin{minted}{html}
+<label for="username">Username</label>!\mintedlabel{aria-properties-1}!
+<input id="username" aria-describedby="username-error" />!\mintedlabel{aria-properties-2}!
+<p id="username-error">Username is required</p>!\mintedlabel{aria-properties-3}!
+\end{minted}
+    \caption{ARIA vlastnosti}
+    \label{aria-properties}
+\end{listing}
 
 V ukázce~\ref{aria-properties} na řádku~\ref{aria-properties-2} můžeme vidět použití vlastnosti \textit{aria-describedby}.
 Tento atribut slouží k přidání dodatečnému popisu daného \textit{input} elementu. Hodnota atributu je id elementu, který obsahuje textový popis daného \textit{inputu}.
@@ -221,7 +233,6 @@ Mezi nejpoužívanější odečítače obrazovky patří~\cite{webaim-survey-202
     \includegraphics[max size={\linewidth}{\textheight}]{./assets/figures/screen-reader-trend.png}
     \captionsetup{justification=centering}
     \caption[Trend používání populárních odečítačů obrazovky]{Trend používání populárních odečítačů obrazovky~\cite{webaim-survey-2024}}
-    \label{fig:}
 \end{figure}
 
 V rámci práce budu testovat komponenty s VoiceOver, protože s tímto odečítačem obrazovky mám nejvíce zkušeností a z rozsahu práce a časové dotace je testování všech populárních odečítačů nemožné.

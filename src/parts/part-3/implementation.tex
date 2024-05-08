@@ -22,25 +22,28 @@ Manuálně naváže \textbf{props} na \gls{html} elementy, předá potřebné \t
 Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad \gls{html} strukturou komponenty a použitým CSS řešením.
 \clearpage
 
-\begin{lstlisting}[caption={Příklad implementace komponenty pomocí primitivní funkce}, label={implementation-example}, language=html]
-import { createExample, type ExampleArgs } from "lib"
-import type { Component } from "solid-js";
+\begin{listing}[!ht]
+    \begin{minted}{jsx}
+import { createExample } from "lib"
 
-export const Example: Component<ExampleArgs> = (args) => {
+export const Example = (args) => {
     const {
         rootProps,
         buttonProps,
         state
-    } = createExample(args)(*@\label{docs-page-example-9}@*)
+    } = createExample(args)!\mintedlabel{docs-page-example-9}!
 
     return (
-        <div {...rootProps}>(*@\label{docs-page-example-12}@*)
-            <button {...buttonProps}>Toggle</button>(*@\label{docs-page-example-13}@*)
-            {state.isVisible ? <p>Content</p> : null}(*@\label{docs-page-example-14}@*)
+        <div {...rootProps}>!\mintedlabel{docs-page-example-12}!
+            <button {...buttonProps}>Toggle</button>!\mintedlabel{docs-page-example-13}!
+            {state.isVisible ? <p>Content</p> : null}!\mintedlabel{docs-page-example-14}!
         </div>
     )
 }
-\end{lstlisting}
+\end{minted}
+    \caption{Příklad implementace komponenty pomocí primitivní funkce}
+    \label{implementation-example}
+\end{listing}
 
 Na ukázce~\ref{implementation-example} je příklad použití primitivní funkce \texttt{createExample} pro vytvoření komponenty \texttt{Example}.
 Řádek~\ref{docs-page-example-9} zavolá primitivní funkci a předá jí argumenty, které jsou definovány v \texttt{ExampleArgs}.
@@ -451,33 +454,6 @@ Komponenta \fr{Links} (řádek~\ref{docs-page-example-10}) je Astro komponenta, 
 Další užitečnou Astro komponentou je \fr{PropTable} (řádek~\ref{docs-page-example-20}), která zobrazuje tabulku argumentů včetně výchozích hodnot a jejich typu.
 V neposlední řadě na řádku~\ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
 Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
-
-\begin{lstlisting}[caption={Ukázka stránky dokumentace psané v MDX}, label={docs-page-example}, language=html]
----(*@\label{docs-page-example-1}@*)
-title: Toolbar
-description: a primitive for creating a Toolbar component
-sidebar:
-    badge:
-        text: v0
-        variant: success
----(*@\label{docs-page-example-8}@*)
-
-<Links github="https://example.com" />(*@\label{docs-page-example-10}@*)
-
-## Anatomy
-
-<Anatomy viewBox="0 0 64 64" alt="0" caption="Example">
-    <ToolbarAnatomy />
-</Anatomy>
-
-## API Reference
-
-<PropTable name="ToolbarArguments" />(*@\label{docs-page-example-20}@*)
-
-## Example
-
-<Toolbar client:idle />(*@\label{docs-page-example-24}@*)
-\end{lstlisting}
 
 \section{Distribuce}
 

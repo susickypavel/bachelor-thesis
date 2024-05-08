@@ -1,4 +1,31 @@
-\begin{lstlisting}[caption={Ukázka použití Tooltipu}, label={tooltip-example}, language=html]
+\begin{listing}
+    \begin{minted}{jsx}
+const Toolbar: VoidComponent<Props> = (props) => {
+    let toolbar;
+
+    const {
+        toolbarProps
+    } = createToolbar(props, () => toolbar);
+
+    return (
+        <div ref={toolbar} {...toolbarProps}>
+            <button onClick={() => alert("Bold")}>
+                Bold
+            </button>
+
+            <button onClick={() => alert("Italics")}>
+                Italics
+            </button>
+        </div>
+    );
+};
+\end{minted}
+    \caption{Ukázka použití createToolbar funkce}
+    \label{toolbar-example}
+\end{listing}
+
+\begin{listing}
+    \begin{minted}{jsx}
 const Tooltip = (props) => {
     const [local, rest] = splitProps(props, ["state"]);
     const { tooltipProps } = createTooltip(props, () => local.state);
@@ -9,10 +36,13 @@ const Tooltip = (props) => {
 };
 
 export const TooltipTrigger = (props) => {
-    let trigger!: HTMLButtonElement;
+    let trigger;
     
     const state = createTooltipTriggerState(props);
-    const { tooltipProps, triggerProps } = createTooltipTrigger(props, state, () => trigger);
+    const {
+        tooltipProps,
+        triggerProps
+    } = createTooltipTrigger(props, state, () => trigger);
     
     return (
         <button ref={trigger} {...triggerProps}>
@@ -25,33 +55,13 @@ export const TooltipTrigger = (props) => {
         </button>
     );
 };
+\end{minted}
+    \caption{Ukázka vytvoření Tooltipu}
+    \label{tooltip-example}
+\end{listing}
 
-\end{lstlisting}
-
-\clearpage
-
-\begin{lstlisting}[caption={Ukázka použití createToolbar funkce}, label={toolbar-example}, language=html]
-const Toolbar: VoidComponent<Props> = (props) => {
-    const {
-        toolbarProps,
-        toolbarRef
-    } = createToolbar<HTMLDivElement>(props);
-
-    return (
-        <div use:toolbarRef {...toolbarProps}>
-            <button onClick={() => alert("Bold")}>
-                Bold
-            </button>
-
-            <button onClick={() => alert("Italics")}>
-                Italics
-            </button>
-        </div>
-    );
-};
-\end{lstlisting}
-
-\begin{lstlisting}[caption={Ukázka použití createDisclosure funkce}, label={disclosure-example}, language=html]
+\begin{listing}
+    \begin{minted}{jsx}
 const Disclosure: VoidComponent<Props> = (props) => {
     const {
         toggleProps,
@@ -70,13 +80,20 @@ const Disclosure: VoidComponent<Props> = (props) => {
         </div>
     );
 };
-\end{lstlisting}
+\end{minted}
+    \caption{Ukázka použití createDisclosure funkce}
+    \label{disclosure-example}
+\end{listing}
 
-\clearpage
-
-\begin{lstlisting}[caption={Ukázka použití createSpinButton funkce}, label={spinbutton-example}, language=html]
+\begin{listing}
+    \begin{minted}{jsx}
 const SpinButton: VoidComponent<Props> = () => {
-    const { inputProps, incrementButtonProps, decrementButtonProps, state } = createSpinButton({
+    const { 
+        inputProps,
+        incrementButtonProps,
+        decrementButtonProps,
+        state
+    } = createSpinButton({
         values: [1, 2, 3, 4, 5, 6, 7],
         mapping: [
             "monday",
@@ -98,4 +115,38 @@ const SpinButton: VoidComponent<Props> = () => {
         </div>
     );
 };
-\end{lstlisting}
+\end{minted}
+    \caption{Ukázka použití createSpinButton funkce}
+    \label{spinbutton-example}
+\end{listing}
+
+\begin{listing}
+    \begin{minted}{markdown}
+---!\mintedlabel{docs-page-example-1}!
+title: Toolbar
+description: a primitive for creating a Toolbar component
+sidebar:
+    badge:
+        text: v0
+        variant: success
+---!\mintedlabel{docs-page-example-8}!
+
+<Links github="https://example.com" />!\mintedlabel{docs-page-example-10}!
+
+## Anatomy
+
+<Anatomy viewBox="0 0 64 64" alt="0" caption="Example">
+    <ToolbarAnatomy />
+</Anatomy>
+
+## API Reference
+
+<PropTable name="ToolbarArguments" />!\mintedlabel{docs-page-example-20}!
+
+## Example
+
+<Toolbar client:idle />!\mintedlabel{docs-page-example-24}!
+\end{minted}
+    \caption{Ukázka stránky dokumentace psané v MDX}
+    \label{docs-page-example}
+\end{listing}

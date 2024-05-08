@@ -1,7 +1,23 @@
-\usepackage{xcolor,listings}
+\usepackage{xcolor,listings,chngcntr}
 
-\renewcommand\lstlistlistingname{Ukázky kódu}
-\renewcommand\lstlistingname{Ukázka kódu}
+% NOTE: Add space before minted environment
+\BeforeBeginEnvironment{minted}{\bigskip}
+
+% NOTE: Define a new command for labeling inside minted environment
+\newcommand{\mintedlabel}[1]{\phantomsection\label{\detokenize{#1}}}
+
+% NOTE: Set the format of the listing caption
+\counterwithin{listing}{chapter}
+\renewcommand{\thelisting}{\thechapter.\arabic{listing}}
+
+% NOTE: Setup minted
+\setminted{
+    linenos,
+    escapeinside=!!
+}
+
+\renewcommand\listingscaption{Ukázky kódu}
+\renewcommand\listoflistingscaption{Ukázky kódu}
 \renewcommand{\baselinestretch}{1.25}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
