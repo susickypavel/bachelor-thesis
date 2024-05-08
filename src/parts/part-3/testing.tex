@@ -14,12 +14,25 @@ Zvolený \textit{runner}\footnote{Software, který spouští testy a generuje v�
     \item \fr{happy-dom}\footnote{\url{https://npmjs.com/package/happy-dom}} --- pro testování DOM interakcí bez prohlížeče.
 \end{enumerate}
 
-Cílem testů bylo pokrýt většinu požadavků z \gls{apg} návrhových vzorů, proto by pokrytí testů mělo být vysoké a u všech komponent přesahuje >90\% otestovaných řádků implementace\footnote{\url{https://susickypavel.github.io/solid-apg/coverage}}.
+Cílem testů bylo pokrýt většinu požadavků z \gls{apg} návrhových vzorů, proto by pokrytí testů mělo být vysoké a u všech komponent přesahuje >85\% otestovaných řádků implementace\footnote{\url{https://susickypavel.github.io/solid-apg/coverage}}.
 
-% TODO: Odkázat se na testy, kde se to testuje, abych dokázal, že ty testy opravdu existují.
+\begin{table}[ht]
+    \begin{ctucolortab}
+        \begin{tabularx}{\textwidth}{Y Y Y Y Y}
+            \bfseries Název & \bfseries Statements & \bfseries Branches & \bfseries Functions & \bfseries Lines \\\Midrule{}
+            disclosure      & 100\%                & 100\%              & 100\%               & 100\%           \\
+            spinbutton      & 88.52\%              & 95\%               & 91.66\%             & 88.52\%         \\
+            state           & 91.5\%               & 83.33\%            & 100\%               & 91.5\%          \\
+            toolbar         & 95.51\%              & 88\%               & 100\%               & 95.51\%         \\
+            tooltip         & 100\%                & 100\%              & 100\%               & 100\%
+        \end{tabularx}
+    \end{ctucolortab}
+    \caption{Pokrytí jednotkových testů}
+\end{table}
 
 Nejčastěji testovaná logika se týkala správného nastavení \gls{waiaria} atributů a klávesové navigace komponenty.
 Také byly testovány různé varianty vstupních argumentů a návratových hodnot.
+Celkově bylo napsáno 42 jednotkových testů.
 
 \section{Testování v prohlížeči}\label{chapter:browser-testing}
 
