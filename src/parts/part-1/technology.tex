@@ -51,9 +51,9 @@ Svelte od verze 5 má obdobný styl reaktivního modelu jako Solid.js, což vysv
 Solid.js obsahuje několik základních primitiv (funkcí), které umožňují vytvořit reaktivní chování v komponentách.
 
 \begin{itemize}
-  \item \textbf{createSignal} --- Vrací \textit{tuple} obsahující reaktivní proměnnou a její textit{setter} funkci.
-  \item \textbf{createEffect} --- Zavolá callback funkci při každé změně reaktivní proměnné v daném \textit{scope}.
-  \item \textbf{createMemo} --- Vytvoří memoizovanou odvozenou hodnotu.
+  \item \textbf{createSignal}\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-signal}} --- Vrací \textit{tuple} obsahující reaktivní proměnnou a její textit{setter} funkci.
+  \item \textbf{createEffect}\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-effect}} --- Zavolá callback funkci při každé změně reaktivní proměnné v daném \textit{scope}.
+  \item \textbf{createMemo\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-memo}}} --- Vytvoří memoizovanou odvozenou hodnotu.
 \end{itemize}
 
 Často je potřebné sledovat \textit{lifecycle} události komponenty, pro tyto účely slouží funkce \texttt{onMount} a \texttt{onCleanup}.

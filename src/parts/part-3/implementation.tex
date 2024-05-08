@@ -136,7 +136,7 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Disclosure komponenty vynucuje násl
     \caption{Použité ARIA atributy pro Disclosure komponentu}
 \end{table}
 
-Stavový atribut \texttt{aria-expanded}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a vlastnost \texttt{aria-controls}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
+Stavový atribut \texttt{aria-expanded}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-expanded}} určuje, zda je obsah otevřený nebo zavřený a vlastnost \texttt{aria-controls}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-controls}} určuje, který element je ovládán tlačítkem.
 
 \clearpage
 
@@ -260,7 +260,7 @@ Parametr \texttt{orientation} slouží pro splnění požadavku \hyperref[tfr12]
 Pokud je nastaveno \texttt{"horizontal"}, tak šipky vlevo a vpravo přesunou focus mezi focusovatelnými prvky v rámci Toolbaru.
 U hodnoty \texttt{"vertical"} se používají šipky nahoru a dolů.
 
-Parametry \texttt{aria-labelledby}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-labelledby}} a \texttt{aria-label}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-label}} slouží pro pojmenování instance komponenty a splnění tak požadavku \href{ofr13}{\fr{OFR 1.3}}.
+Parametry \texttt{aria-labelledby}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-labelledby}} a \texttt{aria-label}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-label}} slouží pro pojmenování instance komponenty a splnění tak požadavku \href{ofr13}{\fr{OFR 1.3}}.
 
 Druhým parametrem funkce je nepovinná Solid.js reference na kořenový element Toolbaru.
 Pokud není reference předána, tak je možné ji získat pomocí Solid.js direktivy \texttt{use:toolbarRef}, která je navrácena z volání funkce \texttt{createToolbar}.
@@ -301,7 +301,7 @@ Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u Toolbar komponenty vynucuje následu
 
 Role je nastavena na \texttt{"toolbar"}, aby odečítače obrazovky správně interpretovali element jako Toolbar komponentu.
 Pokud je v rámci Toolbaru vnořený jiný Toolbar, tak role vnitřního Toolbaru je nastavena na \texttt{"group"}.
-Vlastnost \texttt{aria-orientation}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-orientation}} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{aria-label} a \texttt{aria-labelledby}.
+Vlastnost \texttt{aria-orientation}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-orientation}} je nastavena dle hodnoty argumentu \texttt{orientation}, obdobně pro vlastnosti \texttt{aria-label} a \texttt{aria-labelledby}.
 
 \section{Tooltip}
 
@@ -415,7 +415,7 @@ Tato funkce vrací objekt s properties \texttt{tooltipProps} a \texttt{triggerPr
 
 \subsubsection{ARIA atributy}
 
-Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u \texttt{createTooltipTrigger} vyžaduje jedinou vlastnost \texttt{aria-describedby}\footnote{\url{https://www.w3.org/TR/wai-aria/\#aria-describedby}}, která by měla nést hodnotu \texttt{id} atributu elementu s obsahem Tooltipu.
+Požadavek \hyperref[ofr12]{\fr{OFR 1.2}} u \texttt{createTooltipTrigger} vyžaduje jedinou vlastnost \texttt{aria-describedby}\footnote{\url{https://w3.org/TR/wai-aria/\#aria-describedby}}, která by měla nést hodnotu \texttt{id} atributu elementu s obsahem Tooltipu.
 To je i důvod proč funkce vrací \texttt{tooltipProps} objekt, který s sebou nese atribut \texttt{id}, který odpovídá hodnotě předané v \texttt{aria-describedby}.
 Samotný atribut \texttt{aria-describedby} slouží pro dodatečný popis elementu, který se nachází na jiném elementu v textové podobě.
 

@@ -28,6 +28,7 @@
 		"latex-workshop.linting.run": "onSave",
 		"cSpell.language": "en,cs",
 		"cSpell.words": [
+			"asistivním",
 			"Carniatem",
 			"chromia",
 			"describedby",
