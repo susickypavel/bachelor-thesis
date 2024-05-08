@@ -28,7 +28,9 @@ const Toolbar: VoidComponent<Props> = (props) => {
     \begin{minted}{jsx}
 const Tooltip = (props) => {
     const [local, rest] = splitProps(props, ["state"]);
-    const { tooltipProps } = createTooltip(props, () => local.state);
+    const {
+        tooltipProps
+    } = createTooltip(props, () => local.state);
     
     return (
         <div {...tooltipProps}>{props.children}</div>

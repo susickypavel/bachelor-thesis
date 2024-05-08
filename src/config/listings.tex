@@ -1,5 +1,12 @@
 \usepackage{xcolor,listings,chngcntr,etoolbox}
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+\definecolor{black}{rgb}{0,0,0}
+
+% NOTE: Add space between chapters in LoL
 \makeatletter
 \patchcmd{\@chapter}% <cmd>
 {\addtocontents}% <search>
@@ -7,9 +14,6 @@
     \addtocontents}% <replace>
 {}{}% <success><failure>
 \makeatother
-
-% NOTE: Add space before minted environment
-\BeforeBeginEnvironment{minted}{\bigskip}
 
 % NOTE: Define a new command for labeling inside minted environment
 \newcommand{\mintedlabel}[1]{\phantomsection\label{\detokenize{#1}}}
@@ -21,15 +25,12 @@
 % NOTE: Setup minted
 \setminted{
     linenos,
-    escapeinside=!!
+    escapeinside=!!,
+    bgcolor=backcolour,
+    framesep=11pt,
+    frame=single
 }
 
 \renewcommand\listingscaption{Ukázka kódu}
 \renewcommand\listoflistingscaption{Ukázky kódu}
 \renewcommand{\baselinestretch}{1.25}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
-\definecolor{black}{rgb}{0,0,0}

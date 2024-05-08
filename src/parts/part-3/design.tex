@@ -29,9 +29,7 @@ const [open, setOpen] = createSignal(false);
 
 const { toggleProps } = createDisclosure({
     isVisible: open,
-    onVisibilityChange(state) {
-        setOpen(state);
-    }
+    onVisibilityChange(state) { setOpen(state) }
 });
 \end{minted}
     \caption{Ukázka primitivní funkce s vnějším stavem (controlled stav)}
