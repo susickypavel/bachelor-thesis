@@ -14,7 +14,7 @@ Typicky se skládá z tlačítka, které otevírá nebo zavírá obsah, a samotn
     \caption[Low-fidelity wireframe komponenty Disclosure]{Low-fidelity wireframe komponenty Disclosure (wireframe autora)}
 \end{figure}
 
-Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit, že klávesové zkratky \texttt{Space}, nebo \texttt{Enter} mění stav otevření obsahu.
+Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit, že klávesy \keys{\SPACE}, nebo \keys{\enter} mění stav otevření obsahu.
 
 \subsection{Controlled vs Uncontrolled}
 
@@ -50,9 +50,9 @@ SpinButton je formulářová komponenta, která vymezuje rozsah diskrétních ho
 Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} a \hyperref[sfr12]{\fr{SFR 1.2}} je potřeba splnit následující podmínky:
 
 \begin{enumerate}
-    \item Šipky nahoru a dolů zvýší, respektive sníží hodnotu o jedna.
-    \item Klávesy \texttt{PageUp} a \texttt{PageDown} zvýší, respektive sníží hodnotu o vybraný krok.
-    \item Klávesy \texttt{Home} a \texttt{End} nastaví hodnotu na minimum, respektive maximum.
+    \item Klávesové šipky \keys{\arrowkeyup} a \keys{\arrowkeydown} zvýší, respektive sníží hodnotu o jedna.
+    \item Klávesy \keys{PageUp} a \keys{PageDown} zvýší, respektive sníží hodnotu o vybraný krok.
+    \item Klávesy \keys{Home} a \keys{End} nastaví hodnotu na minimum, respektive maximum.
 \end{enumerate}
 
 \section{Toolbar}
@@ -71,11 +71,12 @@ Hlavní přínos této komponenty je jednodušší klávesová navigace pomocí 
 Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba splnit následující podmínky:
 
 \begin{enumerate}
-    \item Tabulátor směrem dopředu skočí na první, nebo naposled vybraný focusovatelný prvek v rámci Toolbaru.
-    \item Tabulátor směrem dopředu, když je focus v rámci Toolbaru, skočí na první focusovatelný prvek mimo Toolbar.
-    \item Šipky vlevo a vpravo přesunou focus mezi focusovatelnými prvky v rámci Toolbaru pokud je orientace toolbaru horizontální.
-    \item Šipky nahoru a dolů přesunou focus mezi focusovatelnými prvky v rámci Toolbaru pokud je orientace toolbaru vertikální.
-    \item Klávesy \texttt{Home} a \texttt{End} přesunou focus na první, respektive poslední focusovatelný prvek v rámci Toolbaru.
+    \item Klávesa \keys{\tab} (tab), nebo klávesová zkratka \keys{\tab + \shift} skočí na první, nebo naposled vybraný focusovatelný prvek v rámci Toolbaru.
+    \item Klávesa \keys{\tab}, když je focus v rámci Toolbaru, skočí na první focusovatelný prvek mimo Toolbar, který se nachází v hierarchii za Toolbar komponentou.
+    \item Klávesová zkratka \keys{\tab + \shift}, když je focus v rámci Toolbaru, skočí na první focusovatelný prvek mimo Toolbar, který se nachází v hierarchii před Toolbar komponentou.
+    \item Klávesové šipky \keys{\arrowkeyleft} a \keys{\arrowkeyright} přesunou focus mezi focusovatelnými prvky v rámci Toolbaru pokud je orientace toolbaru horizontální.
+    \item Klávesové šipky \keys{\arrowkeyup} a \keys{\arrowkeydown} přesunou focus mezi focusovatelnými prvky v rámci Toolbaru pokud je orientace toolbaru vertikální.
+    \item Klávesy \keys{Home} a \keys{End} přesunou focus na první, respektive poslední focusovatelný prvek v rámci Toolbaru.
 \end{enumerate}
 
 \section{Tooltip}
@@ -89,7 +90,7 @@ Tooltip je komponenta, která zobrazí nápovědu u vybraného elementu (nejčas
     \caption[Low-fidelity wireframe komponenty Tooltip]{Low-fidelity wireframe komponenty Tooltip (wireframe autora)}
 \end{figure}
 
-Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit jedinou klávesovou interakci pomocí klávesy \texttt{Escape}, která uzavře obsah pokud je zobrazený.
+Pro splnění požadavku \hyperref[ofr11]{\fr{OFR 1.1}} je potřeba zajistit jedinou klávesovou interakci pomocí klávesy \keys{\esc}, která uzavře obsah pokud je zobrazený.
 
 \clearpage
 
