@@ -1,6 +1,69 @@
+\clearpage
+
 \begin{listing}
     \begin{minted}{jsx}
-const Toolbar: VoidComponent<Props> = (props) => {
+const Disclosure = (props) => {
+    const {
+        toggleProps,
+        contentProps,
+        state
+    } = createDisclosure(props);
+
+    return (
+        <div>
+            <button {...toggleProps}>Toggle</button>
+
+            {state.isVisible ? (
+                <div {...contentProps}>
+                    {props.children}
+                </div>
+            ) : null}
+        </div>
+    );
+};
+\end{minted}
+    \caption{Ukázka použití createDisclosure funkce}
+    \label{disclosure-example}
+\end{listing}
+
+\begin{listing}
+    \begin{minted}{jsx}
+const SpinButton = () => {
+    const { 
+        inputProps,
+        incrementButtonProps,
+        decrementButtonProps,
+        state
+    } = createSpinButton({
+        values: [1, 2, 3, 4, 5, 6, 7],
+        mapping: [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+        ],
+        step: 2
+    });
+
+    return (
+        <div>
+            <button {...incrementButtonProps}>up</button>
+            <input {...inputProps} value={state.value} />
+            <button {...decrementButtonProps}>down</button>
+        </div>
+    );
+};
+\end{minted}
+    \caption{Ukázka použití createSpinButton funkce}
+    \label{spinbutton-example}
+\end{listing}
+
+\begin{listing}
+    \begin{minted}{jsx}
+const Toolbar = (props) => {
     let toolbar;
 
     const {
@@ -15,6 +78,13 @@ const Toolbar: VoidComponent<Props> = (props) => {
 
             <button onClick={() => alert("Italics")}>
                 Italics
+            </button>
+
+            <button
+                disabled
+                onClick={() => alert("Underline")}
+            >
+                Underline
             </button>
         </div>
     );
@@ -60,66 +130,6 @@ export const TooltipTrigger = (props) => {
 \end{minted}
     \caption{Ukázka vytvoření Tooltipu}
     \label{tooltip-example}
-\end{listing}
-
-\begin{listing}
-    \begin{minted}{jsx}
-const Disclosure: VoidComponent<Props> = (props) => {
-    const {
-        toggleProps,
-        contentProps,
-        state
-    } = createDisclosure(props);
-
-    return (
-        <div>
-            <button {...toggleProps}>Toggle</button>
-            {state.isVisible ? (
-                <div {...contentProps}>
-                    {props.children}
-                </div>
-            ) : null}
-        </div>
-    );
-};
-\end{minted}
-    \caption{Ukázka použití createDisclosure funkce}
-    \label{disclosure-example}
-\end{listing}
-
-\begin{listing}
-    \begin{minted}{jsx}
-const SpinButton: VoidComponent<Props> = () => {
-    const { 
-        inputProps,
-        incrementButtonProps,
-        decrementButtonProps,
-        state
-    } = createSpinButton({
-        values: [1, 2, 3, 4, 5, 6, 7],
-        mapping: [
-            "monday",
-            "tuesday",
-            "wednesday",
-            "thursday",
-            "friday",
-            "saturday",
-            "sunday"
-        ],
-        step: 2
-    });
-
-    return (
-        <div>
-            <button {...incrementButtonProps}>up</button>
-            <input {...inputProps} value={state.value} />
-            <button {...decrementButtonProps}>down</button>
-        </div>
-    );
-};
-\end{minted}
-    \caption{Ukázka použití createSpinButton funkce}
-    \label{spinbutton-example}
 \end{listing}
 
 \begin{listing}
