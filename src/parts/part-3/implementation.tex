@@ -478,7 +478,15 @@ Vercel se stará o cachování a distribuci aplikace po celém světě~\cite{ver
 JavaScriptové knihovny jsou distribuovány pomocí npm registry\footnote{\url{https://npmjs.com}}.
 Pro distribuci je potřeba nadefinovat manifest soubor \texttt{package.json}\footnote{\url{https://docs.npmjs.com/cli/v10/configuring-npm/package-json}}, který obsahuje metadata o knihovně.
 
-Dalším důležitým krokem je připravit zdrojový kód k distribuci.
+\begin{figure}[h]
+    \centering
+    \includegraphics[max size={\linewidth}{\textheight}]{./assets/figures/deployment-library.pdf}
+    \captionsetup{justification=centering}
+    \caption[Diagram nasazení knihovny]{Diagram nasazení knihovny (diagram autora)}
+    \label{fig:deployment-library}
+\end{figure}
+
+Důležitým krokem je připravit zdrojový kód k distribuci.
 Pro tento účel jsem zvolil knihovnu \texttt{tsup}\footnote{\url{https://tsup.egoist.dev}}, která umožňuje jednoduše vytvořit balíček pro distribuci a to včetně TypeScript podpory a různých formátů modulů.
 
 Knihovna je publikovaná pod názvem \texttt{solid-apg} a lze ji nainstalovat jedním z příkazů v ukázce~\ref{install-solid-apg}.
