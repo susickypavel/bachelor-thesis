@@ -27,6 +27,7 @@ jobs:
           root_file: thesis.tex
           texlive_version: latest
           working_directory: src
+          latexmk_shell_escape: true
 
       - run: echo "TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
     
