@@ -21,7 +21,7 @@ Tento princip připomíná designový vzor \textit{observer}.
 
 Tabulka~\ref{tab:technology1} porovnává Solid.js s vybranými \textit{frameworky}.
 Všechny metriky jsou vypočítané na příkladové aplikaci \fr{\gls{todomvc}}\footnote{\url{https://todomvc.com}} implementované v daném frameworku, aby test byl spravedlivý.
-Každé skóre je číslo normalizované do intervalu <1, $\infty$), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
+Každé skóre je číslo normalizované do intervalu \( [1, \infty) \), které nám říká velikost zhoršení oproti nejlepší implementaci~\cite{krausest120,krausest122}.
 
 První metrika ``Operations'' je vážený geometrický průměr skóre všech operací nad příkladovou aplikací (např. vytvoření řádku, smazání řádku, vybraní řádku a další\dots).
 
@@ -252,7 +252,7 @@ Tento mechanismus lze použít pro vložení příkladové implementace komponen
 
 \subsection{Starlight}
 
-Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad \fr{Astro} knihovnou.
+Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad Astro knihovnou.
 Starlight funguje nad \fr{MDX}\footnote{\url{https://mdxjs.com}}, což je formát, který umožňuje vkládat \gls{jsx} do markdown souborů.
 
 \section{SolidStart}
@@ -261,7 +261,7 @@ Důležitým aspektem pro demo aplikaci je co nejbližší simulace reálného p
 Pro tento účel jsem zvolil meta-framework \fr{SolidStart}. Meta-framework je své podstatě framework postavený nad vícero frameworky, který zjednodušuje různé aspekty vývoje.
 V kontextu meta-frameworků na webu se může jednat například o \textbf{\gls{ssr}}, \textit{routing} a \textit{serverless} funkce~\cite{prismic-metaframework}.
 
-\fr{SolidStart} je oficiálně podporovaný a vyvíjený autorem Ryanem Carniatem, který je také autorem Solid.js.
+SolidStart je oficiálně podporovaný a vyvíjený autorem Ryanem Carniatem, který je také autorem Solid.js.
 Výhoda testování komponent v prostředí meta-frameworku spočívá v tom, že komponenta je vystavená různým kontextům jako je \gls{ssr}, \gls{ssg} a \textbf{\gls{csr}}.
 
 \section{Závěr kapitoly}
@@ -269,7 +269,7 @@ Výhoda testování komponent v prostředí meta-frameworku spočívá v tom, ž
 Tato kapitola popsala nejdůležitější technologie a přístupy, které jsou využity v rámci této práce.
 Plná funkčnost celého projektu je závislá na dalších, nezmíněných a důležitých technologiích, které zde nejsou popsány neboť nejsou přímo relevantní k problematice tvorby znovupoužitelných komponent.
 
-Samotná knihovna bude psána metodou primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako \textbf{props}, \textbf{state} a \textbf{reference} (viz kapitola~\ref{section:structure}).
+Samotná knihovna bude psána metodou primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako props, state a reference (viz kapitola~\ref{section:structure}).
 Taková knihovna může poté sloužit jako základ pro tvorbu designových systémů a (headless) knihoven komponent.
 
 Solid.js knihovnu jsem zvolil ze dvou důvodů:

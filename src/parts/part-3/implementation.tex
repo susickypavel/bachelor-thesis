@@ -14,11 +14,11 @@ Komponenty mají většinou podobnou signaturu funkce, která vrací objekt s n�
     \item \textbf{reference} --- některé komponenty potřebují referenci na přímý \gls{html} element, který se v Solid.js předává pomocí proměnných\footnote{\url{https://solidjs.com/tutorial/bindings_refs}} a direktiv\footnote{\url{https://solidjs.com/tutorial/bindings_directives}}.
 \end{itemize}
 
-Některé komponenty (například \fr{SpinButton}) mají více \gls{html} elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} properties (například buttonProps, rootProps).
-Při více \textbf{props} properties je potřeba navázat danou property na odpovídající \gls{html} element, který je zmíněn v dokumentaci.
+Některé komponenty (například SpinButton) mají více \gls{html} elementů na které je potřeba navázat ARIA atributy a event listeners, proto jejich funkce vrací více \textbf{props} properties (například buttonProps, rootProps).
+Při více props properties je potřeba navázat danou property na odpovídající \gls{html} element, který je zmíněn v dokumentaci.
 
 Koncový uživatel tuto primitivní funkci zavolá v definici komponenty a předá jí všechny potřebné argumenty.
-Manuálně naváže \textbf{props} na \gls{html} elementy, předá potřebné \textbf{reference} a využije \textbf{state} pro vykreslení stavu komponenty.
+Manuálně naváže props na \gls{html} elementy, předá potřebné reference a využije state pro vykreslení stavu komponenty.
 Výhodou tohoto přístupu z kapitoly~\ref{technology:dist} je, že vývojář má absolutní kontrolu nad \gls{html} strukturou komponenty a použitým CSS řešením.
 \clearpage
 
@@ -165,7 +165,7 @@ Funkce má jeden parametr, kterým je objekt s následujícími properties:
 Property \texttt{values} je pole hodnot generického typu, který ale musí být typu \texttt{number}, nebo \texttt{string}.
 Může se stát situace, kdy hodnoty ve \texttt{values} nemají sémantický význam, proto jejich význam je možné definovat v property \texttt{mapping}.
 
-Poslední property \texttt{step} určuje o kolik se má hodnota zvýšit, nebo snížit při stisknutí kláves \texttt{PageUp} a \texttt{PageDown}.
+Poslední property \texttt{step} určuje o kolik se má hodnota zvýšit, nebo snížit při stisknutí kláves \keys{PageUp} a \keys{PageDown}.
 
 \subsection{Návratová hodnota}
 
@@ -217,7 +217,7 @@ Stavový atribut \texttt{aria-invalid}\footnote{\url{https://w3c.github.io/aria/
 
 \section{Toolbar}
 
-Stěžejní logikou komponenty \fr{Toolbar} je klávesová navigace.
+Stěžejní logikou komponenty Toolbar je klávesová navigace.
 Zásadní je správné chování focusu, které jsem přejal z knihovny React Aria, které má robustní řešení s ohledem na různé druhy prohlížečů a kombinace odečítačů obrazovky.
 
 Přejaté soubory jsou popsané níže:
@@ -457,7 +457,7 @@ Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jak
 
 \subsection{Nasazení}
 
-Pro nasazení dokumentace jsem zvolil platformu Vercel\footnote{\url{https://vercel.com}}, která umožňuje nasazení statických stránek pomocí \gls{ssg} jako je například \texttt{Astro}.
+Pro nasazení dokumentace jsem zvolil platformu Vercel\footnote{\url{https://vercel.com}}, která umožňuje nasazení statických stránek pomocí \gls{ssg} jako je například Astro.
 
 \begin{figure}[h]
     \centering
