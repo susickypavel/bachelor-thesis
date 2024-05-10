@@ -455,6 +455,24 @@ Další užitečnou Astro komponentou je \fr{PropTable} (řádek~\ref{docs-page-
 V neposlední řadě na řádku~\ref{docs-page-example-24} je ukázka použití implementované komponenty v Solid.js, v tomto případě se jedná o Toolbar.
 Direktiva \texttt{client:idle} je specifická pro Astro, která nám říká jakým způsobem se má komponenta \gls{hydratace}.
 
+\subsection{Nasazení}
+
+Pro nasazení dokumentace jsem zvolil platformu Vercel\footnote{\url{https://vercel.com}}, která umožňuje nasazení statických stránek pomocí \gls{ssg} jako je například \texttt{Astro}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[max size={\linewidth}{\textheight}]{./assets/figures/deployment-diagram.pdf}
+    \captionsetup{justification=centering}
+    \caption[Diagram nasazení dokumentace]{Diagram nasazení dokumentace (diagram autora)}
+    \label{fig:deployment}
+\end{figure}
+
+Průběh nasazení začíná dodáním kódu do GitHub repozitáře projektu.
+Následně je možné manuálně spustit action\footnote{\url{https://github.com/features/actions}}, která pomocí \gls{cli} spustí na platformě Vercel \textit{build} a provede nasazení aplikace.
+Vercel si stáhne nejnovější verzi kódu z GitHubu a provede build aplikace stejně jako v lokálním prostředí vývojáře.
+Nasazená aplikace je dostupná skrze \gls{cdn} a je možné ji zobrazit v prohlížeči.
+Vercel se stará o cachování a distribuci aplikace po celém světě~\cite{vercel-edge}.
+
 \section{Distribuce knihovny}
 
 JavaScriptové knihovny jsou distribuovány pomocí npm registry\footnote{\url{https://npmjs.com}}.
