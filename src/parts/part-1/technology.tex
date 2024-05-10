@@ -244,20 +244,16 @@ Flexibilitu headless komponent případně UI primitiv a zároveň rychlost výv
 
 \section{Astro}
 
-Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad \fr{Astro}\footnote{\url{https://astro.build}} knihovnou.
-Astro je \gls{ssg}, který používá vlastní syntaxi pro vytváření komponent.
+Astro\footnote{\url{https://astro.build}} je \gls{ssg}, který používá vlastní syntaxi pro vytváření komponent.
 Velkou výhodou je, že Astro umožňuje vnořit komponenty z jiných frameworků (React, Vue, Solid.js, Svelte a další) do Astro komponent bez použití \textit{iframe}.
 Tento mechanismus lze použít pro vložení příkladové implementace komponenty přímo na stránku s dokumentací a zjednodušit tak uživatelům pochopení a účel komponenty.
 
-Další důvod pro výběr Astro knihovny je možnost použití \fr{MDX}\footnote{\url{https://mdxjs.com}} syntaxe pro psaní dokumentace, která kombinuje markdown syntaxi s \gls{jsx}.
-
 \subsection{Starlight}
 
-TODO
+Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad \fr{Astro} knihovnou.
+Starlight funguje nad \texttt{MDX}\footnote{\url{https://mdxjs.com}}, což je formát, který umožňuje vkládat \gls{jsx} do markdown souborů.
 
 \section{SolidStart}
-
-% TODO: Review
 
 Důležitým aspektem pro demo aplikaci je co nejbližší simulace reálného prostředí, kde se komponenty budou používat.
 Pro tento účel jsem zvolil meta-framework \fr{SolidStart}. Meta-framework je své podstatě framework postavený nad vícero frameworky, který zjednodušuje různé aspekty vývoje.
@@ -268,10 +264,8 @@ Výhoda testování komponent v prostředí meta-frameworku spočívá v tom, ž
 
 \section{Závěr kapitoly}
 
-% TODO: Add Astro, SolidStart to conclusion
-
 Tato kapitola popsala nejdůležitější technologie a přístupy, které jsou využity v rámci této práce.
-Plná funkčnost celého projektu je závislá na dalších důležitých technologiích, které zde nejsou popsány neboť nejsou přímo relevantní k problematice tvorby znovupoužitelných komponent.
+Plná funkčnost celého projektu je závislá na dalších, nezmíněných a důležitých technologiích, které zde nejsou popsány neboť nejsou přímo relevantní k problematice tvorby znovupoužitelných komponent.
 
 Samotná knihovna bude psána metodou primitiv, tedy funkcí v Solid.js, které vrací \gls{apg} logiku jako \textbf{props}, \textbf{state} a \textbf{reference} (viz kapitola~\ref{section:structure}).
 Taková knihovna může poté sloužit jako základ pro tvorbu designových systémů a (headless) knihoven komponent.
