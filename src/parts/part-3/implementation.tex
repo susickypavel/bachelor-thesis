@@ -1,6 +1,6 @@
 \chapter{Implementace}
 
-Tato kapitola popisuje implementaci dokumentace a komponent.
+Tato kapitola popisuje implementaci komponent a jejich nasazení.
 
 \section{Struktura logiky}\label{section:structure}
 
@@ -470,7 +470,7 @@ Pro nasazení dokumentace jsem zvolil platformu Vercel\footnote{\url{https://ver
 Průběh nasazení začíná dodáním kódu do GitHub repozitáře projektu.
 Následně je možné manuálně spustit action\footnote{\url{https://github.com/features/actions}}, která pomocí \gls{cli} spustí na platformě Vercel \textit{build} a provede nasazení aplikace.
 Vercel si stáhne nejnovější verzi kódu z GitHubu a provede build aplikace stejně jako v lokálním prostředí vývojáře.
-Nasazená aplikace je dostupná skrze \gls{cdn} a je možné ji zobrazit v prohlížeči.
+Nasazená aplikace je dostupná skrze \textbf{\gls{cdn}} a je možné ji zobrazit v prohlížeči.
 Vercel se stará o cachování a distribuci aplikace po celém světě~\cite{vercel-edge}.
 
 \section{Distribuce knihovny}

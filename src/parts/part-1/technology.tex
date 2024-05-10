@@ -9,9 +9,9 @@ Podobně jako React používá \gls{jsx} pro vytváření komponent a \gls{html}
 
 \subsection{Rozdíly}
 
-Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchronizování změn v \gls{dom}.
+Rozdíl mezi Solid.js a ostatními knihovnami spočívá v technologii synchronizování změn v \textbf{\gls{dom}}.
 
-Populární knihovny jako React, nebo Vue používají tzv. \gls{vdom}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí \textit{diffing} algoritmu.
+Populární knihovny jako React, nebo Vue používají tzv. \textbf{\gls{vdom}}, což je virtuální reprezentace \gls{dom} stromu v paměti, která se porovnává s reálným \gls{dom} stromem a rozdíly mezi nimi se aplikují pomocí \textit{diffing} algoritmu.
 
 Solid.js a nově i Svelte používají granulární, reaktivní modely pro sledování změn v \gls{dom}.
 Prakticky Solid.js využívá principu \textit{dependency tracking}, kde přístupy k reaktivním proměnným jsou sledovány skrze \textit{subscribers}, kteří jsou upozornění na případné změny respektive zápisy do těchto proměnných~\cite{solid-reactivity}.
@@ -51,7 +51,7 @@ Svelte od verze 5 má obdobný styl reaktivního modelu jako Solid.js, což vysv
 Solid.js obsahuje několik základních primitiv (funkcí), které umožňují vytvořit reaktivní chování v komponentách.
 
 \begin{itemize}
-  \item \textbf{createSignal}\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-signal}} --- Vrací \textit{tuple} obsahující reaktivní proměnnou a její textit{setter} funkci.
+  \item \textbf{createSignal}\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-signal}} --- Vrací \textit{tuple} obsahující reaktivní proměnnou a její \textit{setter} funkci.
   \item \textbf{createEffect}\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-effect}} --- Zavolá callback funkci při každé změně reaktivní proměnné v daném \textit{scope}.
   \item \textbf{createMemo\footnote{\url{https://docs.solidjs.com/reference/basic-reactivity/create-memo}}} --- Vytvoří memoizovanou odvozenou hodnotu.
 \end{itemize}
@@ -169,6 +169,7 @@ JavaScript je dynamicky typovaný jazyk, což se v praxi ukázalo jako těžkop�
 Postupem času vznikly různé nástroje a nadstavby nad samotným jazykem, které přidávají statické typování.
 Nástroje jako \fr{TypeScript}\footnote{\url{https://typescriptlang.org}}, \fr{Flow}\footnote{\url{https://flow.org}}, nebo \fr{ReasonML}\footnote{\url{https://reasonml.github.io}} se ukázaly jako vhodným řešením pro škálovatelnost, znovupoužitelnost a přehlednost kódu.
 Pomyslným vítězem se v posledních letech ukázal TypeScript, který má vysokou popularitu i podporu v rámci ekosystému, proto není náhodou, že ho ve své práci plně používám.
+
 TypeScript dodává znovupoužitelným komponentám větší přehlednost při zpětném čtení kódu, ale i konzumenti komponent mají k dispozici robustní typovou kontrolu včetně fungujícího automatického doplňování kódu, což je důležitá vlastnost pro splnění nefunkčního požadavku \hyperref[nfr13]{\fr{NFR 1.3}}.
 
 \section{Formát komponent}
@@ -190,11 +191,11 @@ TypeScript dodává znovupoužitelným komponentám větší přehlednost při z
   \item \textbf{Copy and paste} není klasická knihovna.
         Tato varianta vznikla jako reakce na headless komponenty a primitiva.
         Jedná se o formát komponent, kde konzumenti si zkopírují předpis komponenty.
-        Využívá tak existujících headless komponent, nebo UI primitiv.
+        Využívá tak existujících headless komponent, nebo \textbf{\gls{ui}} primitiv.
         Tato varianta je velmi flexibilní, protože umožňuje distributorům přidávat vzorové styly, které konzument může smazat, nebo vyměnit za vlastní řešení.
         Zároveň má konzument plnou kontrolu nad kódem komponenty.
         Nevýhodou je horší znovupoužitelnost a zároveň nutnost manuální aktualizace komponenty pokud se změní její logika.
-        Distribuce takových komponent je většinou v podobě \gls{cli}, nebo zkopírováním z dokumentace.
+        Distribuce takových komponent je většinou v podobě \textbf{\gls{cli}}, nebo zkopírováním z dokumentace.
 \end{itemize}
 
 \begin{listing}[!ht]
@@ -230,10 +231,10 @@ Knihovny komponent jsou nejvýhodnější, pokud není potřeba vlastního \text
 Headless komponenty jsou lepší v situacích, kde potřebujeme zasáhnout významně do designu (kaskádových stylů) komponenty pro vlastní potřeby.
 Nicméně se tím navyšuje i čas strávený na vývoji.
 
-UI primitiva jsou nejvýhodnější při budování vlastního designového systému, kde potřebujeme plnou kontrolu nad kódem komponenty.
+\gls{ui} primitiva jsou nejvýhodnější při budování vlastního designového systému, kde potřebujeme plnou kontrolu nad kódem komponenty.
 
 Copy and paste přístup je nejvýhodnější, pokud chceme to nejlepší ze všech přístupů.
-Flexibilitu headless komponent případně UI primitiv a zároveň rychlost vývoji jako při použití knihovny komponent.
+Flexibilitu headless komponent případně \gls{ui} primitiv a zároveň rychlost vývoji jako při použití knihovny komponent.
 
 \begin{figure}[h]
   \centering
@@ -245,23 +246,23 @@ Flexibilitu headless komponent případně UI primitiv a zároveň rychlost výv
 
 \section{Astro}
 
-Astro\footnote{\url{https://astro.build}} je \gls{ssg}, který používá vlastní syntaxi pro vytváření komponent.
-Velkou výhodou je, že Astro umožňuje vnořit komponenty z jiných frameworků (React, Vue, Solid.js, Svelte a další) do Astro komponent bez použití \textit{iframe}.
+Astro\footnote{\url{https://astro.build}} je \textbf{\gls{ssg}}, který používá vlastní syntaxi pro vytváření komponent.
+Velkou výhodou je, že Astro umožňuje vnořit komponenty z jiných frameworků (React, Vue, Solid.js, Svelte a další) do Astro komponent bez použití \textit{iframe}~\cite{astro-islands}.
 Tento mechanismus lze použít pro vložení příkladové implementace komponenty přímo na stránku s dokumentací a zjednodušit tak uživatelům pochopení a účel komponenty.
 
 \subsection{Starlight}
 
 Vybranou technologií pro vytvoření dokumentace je \fr{Starlight}\footnote{\url{https://starlight.astro.build}} template postavený nad \fr{Astro} knihovnou.
-Starlight funguje nad \texttt{MDX}\footnote{\url{https://mdxjs.com}}, což je formát, který umožňuje vkládat \gls{jsx} do markdown souborů.
+Starlight funguje nad \fr{MDX}\footnote{\url{https://mdxjs.com}}, což je formát, který umožňuje vkládat \gls{jsx} do markdown souborů.
 
 \section{SolidStart}
 
 Důležitým aspektem pro demo aplikaci je co nejbližší simulace reálného prostředí, kde se komponenty budou používat.
 Pro tento účel jsem zvolil meta-framework \fr{SolidStart}. Meta-framework je své podstatě framework postavený nad vícero frameworky, který zjednodušuje různé aspekty vývoje.
-V kontextu meta-frameworků na webu se může jednat například o \gls{ssr}, \textit{routing} a \textit{serverless} funkce~\cite{prismic-metaframework}.
+V kontextu meta-frameworků na webu se může jednat například o \textbf{\gls{ssr}}, \textit{routing} a \textit{serverless} funkce~\cite{prismic-metaframework}.
 
 \fr{SolidStart} je oficiálně podporovaný a vyvíjený autorem Ryanem Carniatem, který je také autorem Solid.js.
-Výhoda testování komponent v prostředí meta-frameworku spočívá v tom, že komponenta je vystavená různým kontextům jako je \gls{ssr}, \gls{ssg} a \gls{csr}.
+Výhoda testování komponent v prostředí meta-frameworku spočívá v tom, že komponenta je vystavená různým kontextům jako je \gls{ssr}, \gls{ssg} a \textbf{\gls{csr}}.
 
 \section{Závěr kapitoly}
 
@@ -275,7 +276,7 @@ Solid.js knihovnu jsem zvolil ze dvou důvodů:
 
 \begin{enumerate}
   \item Její ekosystém knihoven je stále v raných fázích a podobná knihovna respektive její části zde chybí.
-  \item Knihovna solid.js má jisté vlastnosti, které ji odlišují od ostatních knihoven.
+  \item Knihovna Solid.js má jisté vlastnosti, které ji odlišují od ostatních knihoven.
         Její reaktivní model je unikátní a přináší obrovské výhody z hlediska \textit{performance} na webu.
         Tato knihovna má potenciál optimalizovat a zlepšit uživatelská rozhraní.
 \end{enumerate}

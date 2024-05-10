@@ -29,14 +29,16 @@ Mezi další kategorie postižení patří například poruchy řeči, ale v kon
 
 \section{W3C a WAI}
 
-\gls{w3c}\footnote{\url{https://w3.org}} je mezinárodní konsorcium, které vyvíjí standardy pro web.
+\textbf{\gls{w3c}}\footnote{\url{https://w3.org}} je mezinárodní konsorcium, které vyvíjí standardy pro web.
 \gls{wai} je jedním z projektů \gls{w3c}, který se zaměřuje na přístupnost webu.
+
 WAI definuje specifikace a doporučení pro mnohé aspekty přístupnosti na webu, od \textit{user agentů}, evaluačních nástrojů až po nástroje pro tvorbu digitálního obsahu.
 
 \section{WAI-ARIA}
 
 \gls{waiaria}\footnote{\url{https://w3.org/TR/wai-aria}} je technická specifikace, která rozšiřuje webové technologie \gls{html} a JavaScript o ontologii atributů představující role, vlastnosti a stavy elementů~\cite{wai-aria}.
-Zmíněné atributy umožňují asistivním technologiím (například čtečky obrazovky) předat uživatelům význam a podrobnější informace o elementech, které se nachází na daném webu a tím jim pomoci s pochopením a manipulací obsahu stránky.
+
+Zmíněné atributy umožňují asistivním technologiím (například odečítače obrazovky) předat uživatelům význam a podrobnější informace o elementech, které se nachází na daném webu a tím jim pomoci s pochopením a manipulací obsahu stránky.
 
 \subsection{ARIA role}
 
@@ -73,12 +75,12 @@ Existují však i další kategorie rolí určené pro strukturu webu nebo orien
 
 Stavy slouží pro upozornění uživatele na změny ve stavu stránky nebo komponenty.
 Společně s rolemi tvoří základní dvojici pro přístupnost na webu.
-Je důležité poznamenat, že některé stavy nejdou použít pro libovolnou roli, ale jsou vázané ke specifickým účelům a rolím.
+Je důležité poznamenat, že některé stavy nejdou použít pro všechny role, ale jsou vázané ke specifickým účelům a rolím.
 
 \begin{listing}[!ht]
     \begin{minted}{html}
-<button aria-pressed="false"> <!-- true|false|mixed -->
-    Send order !\mintedlabel{aria-states-1}!
+<button aria-pressed="false"> <!-- true|false|mixed -->!\mintedlabel{aria-states-1}!
+    Send order
 </button>
 \end{minted}
     \caption{ARIA stavové atributy}
@@ -89,7 +91,7 @@ V ukázce~\ref{aria-state} na řádku~\ref{aria-states-1} můžeme vidět použi
 Tento atribut slouží jenom pro elementy s rolí \textit{button}.
 Řádek~\ref{aria-states-1} nám zároveň ukazuje, že hodnota atributu je \textit{false}, ale může nabývat i hodnot \textit{true} nebo \textit{mixed}.
 Button s takovým atributem představuje tzv. \textit{toggle button}~\cite{mdn-aria-pressed}. Tedy tlačítko, které si drží svůj vlastní stav zakliknutí.
-Můžeme využít JavaScriptu pro dynamické změny atributu na reakci uživatelova vstupu.
+Můžeme využít JavaScript pro dynamické změny atributu na reakci uživatelova vstupu.
 
 \subsection{ARIA vlastnosti}
 
@@ -139,7 +141,7 @@ Pokud web splňuje všechna kritéria dané úrovně, tak se označuje jako př�
 
 Weby úrovně A obsahují nezbytnou funkcionalitu a přístupnost pro základní používání.
 Všechny webové stránky i aplikace by měly splňovat alespoň tuto úroveň, ale v praxi \gls{wcag} doporučuje alespoň úroveň AA.
-Rozdíl mezi úrovněmi jsou dohledatelné na referenční stránce provozované \gls{wai}.
+Rozdíl mezi úrovněmi jsou dohledatelné na referenční stránce provozované \gls{wai}~\cite{wcag-reference}.
 Obecně se dá říci, že každá úroveň přináší více funkcí pro uživatele a jednoduchost používání.
 Nejzákladnější funkce jako je ovládání klávesnicí, přístupnost formulářových prvků, ukazatele chyb a další jsou v úrovni A, protože to jsou nejčastější problémy se kterými se může uživatel setkat.
 Každá úroveň přináší kritéria, která jsou těžší na splnění, ale také se méně často vyskytují, protože existují alternativní varianty implementace stejné funkcionality.
@@ -215,7 +217,7 @@ Příliš rychlé uzavírání, mizení, schování interaktivních prvků kompo
 \section{Odečítače obrazovky}
 
 Odečítač obrazovky je software, který převádí textový a grafický obsah na zvukový výstup.
-Nejčastěji je používaný nevidomými uživateli, kteří tak mohou číst obsah na obrazovce zařízení.
+Nejčastěji je používaný nevidomými uživateli, kteří tak mohou interpretovat obsah na obrazovce zařízení.
 
 Mezi nejpoužívanější odečítače obrazovky patří~\cite{webaim-survey-2024}:
 

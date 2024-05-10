@@ -15,22 +15,22 @@ Z tabulky se lze dočíst, že z \gls{apg} chybí implementace 5 návrhových vz
 Z rešerše jsem se rozhodl navázat na existující knihovnu Solid Aria z následujících důvodů:
 
 \begin{itemize}
-    \item Solid Aria je knihovna primitiv pro Solid.js. Primitiva mají výhodu, že jejich flexibilita umožňuje vytvořit headless komponenty, které by se mohly přidat do Kobalte.
-    \item Vývoj Solid Aria je neaktivní na rozdíl od Kobalte. Je zde tak možnost obnovit vývoj Solid Aria knihovny.
-    \item Solid Aria je port React Aria, což znamená, že práce na React Aria může být využita i zde.
+      \item Solid Aria je knihovna primitiv pro Solid.js. Primitiva mají výhodu, že jejich flexibilita umožňuje vytvořit headless komponenty, které by se mohly přidat do Kobalte.
+      \item Vývoj Solid Aria je neaktivní na rozdíl od Kobalte. Je zde tak možnost obnovit vývoj Solid Aria knihovny.
+      \item Solid Aria je port React Aria, což znamená, že práce na React Aria může být využita i zde.
 \end{itemize}
 
 \subsection{Výběr komponent k implementaci}
 
 Pro úspěšný výsledek této práce je potřeba si definovat, které komponenty budou implementovány.
 Z tabulky~\ref{tab:implemented-components} vychází, že v ekosystému chybí 5 komponent.
-V rámci analýzy jsem vynechal některé komponenty, protože jejich implementace by byla triviální, zbytečná, nebo nepraktická:
+Z analýzy byly vynechány některé komponenty, protože jejich implementace by byla triviální, zbytečná, nebo nepraktická:
 
 \begin{itemize}
-    \item \textbf{Landmarks} --- Landmarks není komponenta, ale doporučení jak používat role pro popisování různých oblastí na webu.
-    \item \textbf{Link} --- Prohlížeče podporují správnou přístupnost.
-    \item \textbf{Table} --- Obsahuje hlavně poznatky k správnému použití \gls{html} prvků. Neobsahuje složitou klávesovou či jinou logiku.
-    \item \textbf{Window Splitter} --- Není zkontrolovaná specifikace.
+      \item \textbf{Landmarks} --- Landmarks není komponenta, ale doporučení jak používat role pro popisování různých oblastí na webu.
+      \item \textbf{Link} --- Prohlížeče podporují správnou přístupnost.
+      \item \textbf{Table} --- Obsahuje hlavně poznatky k správnému použití \gls{html} prvků. Neobsahuje složitou klávesovou či jinou logiku.
+      \item \textbf{Window Splitter} --- Není zkontrolovaná specifikace.
 \end{itemize}
 
 Z rozhodnutí navázat na Solid Aria knihovnu jsem se rozhodl zaměřit na komponenty, které zde chybí a jsou součástí populárních knihoven~\cite{react-aria,chakra}.
@@ -45,61 +45,61 @@ V této sekci jsou zadefinované funkční požadavky pro všechny vybrané komp
 V této podsekci jsou popsané obecné funkční požadavky, které by měly být splňovat všechny implementované komponenty.
 
 \begin{itemize}
-    \item \textbf{OFR 1.1 --- Navigace pomocí klávesových zkratek}\label{ofr11}
+      \item \textbf{OFR 1.1 --- Navigace pomocí klávesových zkratek}\label{ofr11}
 
-          Komponenta umožní klávesovou navigaci pomocí klávesových zkratek definovaných v \gls{apg}.
+            Komponenta umožní klávesovou navigaci pomocí klávesových zkratek definovaných v \gls{apg}.
 
-    \item \textbf{OFR 1.2 --- Definované aria atributy}\label{ofr12}
+      \item \textbf{OFR 1.2 --- Definované aria atributy}\label{ofr12}
 
-          Komponenta má správně nadefinované role z \gls{waiaria} atributů pro všechny její elementy a to včetně pomocných stavových atributů.
+            Komponenta má správně nadefinované role z \gls{waiaria} atributů pro všechny její elementy a to včetně pomocných stavových atributů.
 
-    \item \textbf{OFR 1.3 --- Pojmenování instance komponenty}\label{ofr13}
+      \item \textbf{OFR 1.3 --- Pojmenování instance komponenty}\label{ofr13}
 
-          Komponenta umožní její pojmenování instance dle specifikace \gls{waiaria}.
+            Komponenta umožní její pojmenování instance dle specifikace \gls{waiaria}.
 \end{itemize}
 
 \subsection{Disclosure}
 
 \begin{itemize}
-    \item \textbf{DFR 1.1 --- Otevírání a zavírání obsahu}\label{dfr11}
+      \item \textbf{DFR 1.1 --- Otevírání a zavírání obsahu}\label{dfr11}
 
-          Komponenta umožní otevírání a zavírání obsahu pomocí klávesových zkratek a tlačítka.
+            Komponenta umožní otevírání a zavírání obsahu pomocí klávesových zkratek a tlačítka.
 
-    \item \textbf{DFR 1.2 --- Nastavení vlastního stavu}\label{dfr12}
+      \item \textbf{DFR 1.2 --- Nastavení vlastního stavu}\label{dfr12}
 
-          Komponenta umožní ovládat její stav z vnějšího zdroje.
+            Komponenta umožní ovládat její stav z vnějšího zdroje.
 \end{itemize}
 
 \subsection{SpinButton}
 
 \begin{itemize}
-    \item \textbf{SFR 1.1 --- Diskrétní hodnoty}\label{sfr11}
+      \item \textbf{SFR 1.1 --- Diskrétní hodnoty}\label{sfr11}
 
-          Komponenta umožní nastavit diskrétní hodnoty ze kterých může uživatel vybírat.
+            Komponenta umožní nastavit diskrétní hodnoty ze kterých může uživatel vybírat.
 
-    \item \textbf{SFR 1.2 --- Zvyšování a snižování hodnoty}\label{sfr12}
+      \item \textbf{SFR 1.2 --- Zvyšování a snižování hodnoty}\label{sfr12}
 
-          Komponenta umožní zvyšování a snižování hodnoty pomocí klávesových zkratek a tlačítek.
+            Komponenta umožní zvyšování a snižování hodnoty pomocí klávesových zkratek a tlačítek.
 \end{itemize}
 
 \subsection{Toolbar}
 
 \begin{itemize}
-    \item \textbf{TFR 1.1 --- Vnoření libovolného počtu subkomponent}\label{tfr11}
+      \item \textbf{TFR 1.1 --- Vnoření libovolného počtu subkomponent}\label{tfr11}
 
-          Komponenta umožní vkládání libovolného počtu subkomponent, které se skládají z \textit{focusovatelných}\footnote{Elementy, které můžou dostat focus od uživatele (např. tlačítka, zaškrtávací políčka\dots).} elementů a oddělovačů obsahu.
+            Komponenta umožní vkládání libovolného počtu subkomponent, které se skládají z \textit{focusovatelných}\footnote{Elementy, které můžou dostat focus od uživatele (např. tlačítka, zaškrtávací políčka\dots).} elementů a oddělovačů obsahu.
 
-    \item \textbf{TFR 1.2 --- Horizontální a vertikální pohled}\label{tfr12}
+      \item \textbf{TFR 1.2 --- Horizontální a vertikální pohled}\label{tfr12}
 
-          Komponenta umožní nastavit horizontální a vertikální pohled, který mění způsob klávesové navigace v subkomponentách.
+            Komponenta umožní nastavit horizontální a vertikální pohled, který mění způsob klávesové navigace v subkomponentách.
 \end{itemize}
 
 \subsection{Tooltip}
 
 \begin{itemize}
-    \item \textbf{TLFR 1.1 --- Zobrazení a skrytí obsahu Tooltip komponenty}\label{tlfr11}
+      \item \textbf{TLFR 1.1 --- Zobrazení a skrytí obsahu Tooltip komponenty}\label{tlfr11}
 
-          Komponenta umožní zobrazit a skrýt obsah Tooltip komponenty pomocí klávesnice a myši.
+            Komponenta umožní zobrazit a skrýt obsah Tooltip komponenty pomocí klávesnice a myši.
 \end{itemize}
 
 \section{Nefunkční požadavky}
@@ -107,25 +107,25 @@ V této podsekci jsou popsané obecné funkční požadavky, které by měly bý
 V této sekci jsou zadefinované důležité nefunkční požadavky napříč všemi implementovanými komponenty tak, aby byla zaručena jejich vývojářská přívětivost, použitelnost a kvalita.
 
 \begin{itemize}
-    \item \textbf{NFR 1.1 --- Podpora prohlížečů}\label{nfr11}
+      \item \textbf{NFR 1.1 --- Podpora prohlížečů}\label{nfr11}
 
-          Komponenty fungují v dvou posledních verzích prohlížečů Chrome\footnote{\url{https://google.com/chrome}}, Firefox\footnote{\url{https://mozilla.org/en-US/firefox}} a Safari\footnote{\url{https://apple.com/safari}}.
+            Komponenty fungují v dvou posledních verzích prohlížečů Chrome\footnote{\url{https://google.com/chrome}}, Firefox\footnote{\url{https://mozilla.org/en-US/firefox}} a Safari\footnote{\url{https://apple.com/safari}}.
 
-    \item \textbf{NFR 1.2 --- Podpora odečítačů obrazovky}\label{nfr12}
+      \item \textbf{NFR 1.2 --- Podpora odečítačů obrazovky}\label{nfr12}
 
-          Komponenty fungují s odečítačem obrazovek VoiceOver pro MacOS.
+            Komponenty fungují s odečítačem obrazovek VoiceOver pro MacOS.
 
-    \item \textbf{NFR 1.3 --- Developer experience}\label{nfr13}
+      \item \textbf{NFR 1.3 --- Developer experience}\label{nfr13}
 
-          Komponenty poskytují doplňování kódu pro vývojáře v Editoru, nebo \gls{ide}.
+            Komponenty poskytují doplňování kódu pro vývojáře v Editoru, nebo \gls{ide}.
 
-    \item \textbf{NFR 1.4 --- Dokumentace API}\label{nfr14}
+      \item \textbf{NFR 1.4 --- Dokumentace API}\label{nfr14}
 
-          Dokumentace popisuje API komponenty a její anatomii, účel, použití a příkladový kód.
+            Dokumentace popisuje API komponenty a její anatomii, účel, použití a příkladový kód.
 
-    \item \textbf{NFR 1.5 --- Demo aplikace}\label{nfr15}
+      \item \textbf{NFR 1.5 --- Demo aplikace}\label{nfr15}
 
-          Demo aplikace demonstruje použití komponenty a její funkčnost.
+            Demo aplikace demonstruje použití komponenty a její funkčnost.
 \end{itemize}
 
 \section{HTA diagram vývoje}
